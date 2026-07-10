@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港盟传感 · 看不见的风险,第一次看得见</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta property="og:title" content="港盟传感 · 看不见的风险,第一次看得见">
+<meta property="og:description" content="GM-FBG-16/32、GM-DAS-50/100、GM-DTS-04/08 三大自研主机与 GM-F 全系传感器。一根光纤,最长 100 公里、23,552 个测点,把隐患变成提前送达的预警。">
+<meta property="og:type" content="website">
+<meta name="description" content="上海港盟科技:FBG、DAS、DTS 三大自研光纤监测主机与 GM-F 传感器家族(8 大类 21 款)。一根光纤,最长 100 公里、23,552 个通道,守护桥梁、管道、电缆与大坝。">
+<meta name="theme-color" content="#05070C">
+<style>
+/* ============ 港盟传感 · 发布会式暗色舞台 ============ */
+:root{
+  --bg:#05070C;
+  --bg-2:#080B12;
+  --surface:#0D1119;
+  --surface-2:#121727;
+  --line:rgba(148,163,190,.12);
+  --line-strong:rgba(148,163,190,.26);
+  --text:#EDF0F6;
+  --text-2:#98A2B6;
+  --text-3:#66718A;
+  --accent:#5AC8F5;                 /* 信号青:全站唯一强调色 */
+  --accent-dim:rgba(90,200,245,.13);
+  --ok:#3FC98F;--warn:#E7B34D;--alarm:#EF6B5E;  /* 仅用于监测演示中的真实状态 */
+  --plate:#EFEFED;                  /* 产品实拍浅色台面,与 PDF 版式一致 */
+  --radius:16px;
+  --font-sans:"Geist","Inter",ui-sans-serif,system-ui,-apple-system,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  --font-mono:"Geist Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id],div[id],header[id]{scroll-margin-top:72px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent-dim)}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+@media(min-width:1024px){.wrap{padding:0 48px}}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+
+/* ---- 排版:发布会级尺度 ---- */
+.display{font-size:clamp(44px,8.2vw,104px);font-weight:600;line-height:1.06;letter-spacing:-.015em}
+.h2{font-size:clamp(30px,4.6vw,54px);font-weight:600;line-height:1.14;letter-spacing:-.01em}
+.h3{font-size:clamp(22px,2.6vw,30px);font-weight:600;line-height:1.25}
+.lead{font-size:clamp(17px,1.8vw,20px);color:var(--text-2);line-height:1.75}
+.small{font-size:13.5px;color:var(--text-3)}
+.eyebrow{font-family:var(--font-mono);font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+
+/* ---- 按钮 ---- */
+.btn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 26px;border-radius:999px;font-size:15px;font-weight:600;white-space:nowrap;transition:background .2s,border-color .2s,transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#04121B}
+.btn-primary:hover{background:#7CD6F8}
+.btn-ghost{border:1px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{height:38px;padding:0 18px;font-size:13.5px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+
+/* ---- 导航 ---- */
+.nav{position:fixed;inset:0 0 auto;z-index:80;height:64px;background:rgba(5,7,12,.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:100%;display:flex;align-items:center;gap:26px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;white-space:nowrap}
+.nav-links{display:none;gap:22px;font-size:14px;color:var(--text-2);white-space:nowrap}
+.nav-links a:hover{color:var(--text)}
+.nav-end{margin-left:auto;display:flex;align-items:center;gap:12px}
+.lang-btn{height:32px;padding:0 13px;border:1px solid var(--line-strong);border-radius:999px;font-family:var(--font-mono);font-size:12px;color:var(--text-2);transition:border-color .2s,color .2s}
+.lang-btn:hover{border-color:var(--accent);color:var(--accent)}
+@media(min-width:1080px){.nav-links{display:flex}}
+@media(max-width:560px){.nav .btn-sm{display:none}}
+
+/* ---- Hero:宣言式(信息即设计) ---- */
+.hero{min-height:100dvh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:110px 0 80px}
+.hero::before{content:"";position:absolute;inset:auto -20% -55% -20%;height:120%;background:radial-gradient(50% 42% at 50% 100%,rgba(90,200,245,.13),transparent 62%);pointer-events:none}
+.hero-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:26px;max-width:900px;padding:0 24px}
+.hero .lead{max-width:30em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.js .stagein{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.js .on .stagein{opacity:1;transform:none}
+.js .on .stagein.s2{transition-delay:.25s}
+.js .on .stagein.s3{transition-delay:.5s}
+.js .on .stagein.s4{transition-delay:.75s}
+.hero-fiber{position:absolute;left:0;right:0;bottom:11dvh;height:120px;pointer-events:none}
+.pulse{stroke-dasharray:4 320;animation:travel 4.2s linear infinite}
+.pulse.d2{animation-delay:1.4s}.pulse.d3{animation-delay:2.8s}
+@keyframes travel{to{stroke-dashoffset:-324}}
+
+/* ---- 痛点 ---- */
+.pain{padding:150px 0 130px;background:var(--bg-2);border-top:1px solid var(--line)}
+.pain-grid{display:grid;gap:44px;margin-top:64px}
+@media(min-width:960px){.pain-grid{grid-template-columns:1.1fr 1fr 1fr;gap:0}
+  .pain-item{padding:0 44px;border-left:1px solid var(--line)}
+  .pain-item:first-child{padding-left:0;border-left:0}}
+.pain-item .no-sig{font-family:var(--font-mono);font-size:13px;color:var(--alarm);margin-bottom:14px}
+.pain-item h3{font-size:21px;font-weight:600;margin-bottom:12px}
+.pain-item p{font-size:15px;color:var(--text-2);line-height:1.75}
+
+/* ---- 证据墙 ---- */
+.proof{padding:160px 0;text-align:center;position:relative;overflow:hidden}
+.proof::before{content:"";position:absolute;inset:-30% -20% auto;height:80%;background:radial-gradient(46% 50% at 50% 0%,rgba(90,200,245,.08),transparent 65%);pointer-events:none}
+.proof-nums{display:grid;gap:44px;margin-top:70px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:880px){.proof-nums{grid-template-columns:repeat(3,1fr)}}
+.pn b{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:clamp(38px,6.4vw,84px);font-weight:500;letter-spacing:-.02em;line-height:1}
+.pn b small{font-size:.34em;color:var(--text-2);margin-left:4px;font-weight:500}
+.pn span{display:block;margin-top:14px;font-size:14.5px;color:var(--text-3)}
+
+/* ---- 大创意 ---- */
+.idea{padding:150px 0;position:relative;overflow:hidden}
+.idea .wrap{display:grid;gap:40px;max-width:1000px;text-align:center;justify-items:center}
+.idea-fig{width:100%;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,var(--surface),var(--bg-2));padding:26px 20px 16px}
+.idea-fig figcaption{font-size:13px;color:var(--text-3);padding-top:12px}
+
+/* ---- 章节:主机 × 场景 × 原理 ---- */
+.chapters{position:relative}
+.chapter{position:relative;display:flex;align-items:center;padding:100px 0 80px;border-top:1px solid var(--line)}
+@media(min-width:1080px) and (min-height:840px){.chapter{position:sticky;top:0;min-height:100dvh;padding:110px 0 70px}}
+.chapter:nth-of-type(1){background:linear-gradient(180deg,#070A11,#05070C)}
+.chapter:nth-of-type(2){background:linear-gradient(180deg,#080C15,#060811)}
+.chapter:nth-of-type(3){background:linear-gradient(180deg,#0A0E18,#070A12)}
+.ch-grid{display:grid;gap:36px;width:100%}
+@media(min-width:1080px){.ch-grid{grid-template-columns:5fr 7fr;gap:56px;align-items:center}}
+.ch-copy{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.ch-tag{font-family:var(--font-mono);font-size:12.5px;color:var(--text-3)}
+.ch-copy .pain-line{font-size:15px;color:var(--text-2);line-height:1.8;max-width:34em}
+.ch-copy .pain-line b{color:var(--text);font-weight:600}
+.ch-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;margin-top:6px}
+@media(min-width:560px){.ch-specs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tile{border:1px solid var(--line);border-radius:12px;background:rgba(5,8,14,.6);padding:14px 14px 12px;display:flex;flex-direction:column;gap:4px}
+.tile b{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:clamp(19px,1.9vw,23px);font-weight:500;line-height:1.15}
+.tile b small{font-size:.58em;color:var(--text-2);margin-left:2px;font-weight:500}
+.tile span{font-size:11.5px;color:var(--text-3);line-height:1.45}
+.ch-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.ch-stage{border:1px solid var(--line);border-radius:var(--radius);background:#04060B;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+.ch-stage .cap{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:12px 16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--text-3)}
+.live{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;color:var(--ok)}
+.live i{width:7px;height:7px;border-radius:99px;background:var(--ok);animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+/* 章节产品实拍:浅色台面,与 PDF 版式同源 */
+.ch-prod{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:12px;background:#0A0F1A;padding:10px 16px 10px 10px;width:100%}
+.ch-prod img{height:96px;width:auto;object-fit:cover;border-radius:8px;background:var(--plate)}
+.ch-prod .m{font-family:var(--font-mono);font-size:11.5px;color:var(--text-3);line-height:1.7}
+.ch-prod .m b{display:block;font-size:13px;font-weight:500;color:var(--text-2)}
+
+/* ---- 部署条件 ---- */
+.siting{padding:120px 0;border-top:1px solid var(--line)}
+.siting .cond{margin-top:44px}
+.cond{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:820px){.cond{grid-template-columns:repeat(3,1fr)}}
+
+/* ---- 命名体系带 ---- */
+.naming{margin-top:56px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:26px 26px 22px}
+.code-banner{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
+.code-seg{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;border:1px solid var(--line-strong);border-radius:10px;padding:10px 16px 9px;background:rgba(5,8,14,.5)}
+.code-seg b{font-family:var(--font-mono);font-size:clamp(19px,2.4vw,26px);font-weight:500;color:var(--text)}
+.code-seg span{font-size:11px;color:var(--text-3)}
+.code-seg.hl{border-color:var(--accent);background:var(--accent-dim)}
+.code-seg.hl b{color:var(--accent)}
+.code-eg{margin-top:14px;font-family:var(--font-mono);font-size:12.5px;color:var(--text-2)}
+.code-cats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:18px}
+@media(min-width:700px){.code-cats{grid-template-columns:repeat(4,1fr)}}
+.code-cat{display:flex;align-items:baseline;gap:8px;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:12.5px;color:var(--text-2)}
+.code-cat b{font-family:var(--font-mono);font-size:14px;color:var(--accent);font-weight:500}
+.code-cat i{font-style:normal;margin-left:auto;font-family:var(--font-mono);font-size:10.5px;color:var(--text-3)}
+.naming-foot{margin-top:16px;font-size:12px;color:var(--text-3);line-height:1.7}
+
+/* ---- 传感器八大类 ---- */
+.sensors{padding:150px 0 120px;background:var(--bg-2);border-top:1px solid var(--line)}
+.cat-grid{display:grid;gap:14px;margin-top:44px}
+@media(min-width:700px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1120px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
+.cat{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s}
+.cat:hover{border-color:var(--line-strong)}
+.cat-plate{background:var(--plate);height:104px;display:grid;place-items:center;overflow:hidden}
+.cat-plate img{max-height:88%;width:auto;max-width:92%;object-fit:contain}
+.cat-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.cat-head h4{font-size:16px;font-weight:600}
+.cat-head .code{font-family:var(--font-mono);font-size:10.5px;color:var(--accent);white-space:nowrap}
+.cat p{font-size:13px;color:var(--text-2);line-height:1.65}
+.cat .models{margin-top:auto;font-family:var(--font-mono);font-size:11px;color:var(--text-3);line-height:1.8}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--font-mono);font-size:12px;color:var(--text-2);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+/* 风电专用条 */
+.wind-strip{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:22px 24px}
+.wind-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px}
+.wind-head h3{font-size:18px;font-weight:600}
+.wind-head p{font-size:12.5px;color:var(--text-3)}
+.wind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+@media(min-width:900px){.wind-grid{grid-template-columns:repeat(4,1fr)}}
+.wind-item{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(5,8,14,.5)}
+.wind-item .cat-plate{height:76px}
+.wind-item .wm{padding:10px 14px 12px;font-size:12px;color:var(--text-2);line-height:1.6}
+.wind-item .wm b{display:block;font-family:var(--font-mono);font-size:11px;color:var(--accent);font-weight:500;margin-bottom:2px}
+.group-foot{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between}
+.group-foot p{font-size:14px;color:var(--text-2);max-width:46em}
+
+/* ---- 规格书库 ---- */
+.specs{padding:150px 0;border-top:1px solid var(--line)}
+.spec-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px}
+.chip{padding:11px 20px;border-radius:999px;border:1px solid var(--line-strong);font-size:14.5px;color:var(--text-2);transition:all .2s}
+.chip:hover{color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#04121B;font-weight:600}
+.spec-panel{display:none;margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:28px 30px}
+.spec-panel.on{display:block}
+.spec-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:6px}
+.spec-title h4{font-size:clamp(19px,2.2vw,24px);font-weight:600;letter-spacing:-.01em}
+.spec-title .sub{font-family:var(--font-mono);font-size:12px;color:var(--text-3)}
+.spec-note{font-size:13px;color:var(--text-2);max-width:52em;line-height:1.75;margin-bottom:18px}
+.spec-rows{display:grid;grid-template-columns:1fr;gap:0 36px}
+@media(min-width:820px){.spec-rows{grid-template-columns:1fr 1fr}}
+.spec-row{display:flex;justify-content:space-between;gap:18px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.spec-row:last-child{border-bottom:0}
+.spec-row .k{color:var(--text-3)}
+.spec-row .v{font-family:var(--font-mono);color:var(--text);text-align:right}
+.spec-scroll{overflow-x:auto;margin-top:6px}
+table.spec-matrix{width:100%;min-width:760px;border-collapse:collapse;font-size:12.5px}
+table.spec-matrix th{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--text-3);text-align:left;font-weight:500;padding:8px 14px 8px 0}
+table.spec-matrix td{padding:8px 14px 8px 0;color:var(--text-2);vertical-align:top;line-height:1.6}
+table.spec-matrix td.m{font-family:var(--font-mono);color:var(--accent);white-space:nowrap}
+table.spec-matrix td.n{color:var(--text)}
+table.spec-matrix tr.grp td{padding-top:20px;font-weight:600;color:var(--text);font-size:13px;border-bottom:1px solid var(--line-strong)}
+table.spec-matrix tr.grp td span{font-family:var(--font-mono);font-size:10.5px;color:var(--text-3);font-weight:400;margin-left:10px}
+table.spec-matrix tr:not(.grp) td{border-bottom:1px solid var(--line)}
+.spec-sys{display:grid;gap:14px}
+@media(min-width:900px){.spec-sys{grid-template-columns:repeat(3,1fr)}}
+.sys-card{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:rgba(5,8,14,.5)}
+.sys-card h5{font-size:15px;font-weight:600;margin-bottom:8px}
+.sys-card p{font-size:12.5px;color:var(--text-2);line-height:1.7}
+.sys-card .mono-line{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--text-3);line-height:1.9}
+.spec-foot{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;font-size:13px;color:var(--text-3)}
+
+/* ---- 全景一张网 ---- */
+.system{padding:110px 0;border-top:1px solid var(--line);background:var(--bg)}
+.sys-fig{margin-top:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:26px 18px 18px}
+.sys-fig figcaption{font-size:12.5px;color:var(--text-3);padding:12px 8px 0}
+
+/* ---- AI 平台 ---- */
+.platform{padding:150px 0;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+.plat-grid{display:grid;gap:44px}
+@media(min-width:1060px){.plat-grid{grid-template-columns:6fr 6fr;gap:64px;align-items:center}}
+.plat-list{display:grid;gap:22px;margin-top:8px}
+.plat-item{border-left:1px solid var(--line-strong);padding-left:20px}
+.plat-item h4{font-size:16.5px;font-weight:600;margin-bottom:6px}
+.plat-item p{font-size:14px;color:var(--text-2);line-height:1.7}
+.plat-panel{border:1px solid var(--line);border-radius:var(--radius);background:#04060B;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+.plat-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);font-size:13px;color:var(--text-2)}
+.flow{padding:10px 6px 4px}
+.fp{stroke:var(--line-strong);transition:stroke .5s,opacity .5s;opacity:.55}
+.fp.on{stroke:var(--accent);opacity:1;stroke-dasharray:5 7;animation:fdash 1.1s linear infinite}
+.fp.fo1.on{stroke:var(--warn)}
+@keyframes fdash{to{stroke-dashoffset:-24}}
+.hubring{animation:hubb 2.6s ease-in-out infinite}
+@keyframes hubb{0%,100%{opacity:.2;r:40}50%{opacity:.5;r:46}}
+@media(prefers-reduced-motion: reduce){.fp{opacity:1;stroke:var(--line-strong)}.fp.on{animation:none}.hubring{animation:none}}
+.plat-foot{padding:10px 18px 14px;font-size:11.5px;color:var(--text-3);border-top:1px solid var(--line)}
+.dlv-tags{margin-top:36px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dlv-tags .k{font-family:var(--font-mono);font-size:11.5px;color:var(--text-3);margin-right:8px}
+
+/* ---- 行业选型器 ---- */
+.selector{padding:150px 0;border-top:1px solid var(--line);background:var(--bg-2)}
+.selq{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px}
+.selr{margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:28px 30px}
+.selr h4{font-size:clamp(19px,2.2vw,24px);font-weight:600;letter-spacing:-.01em;margin-bottom:12px}
+.selr .painp{font-size:14.5px;color:var(--text-2);line-height:1.85;max-width:46em}
+.selr .tagrow{margin:16px 0 10px}
+.selr .plan{font-size:13.5px;color:var(--text-2);line-height:1.75;max-width:46em}
+.selr .eco{font-size:13.5px;color:var(--text);line-height:1.75;max-width:46em;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.selr-foot{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.selr-foot .k{font-family:var(--font-mono);font-size:11px;color:var(--text-3);letter-spacing:.05em}
+.sel-more{margin-top:30px;font-size:13.5px;color:var(--text-3);max-width:52em}
+
+/* ---- 案例与足迹 ---- */
+.cases{padding:150px 0;border-top:1px solid var(--line)}
+.case-grid{display:grid;gap:14px;margin-top:56px}
+@media(min-width:760px){.case-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.case-grid{grid-template-columns:repeat(3,1fr)}}
+.case{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:24px 26px;display:flex;flex-direction:column;gap:10px;transition:border-color .25s}
+.case:hover{border-color:var(--line-strong)}
+.case .where{font-family:var(--font-mono);font-size:11px;color:var(--text-3)}
+.case h4{font-size:16.5px;font-weight:600;line-height:1.4}
+.case p{font-size:13.5px;color:var(--text-2);line-height:1.75}
+.case .nums{margin-top:auto;padding-top:12px;display:flex;gap:22px;flex-wrap:wrap}
+.case .nums b{display:block;font-family:var(--font-mono);font-size:21px;font-weight:500;line-height:1.2}
+.case .nums span{font-size:11px;color:var(--text-3)}
+.case.hl{border-color:rgba(90,200,245,.4);background:linear-gradient(180deg,rgba(90,200,245,.06),var(--surface))}
+.case.hl .nums b{color:var(--accent)}
+.client-strip{margin-top:36px;border-top:1px solid var(--line);padding-top:22px}
+.client-strip .k{font-family:var(--font-mono);font-size:11.5px;color:var(--text-3)}
+.client-strip p{margin-top:10px;font-size:14px;color:var(--text-2);line-height:2}
+.client-strip .note{margin-top:8px;font-size:12px;color:var(--text-3)}
+
+/* ---- 交付与服务 ---- */
+.delivery{padding:130px 0;border-top:1px solid var(--line);background:var(--bg-2)}
+.dlv{position:relative;display:grid;gap:34px;max-width:780px;margin-top:52px}
+.dlv::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--line-strong),var(--line))}
+.dlv-step{position:relative;padding-left:38px}
+.dlv-step::before{content:"";position:absolute;left:0;top:6px;width:15px;height:15px;border-radius:99px;border:1px solid var(--line-strong);background:var(--bg)}
+.dlv-step::after{content:"";position:absolute;left:5px;top:11px;width:5px;height:5px;border-radius:99px;background:var(--accent)}
+.dlv-step h4{font-size:17px;font-weight:600;margin-bottom:6px}
+.dlv-step p{font-size:14.5px;color:var(--text-2);line-height:1.75;max-width:46em}
+.sla{display:grid;grid-template-columns:repeat(1,1fr);gap:12px}
+@media(min-width:760px){.sla{grid-template-columns:repeat(4,1fr)}}
+.wall-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-bottom:20px}
+.wall-head h3{font-size:19px;font-weight:600}
+.wall-head p{font-size:12.5px;color:var(--text-3)}
+
+/* ---- 企业实力 ---- */
+.company{padding:150px 0;border-top:1px solid var(--line)}
+.co-grid{margin-top:56px}
+.co-strengths{display:grid;gap:26px}
+@media(min-width:640px){.co-strengths{grid-template-columns:1fr 1fr}}
+@media(min-width:1060px){.co-strengths{grid-template-columns:repeat(4,1fr);gap:34px}}
+.co-strengths h4{font-size:16.5px;font-weight:600;margin-bottom:6px}
+.co-strengths p{font-size:14px;color:var(--text-2);line-height:1.7}
+.co-photos{display:grid;gap:14px;margin-top:44px}
+@media(min-width:760px){.co-photos{grid-template-columns:1fr 1fr}}
+.co-photos figure{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#04060B}
+.co-photos img{width:100%;height:auto;display:block}
+.co-photos figcaption{padding:10px 16px;font-size:12.5px;color:var(--text-3);border-top:1px solid var(--line)}
+.research-strip{margin-top:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:22px 26px}
+.research-strip h3{font-size:17px;font-weight:600;margin-bottom:6px}
+.research-strip>p{font-size:13.5px;color:var(--text-2);line-height:1.75;max-width:56em}
+.cite-row{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.cite{font-family:var(--font-mono);font-size:11px;color:var(--text-3);border:1px solid var(--line);border-radius:999px;padding:5px 13px}
+.cite b{color:var(--text-2);font-weight:500}
+.wall{margin-top:44px}
+.cert-wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.cert-tile{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:20px 12px 16px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--text-2);transition:border-color .25s,color .25s}
+.cert-tile svg{width:64px;height:64px}
+.cert-tile span{font-size:13px;text-align:center;line-height:1.4}
+.cert-tile:hover{border-color:var(--accent);color:var(--accent)}
+.co-tags{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.co-tags .k{font-family:var(--font-mono);font-size:11.5px;color:var(--text-3);margin-right:8px}
+
+/* ---- 终章 CTA ---- */
+.finale{padding:170px 0;text-align:center;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+.finale .lead{max-width:28em;margin:22px auto 36px}
+.contact-line{margin-top:26px;font-size:14.5px;color:var(--text-2)}
+.contact-line a{color:var(--text);border-bottom:1px solid var(--line-strong)}
+.contact-line a:hover{color:var(--accent);border-color:var(--accent)}
+.dl-index{margin:40px auto 0;max-width:820px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 24px;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:center}
+.dl-index .k{font-family:var(--font-mono);font-size:11.5px;color:var(--text-3)}
+.dl-index a{font-size:13.5px;color:var(--text-2);border-bottom:1px solid var(--line-strong);padding-bottom:1px}
+.dl-index a:hover{color:var(--accent);border-color:var(--accent)}
+footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
+.foot-grid{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between}
+
+/* ---- 滚动入场 ---- */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.stagein{opacity:1 !important;transform:none !important;transition:none !important}
+  .pulse,.live i{animation:none !important}
+  html{scroll-behavior:auto}
+  .chapter{position:static;min-height:0}
+}
+</style>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"上海港盟科技有限公司","alternateName":"GM SENSING","url":"https://gm-sensor.com","email":"17621251612@163.com","telephone":"+86-176-2125-1612"},{"@context":"https://schema.org","@type":"Product","name":"GM-FBG-16/32 光纤光栅解调仪","description":"1~32 通道、±2 pm 波长精度(典型)、±1 pm 重复性的工业级 FBG 解调平台,161×144×33 mm 紧凑机身。","brand":{"@type":"Brand","name":"GM SENSING"}},{"@context":"https://schema.org","@type":"Product","name":"GM-DAS-50/100 分布式声波/振动解调仪","description":"单机 50 km 标配、100 km 选配,23,552 道并行解调、3.2 m 空间分辨率的分布式声波监测主机。","brand":{"@type":"Brand","name":"GM SENSING"}},{"@context":"https://schema.org","@type":"Product","name":"GM-DTS-04/08 分布式测温解调仪","description":"12.5 km/通道、4~8 通道、0.2 m 空间分辨率、±1 ℃ 精度的分布式测温主机,直连消防主机。","brand":{"@type":"Brand","name":"GM SENSING"}}]</script>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<nav class="nav" aria-label="主导航">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="港盟传感 首页">
+      <img src="img/logo.png" alt="" style="width:26px;height:26px;object-fit:contain">
+      <span data-i18n="brand">港盟传感</span>
+    </a>
+    <div class="nav-links">
+      <a href="#why" data-i18n="nav.why">为什么</a>
+      <a href="#fbg" data-i18n="nav.hosts">主机</a>
+      <a href="#sensors" data-i18n="nav.sensors">传感器</a>
+      <a href="#specs" data-i18n="nav.specs">规格书</a>
+      <a href="#selector" data-i18n="nav.industries">行业</a>
+      <a href="#cases" data-i18n="nav.cases">实绩</a>
+      <a href="#company" data-i18n="nav.company">实力</a>
+    </div>
+    <div class="nav-end">
+      <button class="lang-btn" id="langBtn" aria-label="Switch language to English">EN</button>
+      <a class="btn btn-primary btn-sm" href="#contact" data-i18n="cta.main">获取方案与报价</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== 宣言 Hero ===================== -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow stagein">Shanghai Gangmeng · Fiber Sensing</span>
+    <h1 class="display stagein s2" data-i18n="hero.h1">看不见的风险,<br>第一次看得见。</h1>
+    <p class="lead stagein s3" data-i18n="hero.lead">一根光纤,最长 100 公里、23,552 个测点。桥梁、管道、电缆与大坝的每一次异常,在酿成事故之前送达你的屏幕。</p>
+    <div class="hero-cta stagein s4">
+      <a class="btn btn-primary" href="#contact" data-i18n="cta.main">获取方案与报价</a>
+      <a class="btn btn-ghost" href="#why" data-i18n="hero.how">先看它如何工作</a>
+    </div>
+  </div>
+  <svg class="hero-fiber" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="rgba(148,163,190,.16)" stroke-width="1.6"/>
+    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse"/>
+    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse d2" opacity=".55"/>
+    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse d3" opacity=".3"/>
+    <text id="heroLam" x="1404" y="36" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="rgba(90,200,245,.85)">λ 1550.120 nm</text>
+  </svg>
+</header>
+
+<!-- ===================== 痛点 ===================== -->
+<section class="pain" id="why">
+  <div class="wrap">
+    <h2 class="h2 reveal" style="max-width:15em" data-i18n="why.h2">传统监测方式,<br>输在三件事上。</h2>
+    <div class="pain-grid">
+      <div class="pain-item reveal">
+        <div class="no-sig mono" data-i18n="why.t1">盲区</div>
+        <h3 data-i18n="why.h1x">点式仪表只看得到安装点</h3>
+        <p data-i18n="why.p1">两个电子传感器之间的几百米,是没有人值守的黑暗地带。事故恰恰最爱发生在两点之间。</p>
+      </div>
+      <div class="pain-item reveal">
+        <div class="no-sig mono" data-i18n="why.t2">干扰</div>
+        <h3 data-i18n="why.h2x">电子器件怕电、怕水、怕雷</h3>
+        <p data-i18n="why.p2">高压电缆旁、潮湿隧道里、雷雨季节中,电子传感器的误报和失效,比真实事故来得更频繁。</p>
+      </div>
+      <div class="pain-item reveal">
+        <div class="no-sig mono" data-i18n="why.t3">滞后</div>
+        <h3 data-i18n="why.h3x">巡检发现问题时,已经是事故</h3>
+        <p data-i18n="why.p3">人工巡检的周期以天计,结构劣化与温升的发展以小时计。你需要的不是记录,是提前量。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 证据墙 ===================== -->
+<section class="proof">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="proof.h2">不需要形容词,<br>参数自己会说话。</h2>
+    <div class="proof-nums">
+      <div class="pn reveal"><b><i class="cnt" data-v="100" data-d="0">0</i><small>km</small></b><span data-i18n="proof.s1">GM-DAS 单机监测距离(选配)</span></div>
+      <div class="pn reveal"><b><i class="cnt" data-v="23552" data-d="0" data-c="1">0</i></b><span data-i18n="proof.s2">单机并行解调通道数</span></div>
+      <div class="pn reveal"><b>±<i class="cnt" data-v="1" data-d="0">0</i><small>pm</small></b><span data-i18n="proof.s3">GM-FBG 波长重复性</span></div>
+      <div class="pn reveal"><b><i class="cnt" data-v="0.2" data-d="1">0</i><small>m</small></b><span data-i18n="proof.s4">GM-DTS 空间分辨率</span></div>
+      <div class="pn reveal"><b><i class="cnt" data-v="0.5" data-d="1">0</i><small>s</small></b><span data-i18n="proof.s5">GM-DTS 完成一轮测量</span></div>
+      <div class="pn reveal"><b><i class="cnt" data-v="0.001" data-d="3">0</i><small>°</small></b><span data-i18n="proof.s6">GM-FI01 倾角分辨率</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 大创意 ===================== -->
+<section class="idea">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="idea.h2">所以我们把传感器,<br>做成了一根光纤。</h2>
+    <p class="lead reveal" style="max-width:32em" data-i18n="idea.lead">无源、抗电磁、本质安全。光缆铺到哪里,感知就延伸到哪里:每一米都是测点,每一秒都在值守。</p>
+    <figure class="idea-fig reveal" aria-label="一根光纤贯穿桥梁、管道、电缆与大坝四类设施,光脉冲沿线巡检">
+      <svg viewBox="0 0 1000 180" aria-hidden="true">
+        <path id="ideaF" d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="rgba(148,163,190,.18)" stroke-width="1.8"/>
+        <path d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="var(--accent)" stroke-width="2.2" class="pulse"/>
+        <path d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="var(--accent)" stroke-width="2.2" class="pulse d2" opacity=".5"/>
+        <g font-family="Geist Mono,ui-monospace,monospace" font-size="12" fill="#66718A" text-anchor="middle">
+          <g><circle cx="150" cy="86" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="150" y="60" data-i18n="idea.n1">桥梁</text></g>
+          <g><circle cx="430" cy="112" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="430" y="150" data-i18n="idea.n2">管道</text></g>
+          <g><circle cx="690" cy="72" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="690" y="46" data-i18n="idea.n3">电缆</text></g>
+          <g><circle cx="900" cy="92" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="900" y="130" data-i18n="idea.n4">大坝</text></g>
+        </g>
+      </svg>
+      <figcaption data-i18n="idea.cap">同一条光缆,同时是传感器、传输线与巡检员。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== 三大主机 · 章节式覆盖滚动 ===================== -->
+<div class="chapters">
+
+  <!-- 章节一:GM-FBG-16/32 × 桥梁结构 -->
+  <section class="chapter" id="fbg">
+    <div class="wrap ch-grid">
+      <div class="ch-copy">
+        <span class="ch-tag mono" data-i18n="fbg.tag">GM-FBG-16/32 光纤光栅解调仪 × 经典场景:桥梁结构健康</span>
+        <h2 class="h2" data-i18n="fbg.h2">桥在说话,<br>现在你听得见了。</h2>
+        <p class="pain-line" data-i18n="fbg.copy">宽谱光沿光纤前行,遇到光栅只反射一种波长。结构受力,波长偏移;<b>±2 pm 的典型解调精度</b>,让钢筋混凝土里微米级的变化,变成屏幕上一条清晰的曲线;温度交叉敏感,由补偿光栅在源头消除。</p>
+        <div class="ch-prod">
+          <img src="img/host-fbg.webp" alt="GM-FBG-16/32 光纤光栅解调仪 产品实拍" loading="lazy">
+          <span class="m"><b>GM-FBG-16/32</b><span data-i18n="fbg.prod">光纤光栅解调仪 · ±2 pm · 161×144×33 mm 紧凑机身</span></span>
+        </div>
+        <div class="ch-specs">
+          <div class="tile"><b>1~32</b><span data-i18n="fbg.k1">光通道数量(可选)</span></div>
+          <div class="tile"><b>±2<small>pm</small></b><span data-i18n="fbg.k2">波长测量精度(典型)</span></div>
+          <div class="tile"><b>40<small>dB</small></b><span data-i18n="fbg.k3">光强动态范围</span></div>
+          <div class="tile"><b>1~100<small>Hz</small></b><span data-i18n="fbg.k4">测量速度(高速可定制)</span></div>
+        </div>
+        <div class="ch-actions">
+          <a class="btn btn-ghost btn-sm" href="#specs" data-spec="fbg" data-i18n="fbg.spec">查看完整规格</a>
+        </div>
+      </div>
+      <figure class="ch-stage">
+        <svg viewBox="0 0 680 400" role="img" aria-label="FBG 原理与桥梁场景动画:宽谱光经过光栅反射特定波长,车辆通过桥梁时应变使反射峰偏移,越限触发报警">
+          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#66718A" data-i18n="fbg.svg1">原理 · 光栅反射与波长偏移</text>
+          <line x1="28" y1="78" x2="652" y2="78" stroke="rgba(148,163,190,.2)" stroke-width="1.6"/>
+          <g stroke="rgba(148,163,190,.5)" stroke-width="1.4">
+            <g><line x1="206" y1="66" x2="206" y2="90"/><line x1="212" y1="66" x2="212" y2="90"/><line x1="218" y1="66" x2="218" y2="90"/></g>
+            <g><line x1="366" y1="66" x2="366" y2="90"/><line x1="372" y1="66" x2="372" y2="90"/><line x1="378" y1="66" x2="378" y2="90"/></g>
+            <g><line x1="526" y1="66" x2="526" y2="90"/><line x1="532" y1="66" x2="532" y2="90"/><line x1="538" y1="66" x2="538" y2="90"/></g>
+          </g>
+          <circle id="probeIn" cx="28" cy="78" r="4.5" fill="var(--accent)"/>
+          <circle id="probeBack" cx="372" cy="78" r="3.5" fill="var(--warn)" opacity="0"/>
+          <text x="652" y="56" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="fbg.svg2">宽谱入射 → 特定 λ 反射</text>
+          <g transform="translate(28,108)">
+            <rect width="286" height="120" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
+            <line x1="16" y1="96" x2="270" y2="96" stroke="rgba(148,163,190,.2)"/>
+            <path id="specPeak" d="M16 96 L120 96 C132 96 132 26 143 26 C154 26 154 96 166 96 L270 96" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <line id="specTh" x1="212" y1="20" x2="212" y2="96" stroke="rgba(239,107,94,.55)" stroke-dasharray="4 5"/>
+            <text x="212" y="14" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="9" fill="rgba(239,107,94,.85)" data-i18n="fbg.svg3">报警阈值</text>
+            <text id="specRead" x="16" y="114" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#98A2B6">Δλ +0 pm · 应变 1180 με</text>
+          </g>
+          <g transform="translate(330,108)">
+            <rect width="322" height="120" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
+            <g stroke="rgba(148,163,190,.4)" stroke-width="1.6"><line x1="80" y1="92" x2="80" y2="34"/><line x1="242" y1="92" x2="242" y2="34"/></g>
+            <g stroke="rgba(148,163,190,.18)"><line x1="80" y1="40" x2="30" y2="88"/><line x1="80" y1="40" x2="130" y2="88"/><line x1="242" y1="40" x2="192" y2="88"/><line x1="242" y1="40" x2="292" y2="88"/></g>
+            <path id="kDeck" d="M20 92 L302 92" stroke="var(--text)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <circle id="kPt" cx="161" cy="98" r="4.5" fill="#05070C" stroke="var(--ok)" stroke-width="1.8"/>
+            <g id="kTruck"><rect x="-40" y="80" width="32" height="10" rx="2.5" fill="rgba(237,240,246,.85)"/><circle cx="-32" cy="93" r="3" fill="#66718A"/><circle cx="-16" cy="93" r="3" fill="#66718A"/></g>
+            <text x="20" y="114" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="fbg.svg4">跨中 FBG 应变计 S-07</text>
+          </g>
+          <g font-family="Geist Mono,ui-monospace,monospace" font-size="12">
+            <circle id="st1dot" cx="36" cy="262" r="5" fill="var(--ok)"/>
+            <text id="st1txt" x="52" y="266" fill="#98A2B6">正常运行 · 波长稳定</text>
+          </g>
+          <g id="ph1" transform="translate(28,286)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A">
+            <text x="0" y="12" class="phx on">正常</text><text x="64" y="12" class="phx">荷载</text><text x="128" y="12" class="phx">越限</text><text x="192" y="12" class="phx">报警</text><text x="256" y="12" class="phx">恢复</text>
+          </g>
+          <text x="28" y="330" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#4E586E" data-i18n="demo.note">演示数据 · 实际阈值按项目配置</text>
+        </svg>
+        <figcaption class="cap"><span data-i18n="fbg.cap">点式高精度:关键构件的每一次受力都有回音</span><span class="live"><i></i>LIVE</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 章节二:GM-DAS-50/100 × 管道周界 -->
+  <section class="chapter" id="das">
+    <div class="wrap ch-grid">
+      <div class="ch-copy">
+        <span class="ch-tag mono" data-i18n="das.tag">GM-DAS-50/100 分布式声波 / 振动解调仪 × 经典场景:管道与周界安防</span>
+        <h2 class="h2" data-i18n="das.h2">一百公里管线,<br>谁碰了,碰在哪,都知道。</h2>
+        <p class="pain-line" data-i18n="das.copy">探测脉冲沿通信光缆前行,任何振动都会改变该处背向散射光的相位。相位解调把整条光缆变成 <b>23,552 个听诊器</b>,挖掘、敲击、泄漏,定位到米;波形还原率 ≥99%,分得清"是什么、在哪里"。</p>
+        <div class="ch-prod">
+          <img src="img/host-das.webp" alt="GM-DAS-50/100 分布式声波/振动解调仪 产品实拍" loading="lazy">
+          <span class="m"><b>GM-DAS-50/100</b><span data-i18n="das.prod">分布式声波 / 振动解调仪 · 2U 机架 · 相位解调</span></span>
+        </div>
+        <div class="ch-specs">
+          <div class="tile"><b>100<small>km</small></b><span data-i18n="das.k1">最大监测距离(选配拉曼放大)</span></div>
+          <div class="tile"><b>23,552</b><span data-i18n="das.k2">并行解调通道数</span></div>
+          <div class="tile"><b>50<small>kHz</small></b><span data-i18n="das.k3">响应频带上限 @1 km</span></div>
+          <div class="tile"><b>3.2<small>m</small></b><span data-i18n="das.k4">空间分辨率 / 定位精度</span></div>
+        </div>
+        <div class="ch-actions">
+          <a class="btn btn-ghost btn-sm" href="#specs" data-spec="das" data-i18n="das.spec">查看完整规格</a>
+        </div>
+      </div>
+      <figure class="ch-stage">
+        <svg viewBox="0 0 680 400" role="img" aria-label="DAS 原理与管道场景动画:探测脉冲沿光缆传播,第三方施工扰动引起相位变化,瀑布图显示事件位置并报警">
+          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#66718A" data-i18n="das.svg1">原理 · 相干瑞利散射相位探测</text>
+          <g transform="translate(28,52)">
+            <g stroke="rgba(148,163,190,.3)" stroke-width="1.2"><line x1="0" y1="8" x2="624" y2="8"/><line x1="0" y1="30" x2="624" y2="30"/></g>
+            <rect width="624" height="22" y="8" fill="rgba(148,163,190,.05)"/>
+            <g fill="rgba(148,163,190,.28)"><rect x="150" y="4" width="6" height="30"/><rect x="410" y="4" width="6" height="30"/></g>
+            <line x1="0" y1="48" x2="624" y2="48" stroke="rgba(90,200,245,.3)" stroke-width="1.4"/>
+            <circle id="dasProbe" cx="0" cy="48" r="4" fill="var(--accent)"/>
+            <g id="digger" transform="translate(412,-14)" opacity="0">
+              <rect x="-10" y="0" width="20" height="10" rx="2" fill="var(--warn)" opacity=".9"/>
+              <line x1="10" y1="4" x2="24" y2="14" stroke="var(--warn)" stroke-width="2"/>
+            </g>
+            <circle id="dasRipple" cx="412" cy="48" r="6" fill="none" stroke="var(--alarm)" stroke-width="1.6" opacity="0"/>
+            <text x="0" y="76" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A">K0</text>
+            <text x="624" y="76" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A">K100</text>
+            <text id="dasPos" x="412" y="76" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="var(--alarm)" opacity="0">事件 · K66+040</text>
+          </g>
+          <g transform="translate(28,152)">
+            <rect width="624" height="150" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
+            <text x="14" y="22" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A" data-i18n="das.svg2">瀑布图 · 横轴距离,纵轴时间</text>
+            <g id="wf" transform="translate(14,32)"></g>
+          </g>
+          <g font-family="Geist Mono,ui-monospace,monospace" font-size="12">
+            <circle id="st2dot" cx="36" cy="332" r="5" fill="var(--ok)"/>
+            <text id="st2txt" x="52" y="336" fill="#98A2B6">正常运行 · 沿线安静</text>
+          </g>
+          <g id="ph2" transform="translate(28,354)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A">
+            <text x="0" y="12" class="phx on">正常</text><text x="64" y="12" class="phx">扰动</text><text x="128" y="12" class="phx">定位</text><text x="192" y="12" class="phx">报警</text><text x="256" y="12" class="phx">恢复</text>
+          </g>
+          <text x="470" y="366" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#4E586E" data-i18n="demo.note2">演示数据 · 阈值按项目配置</text>
+        </svg>
+        <figcaption class="cap"><span data-i18n="das.cap">分布式听诊:第三方施工在报警声里现形</span><span class="live"><i></i>LIVE</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 章节三:GM-DTS-04/08 × 电缆管廊 -->
+  <section class="chapter" id="dts">
+    <div class="wrap ch-grid">
+      <div class="ch-copy">
+        <span class="ch-tag mono" data-i18n="dts.tag">GM-DTS-04/08 分布式测温解调仪 × 经典场景:电缆隧道与综合管廊</span>
+        <h2 class="h2" data-i18n="dts.h2">温度失控之前,<br>先看到趋势。</h2>
+        <p class="pain-line" data-i18n="dts.copy">拉曼散射的两束返回光,强度比只随温度变化。光时域反射按 <b>0.2 米</b>切分位置,0.5 秒完成一轮测量:每通道 12.5 公里的温度地图,连接头上一度的爬升都藏不住;报警经干接点直连消防主机。</p>
+        <div class="ch-prod">
+          <img src="img/host-dts.webp" alt="GM-DTS-04/08 分布式测温解调仪 产品实拍" loading="lazy">
+          <span class="m"><b>GM-DTS-04/08</b><span data-i18n="dts.prod">分布式测温解调仪 · 2U 机架 · 4~8 通道</span></span>
+        </div>
+        <div class="ch-specs">
+          <div class="tile"><b>12.5<small>km</small></b><span data-i18n="dts.k1">每通道测温距离</span></div>
+          <div class="tile"><b>0.2<small>m</small></b><span data-i18n="dts.k2">空间分辨率</span></div>
+          <div class="tile"><b>±1<small>℃</small></b><span data-i18n="dts.k3">温度精度 · 分辨率 0.1 ℃</span></div>
+          <div class="tile"><b>0.5<small>s</small></b><span data-i18n="dts.k4">完成一轮测量</span></div>
+        </div>
+        <div class="ch-actions">
+          <a class="btn btn-ghost btn-sm" href="#specs" data-spec="dts" data-i18n="dts.spec">查看完整规格</a>
+        </div>
+      </div>
+      <figure class="ch-stage">
+        <svg viewBox="0 0 680 400" role="img" aria-label="DTS 原理与电缆场景动画:拉曼散射两束返回光强度比换算温度,电缆接头温升越限触发报警后处置恢复">
+          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#66718A" data-i18n="dts.svg1">原理 · 拉曼散射强度比测温</text>
+          <g transform="translate(28,52)">
+            <line x1="0" y1="20" x2="624" y2="20" stroke="rgba(148,163,190,.2)" stroke-width="1.6"/>
+            <circle id="dtsProbe" cx="0" cy="20" r="4" fill="var(--accent)"/>
+            <circle id="dtsAS" cx="0" cy="20" r="3" fill="var(--warn)" opacity="0"/>
+            <circle id="dtsS" cx="0" cy="20" r="3" fill="rgba(148,163,190,.8)" opacity="0"/>
+            <text x="0" y="52" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="dts.svg2">入射脉冲 →</text>
+            <text x="624" y="52" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="dts.svg3">← 反斯托克斯 / 斯托克斯</text>
+          </g>
+          <g transform="translate(28,124)">
+            <rect width="624" height="150" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
+            <text x="14" y="22" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A" data-i18n="dts.svg4">温度剖面 · 12.5 km / 通道</text>
+            <line x1="14" y1="112" x2="610" y2="112" stroke="rgba(148,163,190,.2)"/>
+            <line x1="14" y1="52" x2="610" y2="52" stroke="rgba(239,107,94,.5)" stroke-dasharray="4 5"/>
+            <text x="610" y="44" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="9" fill="rgba(239,107,94,.85)" data-i18n="dts.svg5">阈值 65 ℃</text>
+            <path id="dtsCurve" d="M14 112 L610 112" fill="none" stroke="var(--ok)" stroke-width="2"/>
+            <text id="dtsRead" x="14" y="136" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#98A2B6">接头 J-12 · 41 ℃</text>
+          </g>
+          <g font-family="Geist Mono,ui-monospace,monospace" font-size="12">
+            <circle id="st3dot" cx="36" cy="308" r="5" fill="var(--ok)"/>
+            <text id="st3txt" x="52" y="312" fill="#98A2B6">正常运行 · 全线温度平稳</text>
+          </g>
+          <g id="ph3" transform="translate(28,330)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A">
+            <text x="0" y="12" class="phx on">正常</text><text x="64" y="12" class="phx">温升</text><text x="128" y="12" class="phx">越限</text><text x="192" y="12" class="phx">报警</text><text x="256" y="12" class="phx">恢复</text>
+          </g>
+          <text x="28" y="372" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#4E586E" data-i18n="demo.note3">演示数据 · 实际阈值按项目配置</text>
+        </svg>
+        <figcaption class="cap"><span data-i18n="dts.cap">逐米温度地图:热点在成为火点之前被摘除</span><span class="live"><i></i>LIVE</span></figcaption>
+      </figure>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== 部署条件 ===================== -->
+<section class="siting" id="siting">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="siting.h2">部署,只需要一间普通机房。</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:30em" data-i18n="siting.lead">三台主机对现场的要求就这六条,建议值与典型要求,现场勘察后按项目确认。</p>
+    <div class="cond reveal">
+      <div class="tile"><b>220<small>V AC</small></b><span data-i18n="siting.c1">DAS / DTS 市电供电,建议配置 UPS;FBG 主机 DC 9~36 V 宽压</span></div>
+      <div class="tile"><b>2<small>U ×2</small></b><span data-i18n="siting.c2">19 英寸机柜预留;FBG 主机 161×144×33 mm,桌面 / 机柜均可</span></div>
+      <div class="tile"><b>≤4<small>Ω</small></b><span data-i18n="siting.c3">接地电阻,机房独立接地并做防雷防浪涌</span></div>
+      <div class="tile"><b>-20~60<small>℃</small></b><span data-i18n="siting.c4">机房环境温度(按机型),湿度 ≤85% RH 无凝露</span></div>
+      <div class="tile"><b>FC/APC</b><span data-i18n="siting.c5">光缆入室熔接终端,尾纤按主机接口配置</span></div>
+      <div class="tile"><b>100<small>M</small></b><span data-i18n="siting.c6">以太网接入;RS485 / CAN / 干接点,可选 4G 或 2.4G 无线</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GM-F 传感器 · 八大类 ===================== -->
+<section class="sensors" id="sensors">
+  <div class="wrap">
+    <h2 class="h2 reveal" style="max-width:16em" data-i18n="sen.h2">八大类传感器,<br>一套命名讲清楚。</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:33em" data-i18n="sen.lead">GM-F 系列 8 大类、21 款标准型号:量程、尺寸、封装全系可定制,选型、报价、投标一目了然。</p>
+
+    <div class="naming reveal" aria-label="GM-F 型号命名体系">
+      <div class="code-banner">
+        <div class="code-seg"><b>GM</b><span data-i18n="nm.s1">品牌代号</span></div>
+        <div class="code-seg"><b>F</b><span data-i18n="nm.s2">光栅传感器</span></div>
+        <div class="code-seg hl"><b>T</b><span data-i18n="nm.s3">物理量代码</span></div>
+        <div class="code-seg"><b>01</b><span data-i18n="nm.s4">产品序号</span></div>
+      </div>
+      <p class="code-eg" data-i18n="nm.eg">示例 GM-FT01 = 港盟 · 光栅 · 温度类 · 01 号;主机后缀即关键规格:GM-FBG-16/32(通道数)· GM-DAS-50/100(距离 km)· GM-DTS-04/08(通道数)</p>
+      <div class="code-cats">
+        <div class="code-cat"><b>T</b><span data-i18n="nm.t">温度</span><i>FT01-03</i></div>
+        <div class="code-cat"><b>S</b><span data-i18n="nm.sx">应变</span><i>FS01-03</i></div>
+        <div class="code-cat"><b>D</b><span data-i18n="nm.d">位移</span><i>FD01-04</i></div>
+        <div class="code-cat"><b>P</b><span data-i18n="nm.p">压力</span><i>FP01-02</i></div>
+        <div class="code-cat"><b>A</b><span data-i18n="nm.a">振动</span><i>FA01</i></div>
+        <div class="code-cat"><b>I</b><span data-i18n="nm.i">倾角</span><i>FI01</i></div>
+        <div class="code-cat"><b>L</b><span data-i18n="nm.l">锚固</span><i>FL01-05</i></div>
+        <div class="code-cat"><b>B</b><span data-i18n="nm.b">螺栓</span><i>FB01</i></div>
+      </div>
+      <p class="naming-foot" data-i18n="nm.foot">风电专用产品沿用成熟供货型号(GM-WTB / WTT / WTF 系列);原锚索计 GM-PAC04 并入 GM-FL01。</p>
+    </div>
+
+    <div class="cat-grid">
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-t.webp" alt="GM-FT01 通用温度传感器 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.t.h">温度类</h4><span class="code">T · FT01-03</span></div>
+          <p data-i18n="cat.t.p">从结构测温到火灾探测与开关柜触头:全光纤无源测温,兼作全网温补基准。</p>
+          <div class="models" data-i18n="cat.t.m">FT01 通用 · FT02 快速感温 · FT03 微型陶瓷</div>
+          <div class="tagrow"><span class="tag">-40~120 ℃</span><span class="tag" data-i18n="cat.t.g1">±0.5 ℃ / 0.1 ℃</span></div>
+        </div>
+      </article>
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-s.webp" alt="GM-FS01 埋入式应变计 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.s.h">应变与钢筋应力类</h4><span class="code">S · FS01-03</span></div>
+          <p data-i18n="cat.s.p">混凝土内部、结构表面、钢筋轴力:结构受力监测三件套,与 FT01 成对温补。</p>
+          <div class="models" data-i18n="cat.s.m">FS01 埋入式 · FS02 表面安装式 · FS03 钢筋应力计</div>
+          <div class="tagrow"><span class="tag">±1500 με</span><span class="tag" data-i18n="cat.s.g1">1% F.S. / 1 με</span></div>
+        </div>
+      </article>
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-d.webp" alt="GM-FD01 裂缝计 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.d.h">位移与沉降类</h4><span class="code">D · FD01-04</span></div>
+          <p data-i18n="cat.d.p">裂缝开合、结构位移、大量程拉绳与静力水准,变形监测全覆盖。</p>
+          <div class="models" data-i18n="cat.d.m">FD01 裂缝计 · FD02 位移计 · FD03 拉绳式 · FD04 静力水准</div>
+          <div class="tagrow"><span class="tag" data-i18n="cat.d.g1">分辨率 0.01 mm</span><span class="tag" data-i18n="cat.d.g2">拉绳 20 m</span></div>
+        </div>
+      </article>
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-p.webp" alt="GM-FP01 渗压计 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.p.h">压力类</h4><span class="code">P · FP01-02</span></div>
+          <p data-i18n="cat.p.p">孔隙水压与土体压力:渗压 / 土压组合重建坝体浸润线与有效应力状态。</p>
+          <div class="models" data-i18n="cat.p.m">FP01 渗压计 · FP02 土压力计</div>
+          <div class="tagrow"><span class="tag">0.35~2 MPa</span><span class="tag" data-i18n="cat.p.g1">投入 / 埋入两用</span></div>
+        </div>
+      </article>
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-a.webp" alt="GM-FA01 加速度传感器 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.a.h">振动类</h4><span class="code">A · FA01</span></div>
+          <p data-i18n="cat.a.p">大跨桥梁一阶模态从 0.5 Hz 起步:低频高灵敏,多支组合实现 2D / 3D 测量。</p>
+          <div class="models" data-i18n="cat.a.m">FA01 加速度传感器 · 标准 / 增强两款</div>
+          <div class="tagrow"><span class="tag">0.5~50 Hz</span><span class="tag">≈500 pm/g</span></div>
+        </div>
+      </article>
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-i.webp" alt="GM-FI01 倾斜传感器 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.i.h">倾角类</h4><span class="code">I · FI01</span></div>
+          <p data-i18n="cat.i.p">桥塔、杆塔与高层倾斜,盾构收敛与滑坡:双光栅封装温度自补偿。</p>
+          <div class="models" data-i18n="cat.i.m">FI01 倾斜传感器 · 双轴可选</div>
+          <div class="tagrow"><span class="tag">±5° · 0.001°</span><span class="tag" data-i18n="cat.i.g1">双光栅自温补</span></div>
+        </div>
+      </article>
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-l.webp" alt="GM-FL01 锚索计 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.l.h">锚固与支护类</h4><span class="code">L · FL01-05</span></div>
+          <p data-i18n="cat.l.p">从 2000 kN 锚索到智能锚杆:覆盖"锚索、锚杆、围岩"完整受力链。</p>
+          <div class="models" data-i18n="cat.l.m">FL01 锚索计 · FL02 压力计 · FL03 测力锚杆 · FL04 离层 · FL05 智能锚杆</div>
+          <div class="tagrow"><span class="tag">0~2000 kN</span><span class="tag" data-i18n="cat.l.g1">120° 偏载识别</span></div>
+        </div>
+      </article>
+      <article class="cat reveal">
+        <div class="cat-plate"><img src="img/sensor-b.webp" alt="GM-FB01 螺栓应力计 产品实拍" loading="lazy"></div>
+        <div class="cat-body">
+          <div class="cat-head"><h4 data-i18n="cat.b.h">螺栓类</h4><span class="code">B · FB01</span></div>
+          <p data-i18n="cat.b.p">管片与法兰螺栓锚固应力直测,松动断裂趋势在断裂之前识别。</p>
+          <div class="models" data-i18n="cat.b.m">FB01 螺栓应力计 · 按螺栓规格定制</div>
+          <div class="tagrow"><span class="tag">100 MPa</span><span class="tag" data-i18n="cat.b.g1">断裂前预警</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="wind-strip reveal">
+      <div class="wind-head">
+        <h3 data-i18n="wind.h">风电专用系列 · 成熟批量供货</h3>
+        <p data-i18n="wind.p">叶片载荷、塔筒应力、法兰螺栓、姿态与锚索,全光纤设计天然防雷;整机接入 GM-FBG-16/32 与监测平台。</p>
+      </div>
+      <div class="wind-grid">
+        <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtb01.webp" alt="GM-WTB01 叶根载荷传感器" loading="lazy"></div><div class="wm"><b>GM-WTB01</b><span data-i18n="wind.m1">叶根载荷 · ±5000 με · 温补 14 pm/℃</span></div></div>
+        <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtt02.webp" alt="GM-WTT02 表面应力传感器" loading="lazy"></div><div class="wm"><b>GM-WTT02</b><span data-i18n="wind.m2">表面应力 · ±5000 με · 0.88 pm/με</span></div></div>
+        <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtt03.webp" alt="GM-WTT03 双轴振动传感器" loading="lazy"></div><div class="wm"><b>GM-WTT03</b><span data-i18n="wind.m3">双轴振动 · ±5 g / ±10 g · 0.1~70 Hz</span></div></div>
+        <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtf05.webp" alt="GM-WTF05 法兰间隙传感器" loading="lazy"></div><div class="wm"><b>GM-WTF05</b><span data-i18n="wind.m4">法兰间隙 · ±300 μm · 分辨力 0.05 μm</span></div></div>
+      </div>
+    </div>
+
+    <div class="group-foot reveal">
+      <p data-i18n="sen.foot">全系 IP68(风电系列 IP65)· C 波段 1528~1568 nm · FC/APC 接头;兼容符合 C 波段标准的第三方解调设备,无供应商锁定。</p>
+      <a class="btn btn-ghost btn-sm" href="#specs" data-spec="sensors" data-i18n="sen.footbtn">查看全系规格</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 规格书库 ===================== -->
+<section class="specs" id="specs">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="sp.h2">规格书,直接摊开在这里。</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="sp.lead">与产品手册同步的关键参数,选型不用来回翻 PDF;完整版规格书与选型手册,一封邮件送达。</p>
+    <div class="spec-tabs reveal" role="tablist" aria-label="规格书选择">
+      <button class="chip" role="tab" aria-pressed="true" data-tab="fbg">GM-FBG-16/32</button>
+      <button class="chip" role="tab" aria-pressed="false" data-tab="das">GM-DAS-50/100</button>
+      <button class="chip" role="tab" aria-pressed="false" data-tab="dts">GM-DTS-04/08</button>
+      <button class="chip" role="tab" aria-pressed="false" data-tab="sensors" data-i18n="sp.tab4">GM-F 传感器全系</button>
+      <button class="chip" role="tab" aria-pressed="false" data-tab="wind" data-i18n="sp.tab5">风电专用</button>
+      <button class="chip" role="tab" aria-pressed="false" data-tab="sys" data-i18n="sp.tab6">行业系统</button>
+    </div>
+
+    <div class="spec-panel on" id="sp-fbg">
+      <div class="spec-title"><h4 data-i18n="sp.fbg.h">GM-FBG-16/32 光纤光栅解调仪</h4><span class="sub" data-i18n="sp.fbg.sub">工业级 FBG 波长解调平台</span></div>
+      <p class="spec-note" data-i18n="sp.fbg.note">高性能:±2 pm 典型精度、±1 pm 重复性、40 dB 动态范围;工业级:宽温宽压、低功耗;小体积:紧凑机身便于嵌入集成。典型应用:桥隧结构健康监测、风电叶片与混塔、电力设备测温。</p>
+      <div class="spec-rows">
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r1">光通道数量</span><span class="v" data-i18n="sp.fbg.v1">1~32 通道可选</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r2">波长范围</span><span class="v">1527~1564 nm</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r3">波长精度</span><span class="v" data-i18n="sp.fbg.v3">±2 pm(典型)</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r4">波长重复性 / 稳定性</span><span class="v">±1 pm / ±1 pm</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r5">动态范围</span><span class="v">40 dB</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r6">测量速度</span><span class="v" data-i18n="sp.fbg.v6">1~100 Hz(高速可定制)</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r7">通信接口</span><span class="v" data-i18n="sp.fbg.v7">RJ45 / RS485 / CAN / 2.4G 无线</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r8">供电 / 功耗</span><span class="v">DC 9~36 V · ≤10 W</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r9">工作 / 存储温度</span><span class="v">-20~75 ℃ / -40~80 ℃</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r10">尺寸</span><span class="v">161 × 144 × 33 mm</span></div>
+      </div>
+    </div>
+
+    <div class="spec-panel" id="sp-das">
+      <div class="spec-title"><h4 data-i18n="sp.das.h">GM-DAS-50/100 分布式声波 / 振动解调仪</h4><span class="sub" data-i18n="sp.das.sub">分布式振动 / 声波旗舰平台</span></div>
+      <p class="spec-note" data-i18n="sp.das.note">超长距离:标配 50 km,选配拉曼放大器可达 100 km;宽频海量:0.01 Hz~50 kHz 响应、23,552 道并行解调;高保真:窄线宽激光器,波形还原率 ≥99%,定量还原声波模型用于事件分类。典型应用:油气管道、周界安防、轨交保护区、地震与地质勘探。</p>
+      <div class="spec-rows">
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r1">测量距离</span><span class="v" data-i18n="sp.das.v1">50 km 标配 / 100 km 选配</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r2">空间分辨率</span><span class="v">3.2 m</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r3">响应频带</span><span class="v">0.01 Hz~50 kHz @1 km</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r4">解调通道</span><span class="v" data-i18n="sp.das.v4">23,552 道并行</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r5">波形还原率</span><span class="v">≥99%</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r6">激光线宽 / RIN</span><span class="v">≤1 kHz · &lt;-120 dB/Hz</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r7">数据采集</span><span class="v">250 MS/s · 14 bit</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r8">光通道 / 数据接口</span><span class="v" data-i18n="sp.das.v8">1~2 通道 · USB4.0(雷电 4)</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r9">机箱 / 供电</span><span class="v" data-i18n="sp.das.v9">2U 机架 · 220 V AC</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.das.r10">工作温度</span><span class="v">-20~60 ℃</span></div>
+      </div>
+    </div>
+
+    <div class="spec-panel" id="sp-dts">
+      <div class="spec-title"><h4 data-i18n="sp.dts.h">GM-DTS-04/08 分布式测温解调仪</h4><span class="sub" data-i18n="sp.dts.sub">分布式测温主机 · 消防联动</span></div>
+      <p class="spec-note" data-i18n="sp.dts.note">自研恒温光电模块与全嵌入式板卡(ARM + Linux);属规范定义的"线型感温火灾探测器",单机覆盖数公里,定位精确到米级以内,寿命长免维护。典型应用:电缆隧道、综合管廊、交通隧道、大坝、油气储运火灾预警。</p>
+      <div class="spec-rows">
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r1">光缆类型</span><span class="v" data-i18n="sp.dts.v1">多模(单模长距可定制)</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r2">测量距离</span><span class="v" data-i18n="sp.dts.v2">12.5 km / 通道</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r3">测量通道</span><span class="v" data-i18n="sp.dts.v3">4 通道(8 通道可选)</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r4">空间分辨率</span><span class="v">0.2 m</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r5">温度精度 / 分辨率</span><span class="v">±1 ℃ / 0.1 ℃</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r6">测量时间</span><span class="v" data-i18n="sp.dts.v6">0.5 s(1 万次累加)</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r7">测温范围</span><span class="v">-20~120 ℃</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r8">电气接口</span><span class="v" data-i18n="sp.dts.v8">RS485 / RJ45 / CAN · 干接点</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r9">供电 / 功耗</span><span class="v">85~264 V AC · 15~25 W</span></div>
+        <div class="spec-row"><span class="k" data-i18n="sp.dts.r10">安装方式</span><span class="v" data-i18n="sp.dts.v10">2U 机架式</span></div>
+      </div>
+    </div>
+
+    <div class="spec-panel" id="sp-sensors">
+      <div class="spec-title"><h4 data-i18n="sp.sen.h">GM-F 传感器全系 · 8 大类 21 款</h4><span class="sub" data-i18n="sp.sen.sub">全系 IP68 · C 波段 1528~1568 nm · FC/APC</span></div>
+      <p class="spec-note" data-i18n="sp.sen.note">量程、尺寸与封装全系可按项目定制;应变类与 GM-FT01 成对布设,实现温度补偿后的真实应力解算。</p>
+      <div class="spec-scroll">
+        <table class="spec-matrix">
+          <thead><tr><th data-i18n="sp.th1">型号</th><th data-i18n="sp.th2">名称</th><th data-i18n="sp.th3">量程</th><th data-i18n="sp.th4">精度 / 分辨率</th><th data-i18n="sp.th5">关键参数</th></tr></thead>
+          <tbody>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.t">温度类 <span>T · TEMPERATURE</span></td></tr>
+            <tr><td class="m">GM-FT01</td><td class="n" data-i18n="mx.ft01">通用温度传感器</td><td data-i18n="mx.ft01r">-40~120 ℃(可定制)</td><td>±0.5 ℃ / 0.1 ℃</td><td data-i18n="mx.ft01k">Φ9×100 mm · IP68 · 夹持 / 绑扎 / 埋入</td></tr>
+            <tr><td class="m">GM-FT02</td><td class="n" data-i18n="mx.ft02">快速响应感温单元</td><td data-i18n="mx.ft02r">-40~120 ℃(可定制)</td><td>±0.5 ℃ / 0.1 ℃</td><td data-i18n="mx.ft02k">Φ7×100 mm · IP68 · 防爆区适用 · 火灾探测</td></tr>
+            <tr><td class="m">GM-FT03</td><td class="n" data-i18n="mx.ft03">微型陶瓷温度传感器</td><td data-i18n="mx.ft03r">-40~120 ℃(可定制)</td><td>±0.5 ℃ / 0.1 ℃</td><td data-i18n="mx.ft03k">Φ4×45 mm · IP68 · 开关柜触头等狭小部位</td></tr>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.s">应变与钢筋应力类 <span>S · STRAIN</span></td></tr>
+            <tr><td class="m">GM-FS01</td><td class="n" data-i18n="mx.fs01">埋入式应变计</td><td>±1000 / ±1500 με</td><td>1% F.S. / 1 με</td><td data-i18n="mx.fs01k">标距 100 mm · 埋入 · IP68 · 与 FT01 成对温补</td></tr>
+            <tr><td class="m">GM-FS02</td><td class="n" data-i18n="mx.fs02">表面安装式应变计</td><td>±500 / 1000 / 1500 με</td><td>1% F.S. / 1 με</td><td data-i18n="mx.fs02k">标距 100 mm · 焊接@钢 / 粘接@砼 · IP68</td></tr>
+            <tr><td class="m">GM-FS03</td><td class="n" data-i18n="mx.fs03">钢筋应力计</td><td data-i18n="mx.fs03r">拉 200 / 压 100 MPa</td><td>1% F.S. / 1 MPa</td><td data-i18n="mx.fs03k">各钢筋规格 · 长 600 mm · 对焊 / 绑扎</td></tr>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.d">位移与沉降类 <span>D · DISPLACEMENT</span></td></tr>
+            <tr><td class="m">GM-FD01</td><td class="n" data-i18n="mx.fd01">裂缝计</td><td data-i18n="mx.fd01r">20 mm(可定制)</td><td>1 / 0.1 mm</td><td data-i18n="mx.fd01k">埋入全密封 · -40~80 ℃ · IP68</td></tr>
+            <tr><td class="m">GM-FD02</td><td class="n" data-i18n="mx.fd02">位移计</td><td>10 / 100 mm</td><td data-i18n="mx.fd02a">0.1 / 0.5 mm · 分辨率 0.01 mm</td><td data-i18n="mx.fd02k">Φ40×200 mm · 底座安装,便于更换标定</td></tr>
+            <tr><td class="m">GM-FD03</td><td class="n" data-i18n="mx.fd03">拉绳位移计</td><td data-i18n="mx.fd03r">100 mm(可定制)</td><td>1 / 0.1 mm</td><td data-i18n="mx.fd03k">Φ40×350 mm · 标配 20 m 拉绳远端引出</td></tr>
+            <tr><td class="m">GM-FD04</td><td class="n" data-i18n="mx.fd04">静力水准仪</td><td>0~100 mm</td><td>1 / 0.1 mm</td><td data-i18n="mx.fd04k">Φ120×250 mm · 组网测沉降 · 不锈钢 / 注塑</td></tr>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.p">压力类 <span>P · PRESSURE</span></td></tr>
+            <tr><td class="m">GM-FP01</td><td class="n" data-i18n="mx.fp01">渗压计</td><td data-i18n="mx.fp01r">0.35 / 1 MPa(可定制)</td><td>0.5% / 0.1% F.S.</td><td data-i18n="mx.fp01k">Φ30×120 mm · 投入 / 埋入两用 · IP68</td></tr>
+            <tr><td class="m">GM-FP02</td><td class="n" data-i18n="mx.fp02">土压力计</td><td data-i18n="mx.fp02r">1 / 2 MPa(可定制)</td><td>1% / 0.1% F.S.</td><td data-i18n="mx.fp02k">规格可定制 · 埋入 · IP68 · 与渗压计组合</td></tr>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.a">振动类 <span>A · DYNAMICS</span></td></tr>
+            <tr><td class="m">GM-FA01</td><td class="n" data-i18n="mx.fa01">加速度传感器</td><td>2 g · 0.5~50 Hz</td><td data-i18n="mx.fa01a">2 mg / 0.5 mg · ≈500 pm/g</td><td data-i18n="mx.fa01k">110×35×25 mm · IP68 · 多支组合 2D / 3D</td></tr>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.i">倾角类 <span>I · INCLINATION</span></td></tr>
+            <tr><td class="m">GM-FI01</td><td class="n" data-i18n="mx.fi01">倾斜传感器</td><td>±5°</td><td>0.01° / 0.001°</td><td data-i18n="mx.fi01k">105×80×28 mm · 螺孔安装 · IP68 · 双光栅自温补</td></tr>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.l">锚固与支护类 <span>L · ANCHORING</span></td></tr>
+            <tr><td class="m">GM-FL01</td><td class="n" data-i18n="mx.fl01">锚索计(原 GM-PAC04)</td><td>0~2000 kN · 20 Hz</td><td data-i18n="mx.fl01a">3~6 支冗余测力 · 120° 偏载识别</td><td>-40~+85 ℃ · 95%RH · IP67</td></tr>
+            <tr><td class="m">GM-FL02</td><td class="n" data-i18n="mx.fl02">锚杆(索)压力计</td><td>0~150 kN</td><td>5% F.S. · 1 kN</td><td data-i18n="mx.fl02k">套接锚杆托盘与岩壁之间 · IP54</td></tr>
+            <tr><td class="m">GM-FL03</td><td class="n" data-i18n="mx.fl03">测力锚杆</td><td>70 kN</td><td>6% F.S. / 1% F.S.</td><td data-i18n="mx.fl03k">光栅内置钢锚杆 · 应变 / 轴力 / 弯矩 / 剪应力</td></tr>
+            <tr><td class="m">GM-FL04</td><td class="n" data-i18n="mx.fl04">离层传感器</td><td data-i18n="mx.fl04r">200 mm 可续测</td><td>5% F.S.</td><td data-i18n="mx.fl04k">395×306×34 mm · 顶板离层趋势早发现</td></tr>
+            <tr><td class="m">GM-FL05</td><td class="n" data-i18n="mx.fl05">智能锚杆</td><td data-i18n="mx.fl05r">拉伸 500 MPa</td><td data-i18n="mx.fl05a">1%(0.5% 可选)</td><td data-i18n="mx.fl05k">FRP 杆体即传感器 · 植入式光栅 · IP68</td></tr>
+            <tr class="grp"><td colspan="5" data-i18n="sp.g.b">螺栓类 <span>B · BOLT</span></td></tr>
+            <tr><td class="m">GM-FB01</td><td class="n" data-i18n="mx.fb01">螺栓应力计</td><td>100 MPa</td><td>&lt;1% / ≤0.1% F.S.</td><td data-i18n="mx.fb01k">按螺栓规格定制 · 铠装防水 · -30~+80 ℃</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="spec-panel" id="sp-wind">
+      <div class="spec-title"><h4 data-i18n="sp.wd.h">风电专用监测传感器</h4><span class="sub" data-i18n="sp.wd.sub">成熟批量供货型号 · 全光纤设计天然防雷</span></div>
+      <p class="spec-note" data-i18n="sp.wd.note">叶根 3% 区域截面布置 3~4 支载荷传感器,符合 JG/T 422-2013;叶片载荷 + 塔筒应力 + 法兰间隙 + 混塔锚索统一接入 GM-FBG-16/32 与监测平台,构成风机结构安全整体监测系统。</p>
+      <div class="spec-scroll">
+        <table class="spec-matrix">
+          <thead><tr><th data-i18n="sp.th1b">型号</th><th data-i18n="sp.th2b">名称</th><th data-i18n="sp.th3b">量程</th><th data-i18n="sp.th4b">关键指标</th><th data-i18n="sp.th5b">防护 / 备注</th></tr></thead>
+          <tbody>
+            <tr><td class="m">GM-WTB01</td><td class="n" data-i18n="wx.wtb01">叶根载荷传感器</td><td>±5000 με</td><td data-i18n="wx.wtb01a">≤0.1% F.S. · 温补 14 pm/℃</td><td data-i18n="wx.wtb01k">IP65 · 特种胶装 · 全光纤防雷</td></tr>
+            <tr><td class="m">GM-WTT02</td><td class="n" data-i18n="wx.wtt02">表面应力传感器</td><td>±5000 με</td><td data-i18n="wx.wtt02a">0.88 pm/με · 重复性 0.5%</td><td data-i18n="wx.wtt02k">IP65 · 表面粘贴 · 可互换</td></tr>
+            <tr><td class="m">GM-WTT03</td><td class="n" data-i18n="wx.wtt03">双轴振动传感器</td><td>±5 g / ±10 g</td><td data-i18n="wx.wtt03a">0.1~70 Hz · 500~1000 pm/g</td><td data-i18n="wx.wtt03k">IP65 · 双轴同测 · 量程可定制</td></tr>
+            <tr><td class="m">GM-WTF05</td><td class="n" data-i18n="wx.wtf05">法兰间隙传感器</td><td>±300 μm</td><td data-i18n="wx.wtf05a">分辨力 0.05 μm · 位移系数 53 μm/nm</td><td data-i18n="wx.wtf05k">102×32×5 mm · 断裂前预警</td></tr>
+            <tr><td class="m">GM-FI01</td><td class="n" data-i18n="wx.fi01">双轴倾角传感器</td><td>±5°</td><td>0.01° / 0.001°</td><td data-i18n="wx.fi01k">IP68 · 塔筒姿态与基础沉降</td></tr>
+            <tr><td class="m">GM-FL01</td><td class="n" data-i18n="wx.fl01">锚索计</td><td>0~2000 kN · 20 Hz</td><td data-i18n="wx.fl01a">3~6 支均布 · 120° 偏载识别</td><td data-i18n="wx.fl01k">IP67 · 混塔预应力锚索 24 小时在线</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="spec-panel" id="sp-sys">
+      <div class="spec-title"><h4 data-i18n="sp.sys.h">行业系统与成套方案</h4><span class="sub" data-i18n="sp.sys.sub">系统级交付 · 规范验收路径</span></div>
+      <div class="spec-sys">
+        <div class="sys-card">
+          <h5 data-i18n="sp.sys.c1h">矿用顶板应力监测系统(隔爆型)</h5>
+          <p data-i18n="sp.sys.c1p">光纤传感 + 计算机检测 + 数据通讯一体化;顶板状态自动监测与汇报,减少井下人工巡检,为锚杆支护施工与参数优化提供依据。</p>
+          <div class="mono-line" data-i18n="sp.sys.c1m">处理器↔传感器 ≤5 km · ↔井上 ≤10 km<br>顶板应力 0~70 kN · 位移 0~180 mm<br>锚杆应力 0~150 kN · 127 V 井下 / 220 V 井上</div>
+        </div>
+        <div class="sys-card">
+          <h5 data-i18n="sp.sys.c2h">FBG 结构健康监测(SHM)方案</h5>
+          <p data-i18n="sp.sys.c2p">应变、温补、振动、倾角、位移、索力六类测点单纤串联,接入 SHM 平台在线评估、事件报警、应急预案;传感器供货 / 系统集成 / 数据服务三种交付形态。</p>
+          <div class="mono-line" data-i18n="sp.sys.c2m">GM-FBG-16/32 · 1~32 通道<br>分辨率 1 pm · 采样 1 / 100 / 1000 Hz<br>配套深化设计图 · 安装标定 · 验收支持</div>
+        </div>
+        <div class="sys-card">
+          <h5 data-i18n="sp.sys.c3h">电缆隧道与管廊测温方案</h5>
+          <p data-i18n="sp.sys.c3p">GM-DTS-04/08 + 感温光缆(正弦贴敷 / 悬挂)+ 监测软件;局部高危点位叠加 GM-FT02 感温单元增强,报警联动消防主机与风机水泵。</p>
+          <div class="mono-line" data-i18n="sp.sys.c3m">1 km 防火分区 = 1 台主机 + 光缆 + 分区软件<br>依据 GB 50116 · GB 50838 · GB/T 21197<br>0.2 m 定位 · 0.5 s 响应 · 12.5 km / 通道</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="spec-foot reveal"><span data-i18n="sp.mailnote">完整版规格书 PDF、选型手册与授权书:</span><a href="mailto:17621251612@163.com?subject=索取规格书" style="color:var(--text-2);border-bottom:1px solid var(--line-strong)" data-i18n="sp.mail">邮件索取,一个工作日内送达</a></p>
+  </div>
+</section>
+
+<!-- ===================== 全景一张网 ===================== -->
+<section class="system" id="system">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="net.h2">三台主机,一张网。</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="net.lead">传感器与光缆负责感知,三台主机负责解调,平台负责研判,预警负责找到人。每一米光纤,都接在同一条链路上。</p>
+    <figure class="sys-fig reveal">
+      <svg viewBox="0 0 1120 210" style="width:100%;height:auto" role="img" aria-label="系统全景:传感器与光缆接入 FBG、DAS、DTS 三台主机,汇入 AI 平台,输出分级预警">
+        <line x1="30" y1="105" x2="1090" y2="105" stroke="rgba(148,163,190,.16)" stroke-width="1.4"/>
+        <path d="M30 105 L1090 105" stroke="var(--accent)" stroke-width="2" class="pulse" style="stroke-dasharray:4 380;animation-duration:5.5s"/>
+        <g font-family="Geist Mono,ui-monospace,monospace" text-anchor="middle">
+          <g><circle cx="120" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="120" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n1">传感器 · 光缆</text>
+             <text x="120" y="140" font-size="10.5" fill="#66718A" data-i18n="net.d1">GM-F 八大类 · 铠装光缆</text></g>
+          <g><circle cx="420" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="420" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n2">三大解调主机</text>
+             <text x="420" y="140" font-size="10.5" fill="#66718A">FBG · DAS · DTS</text></g>
+          <g><circle cx="730" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="730" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n3">AI 监测平台</text>
+             <text x="730" y="140" font-size="10.5" fill="#66718A" data-i18n="net.d3">趋势 · 研判 · 报告</text></g>
+          <g><circle cx="1000" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="1000" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n4">分级预警</text>
+             <text x="1000" y="140" font-size="10.5" fill="#66718A" data-i18n="net.d4">阈值 · 事件 · 联动</text></g>
+        </g>
+      </svg>
+      <figcaption data-i18n="net.cap">同一条数据链路:光信号进,处置结论出。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== AI 监测平台 ===================== -->
+<section class="platform" id="platform">
+  <div class="wrap plat-grid">
+    <div>
+      <h2 class="h2 reveal" data-i18n="pf.h2">三台主机之上,<br>还有一个大脑。</h2>
+      <p class="lead reveal" style="margin-top:18px;max-width:30em" data-i18n="pf.lead">业主的真问题很具体:系统各说各话、报警响成背景音、报表靠人熬夜。平台的职责只有一个:让数据变成结论,让结论找到人。</p>
+      <div class="plat-list reveal">
+        <div class="plat-item"><h4 data-i18n="pf.i1h">多源数据统一接入</h4><p data-i18n="pf.i1p">治数据孤岛:解调仪、DAS / DTS 主机、环境设备、视频与第三方系统,装进同一块屏幕。</p></div>
+        <div class="plat-item"><h4 data-i18n="pf.i2h">智能异常识别</h4><p data-i18n="pf.i2p">治报警疲劳:阈值、趋势、关联规则与模型交叉研判,分级降噪,让每一声报警都值得起身。</p></div>
+        <div class="plat-item"><h4 data-i18n="pf.i3h">趋势预测与风险研判</h4><p data-i18n="pf.i3p">治事后追责:长期数据里读出趋势与风险等级,把维护从"坏了修"推向"预判养"。</p></div>
+        <div class="plat-item"><h4 data-i18n="pf.i4h">智能报告与运维辅助</h4><p data-i18n="pf.i4p">治人工整编:状态日报、告警记录与运维建议自动生成,全程留痕、随时回溯。</p></div>
+      </div>
+      <div class="dlv-tags reveal" style="margin-top:26px">
+        <span class="k" data-i18n="pf.api">开放接口</span>
+        <span class="tag">Modbus TCP/RTU</span><span class="tag">OPC UA</span><span class="tag">MQTT</span><span class="tag">RESTful API</span><span class="tag">IEC 60870-5-104</span><span class="tag" data-i18n="pf.relay">继电器干接点</span>
+      </div>
+    </div>
+    <div class="plat-panel reveal" aria-label="平台闭环流程动画:多源数据汇入平台,分级预警、自动报告与处置工单流出">
+      <div class="plat-head"><span data-i18n="pf.panel">从数据到闭环</span><span class="live"><i></i>LIVE</span></div>
+      <svg class="flow" viewBox="0 0 560 380" style="width:100%;display:block">
+        <g font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#98A2B6">
+          <text x="24" y="66" data-i18n="pf.n1">FBG 主机</text><text x="24" y="142" data-i18n="pf.n2">DAS 主机</text>
+          <text x="24" y="218" data-i18n="pf.n3">DTS 主机</text><text x="24" y="294" data-i18n="pf.n4">第三方系统</text>
+          <text x="452" y="96" fill="#EDF0F6" data-i18n="pf.o1">分级预警</text><text x="452" y="112" font-size="9.5" data-i18n="pf.o1d">直达值班人</text>
+          <text x="452" y="190" fill="#EDF0F6" data-i18n="pf.o2">自动报告</text><text x="452" y="206" font-size="9.5" data-i18n="pf.o2d">日报 · 留痕</text>
+          <text x="452" y="284" fill="#EDF0F6" data-i18n="pf.o3">处置工单</text><text x="452" y="300" font-size="9.5" data-i18n="pf.o3d">闭环 · 可溯</text>
+        </g>
+        <g fill="none" stroke-width="1.6">
+          <path class="fp fin" d="M118 62 C 190 62, 210 178, 268 182"/>
+          <path class="fp fin" d="M118 138 C 180 138, 205 180, 268 186"/>
+          <path class="fp fin" d="M118 214 C 180 214, 205 196, 268 192"/>
+          <path class="fp fin" d="M126 290 C 195 290, 212 200, 268 196"/>
+          <path class="fp fo1" id="po1" d="M312 176 C 360 150, 395 108, 444 92"/>
+          <path class="fp fo2" id="po2" d="M314 190 C 366 190, 392 186, 444 186"/>
+          <path class="fp fo3" id="po3" d="M312 202 C 360 226, 395 266, 444 280"/>
+        </g>
+        <g id="hub">
+          <circle cx="290" cy="189" r="34" fill="#04060B" stroke="var(--accent)" stroke-width="1.8"/>
+          <circle class="hubring" cx="290" cy="189" r="42" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".35"/>
+          <text x="290" y="185" text-anchor="middle" font-size="12" fill="#EDF0F6" font-family="inherit" data-i18n="pf.hub">AI 平台</text>
+          <text x="290" y="201" text-anchor="middle" font-size="9.5" fill="#66718A" font-family="Geist Mono,ui-monospace,monospace" data-i18n="pf.hubd">研判中枢</text>
+        </g>
+        <g font-family="Geist Mono,ui-monospace,monospace">
+          <text id="pRead" x="280" y="352" text-anchor="middle" font-size="12" fill="var(--accent)">T+0 · 发现趋势:DTS 捕捉接头温升</text>
+        </g>
+      </svg>
+      <div class="plat-foot" data-i18n="pf.foot">演示流程,时间线以项目预案为准;每一步在平台中均有记录与回溯。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 行业选型 ===================== -->
+<section class="selector" id="selector">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="sel.h2">八大行业,<br>每一条战线各有一张卷子。</h2>
+    <p class="lead reveal" style="margin-top:18px;max-width:33em" data-i18n="sel.lead">基础设施进入存量养护与设备更新周期,监测预算却要求更轻、更省、更可复用。选择你的战线,拿走对应的轻量化解题思路。</p>
+    <div class="selq reveal" role="group" aria-label="选择行业战线">
+      <button class="chip" aria-pressed="true" data-q="cable" data-i18n="sel.q.cable">电力电缆</button>
+      <button class="chip" aria-pressed="false" data-q="corridor" data-i18n="sel.q.corridor">综合管廊</button>
+      <button class="chip" aria-pressed="false" data-q="pipe" data-i18n="sel.q.pipe">油气管道</button>
+      <button class="chip" aria-pressed="false" data-q="perimeter" data-i18n="sel.q.perimeter">周界安防</button>
+      <button class="chip" aria-pressed="false" data-q="rail" data-i18n="sel.q.rail">轨道交通</button>
+      <button class="chip" aria-pressed="false" data-q="bridge" data-i18n="sel.q.bridge">桥梁隧道</button>
+      <button class="chip" aria-pressed="false" data-q="water" data-i18n="sel.q.water">水利大坝</button>
+      <button class="chip" aria-pressed="false" data-q="wind" data-i18n="sel.q.wind">风力发电</button>
+    </div>
+    <div class="selr reveal">
+      <h4 id="selH"></h4>
+      <p class="painp" id="selPain"></p>
+      <div class="tagrow" id="selTags"></div>
+      <p class="plan" id="selPlan"></p>
+      <p class="eco" id="selEco"></p>
+      <div class="selr-foot">
+        <a class="btn btn-ghost" id="selGo" href="#fbg" data-i18n="sel.go">查看工作原理</a>
+        <span class="k" id="selPol"></span>
+      </div>
+    </div>
+    <p class="sel-more reveal" data-i18n="sel.more">矿山顶板、岩土边坡、冷链仓储等更多战线同样成立。监测数据正在从成本项变成资产项:从出了事再修,到看着趋势养。</p>
+  </div>
+</section>
+
+<!-- ===================== 案例与足迹 ===================== -->
+<section class="cases" id="cases">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="cs.h2">参数是承诺,<br>案例是兑现。</h2>
+    <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="cs.lead">覆盖水利、轨交、公路、市政、桥梁多领域在运项目,部分案例与高校科研团队联合完成。</p>
+    <div class="case-grid">
+      <article class="case reveal">
+        <span class="where mono" data-i18n="cs.c1w">南水北调中线 · 水利</span>
+        <h4 data-i18n="cs.c1h">PCCP 管道断丝监测</h4>
+        <p data-i18n="cs.c1p">多家单位对北京段下游输水管道对比监测,基于 DAS 与管道内既有通信光纤,成为唯一一家监测结果与实际情况完全吻合的单位,受邀签订断丝监测联合研发框架协议。</p>
+        <div class="nums"><div><b data-i18n="cs.c1n1">唯一</b><span data-i18n="cs.c1s1">结果完全吻合单位</span></div><div><b data-i18n="cs.c1n2">框架协议</b><span data-i18n="cs.c1s2">受邀联合研发</span></div></div>
+      </article>
+      <article class="case reveal">
+        <span class="where mono" data-i18n="cs.c2w">合肥轨道 4 号线 · 轨交</span>
+        <h4 data-i18n="cs.c2h">保护区施工预警</h4>
+        <p data-i18n="cs.c2p">44.8 km 保护区实时监测。桃花潭站实录:15:36 预警生成,15:38 推送,15:41 无人机复核,全流程 5 分钟闭环处置。</p>
+        <div class="nums"><div><b>44.8 km</b><span data-i18n="cs.c2s1">实时监测里程</span></div><div><b>5 min</b><span data-i18n="cs.c2s2">预警-推送-复核闭环</span></div><div><b>2,936</b><span data-i18n="cs.c2s3">累计报警信息</span></div></div>
+      </article>
+      <article class="case hl reveal">
+        <span class="where mono" data-i18n="cs.c3w">G5011 芜合高速 · 公路</span>
+        <h4 data-i18n="cs.c3h">路面异常预警</h4>
+        <p data-i18n="cs.c3p">22 km 路段实时监测。2025 年 2 月事故实录:15:30 系统预警推送,较接警时间提前 6 分钟;上线至今稳定无故障运行。</p>
+        <div class="nums"><div><b>6 min</b><span data-i18n="cs.c3s1">预警提前于接警</span></div><div><b>95%+</b><span data-i18n="cs.c3s2">报警准确率</span></div><div><b>110+</b><span data-i18n="cs.c3s3">6 个月发现异常事件</span></div></div>
+      </article>
+      <article class="case reveal">
+        <span class="where mono" data-i18n="cs.c4w">庐江堤坝 · 水利</span>
+        <h4 data-i18n="cs.c4h">堤坝渗流探测</h4>
+        <p data-i18n="cs.c4p">受合肥市政府与发改委委托,对 300 米重点堤段构建地下结构图像:探明地下 3~5 m 连续低速异常带与 7~10 m 长期富水带,支撑汛前检测、汛时监视、汛后修复。</p>
+        <div class="nums"><div><b>300 m</b><span data-i18n="cs.c4s1">重点堤段成像</span></div><div><b>3~10 m</b><span data-i18n="cs.c4s2">渗漏通道定位深度</span></div></div>
+      </article>
+      <article class="case reveal">
+        <span class="where mono" data-i18n="cs.c5w">新疆干渠 / 深圳地铁 22 号线</span>
+        <h4 data-i18n="cs.c5h">渗流探测与盾构前成像</h4>
+        <p data-i18n="cs.c5p">613 米渠段获取地下 30 米以浅速度结构,圈定渗流富水区;深圳地铁 22 号线盾构掘进前对左右线地层精细化成像,提前识别孤石与富水带。</p>
+        <div class="nums"><div><b>613 m</b><span data-i18n="cs.c5s1">渠段成像长度</span></div><div><b>30 m</b><span data-i18n="cs.c5s2">成像深度</span></div></div>
+      </article>
+      <article class="case reveal">
+        <span class="where mono" data-i18n="cs.c6w">南昌八一大桥 · 桥梁</span>
+        <h4 data-i18n="cs.c6h">结构健康体检</h4>
+        <p data-i18n="cs.c6p">利用通信光缆清晰分辨主桥墩、斜拉索振动特征与车辆通行信号;结合模态成像快速分析固有频率、阻尼与振型,长期跟踪评估桥梁健康水平。</p>
+        <div class="nums"><div><b data-i18n="cs.c6n1">模态成像</b><span data-i18n="cs.c6s1">固有频率 · 阻尼 · 振型</span></div><div><b data-i18n="cs.c6n2">通信光缆</b><span data-i18n="cs.c6s2">零新增传感器</span></div></div>
+      </article>
+    </div>
+    <div class="client-strip reveal">
+      <span class="k" data-i18n="cs.ck">部分服务客户与合作单位</span>
+      <p data-i18n="cs.cp">中国地震局 · 安徽省地震局 · 江苏省地震局 · 中科院南海海洋研究所 · 合肥轨道 · 安徽交控 · 江西交投 · 清华大学 · 中国科学技术大学 · 浙江大学</p>
+      <p class="note" data-i18n="cs.cn">名录持续更新;客户标识以书面授权后展示为准,部分案例与高校科研团队联合完成。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 交付与服务 ===================== -->
+<section class="delivery" id="delivery">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="dl.h2">从询价到长期运行,<br>一条被走熟的路。</h2>
+    <div class="dlv reveal">
+      <div class="dlv-step"><h4 data-i18n="dl.s1h">需求梳理与投标支持</h4><p data-i18n="dl.s1p">明确监测对象、关键风险点与现场条件;免费出具授权书、技术应答文件、深化设计图与工程概算,重点项目陪标讲标。</p></div>
+      <div class="dlv-step"><h4 data-i18n="dl.s2h">方案设计</h4><p data-i18n="dl.s2p">完成传感器选型、点位设计、光缆路径、主机配置及平台功能规划。</p></div>
+      <div class="dlv-step"><h4 data-i18n="dl.s3h">部署实施</h4><p data-i18n="dl.s3p">提供设备安装、传感器布设、系统调试、数据验证与基础培训;随货附安装施工手册、现场熔接标定指导与验收测试规程。</p></div>
+      <div class="dlv-step"><h4 data-i18n="dl.s4h">运行维护</h4><p data-i18n="dl.s4p">支持远程查看、报警策略优化、数据分析、系统扩展与长期技术服务。</p></div>
+    </div>
+    <div class="dlv-tags reveal">
+      <span class="k" data-i18n="dl.pathk">合作路径</span>
+      <span class="tag" data-i18n="dl.p1">样机演示</span><span class="tag" data-i18n="dl.p2">试点段验证</span><span class="tag" data-i18n="dl.p3">批量供货 / 项目合作</span><span class="tag" data-i18n="dl.p4">年度运维服务</span><span class="tag">OEM / ODM</span>
+    </div>
+    <div class="wall-head reveal" style="margin-top:56px"><h3 data-i18n="dl.slah">质保与响应</h3><p data-i18n="dl.slap">标准服务政策,最终以供货合同约定为准。</p></div>
+    <div class="sla reveal">
+      <div class="tile"><b>2<small data-i18n="dl.yr">年</small></b><span data-i18n="dl.t1">硬件质保,备品备件常备</span></div>
+      <div class="tile"><b>24<small>h</small></b><span data-i18n="dl.t2">华东区域到场响应</span></div>
+      <div class="tile"><b>48<small>h</small></b><span data-i18n="dl.t3">全国到场响应</span></div>
+      <div class="tile"><b>7×24</b><span data-i18n="dl.t4">远程诊断热线</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 企业实力 ===================== -->
+<section class="company" id="company">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="co.h2">一流的参数,<br>来自一流的车间。</h2>
+    <div class="co-grid">
+      <div class="co-strengths reveal">
+        <div><h4 data-i18n="co.s1h">长期工程验证</h4><p data-i18n="co.s1p">产品经批量、长周期工程应用验证,重点关注复杂环境下的稳定性、数据连续性与长期可靠性。</p></div>
+        <div><h4 data-i18n="co.s2h">自动化量产体系</h4><p data-i18n="co.s2p">依托成熟制造流程与质量控制体系,支持标准产品、批量采购及大型工程项目的稳定交付。</p></div>
+        <div><h4 data-i18n="co.s3h">自主供应链能力</h4><p data-i18n="co.s3p">覆盖核心器件、传感器封装、解调主机与系统集成,提升产品一致性、交付效率与成本竞争力。</p></div>
+        <div><h4 data-i18n="co.s4h">OEM · ODM 定制服务</h4><p data-i18n="co.s4p">支持封装形式、量程精度、接口通信、光纤长度、外观结构及系统功能等多维度定制。</p></div>
+      </div>
+      <div class="co-photos reveal">
+        <figure><img src="img/co-lab.webp" alt="研发与测试实验室实拍" loading="lazy"><figcaption data-i18n="co.f1">研发与测试</figcaption></figure>
+        <figure><img src="img/co-line.webp" alt="自动化产线实拍" loading="lazy"><figcaption data-i18n="co.f2">制造与产线</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="research-strip reveal">
+      <h3 data-i18n="co.rh">科研级技术源头</h3>
+      <p data-i18n="co.rp">DAS 技术与中国科学技术大学、浙江大学等团队联合研发,核心部件国产化率高于 90%;"通信光缆即地震台阵"的观测范式,已在国际顶级期刊得到验证。</p>
+      <div class="cite-row">
+        <span class="cite"><b>Science 2018</b> · <span data-i18n="co.r1">DAS 海底断层探测</span></span>
+        <span class="cite"><b>Nature Comm. 2022</b> · <span data-i18n="co.r2">火山喷发事件监测</span></span>
+        <span class="cite"><b>Nature Comm. 2024</b> · <span data-i18n="co.r3">台风过境海况反演</span></span>
+        <span class="cite"><b>Science Bulletin</b> · <span data-i18n="co.r4">钱塘江 62 km 海岸观测</span></span>
+      </div>
+    </div>
+
+    <div class="wall reveal">
+      <div class="wall-head"><h3 data-i18n="co.ch">资质与标准</h3><p data-i18n="co.cp">标志为设计示意,以官方证书为准;证书编号与扫描件可应询提供。</p></div>
+      <div class="cert-wall">
+        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">CNAS</text></svg><span data-i18n="co.c1">CNAS 检测</span></div>
+        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">CMA</text></svg><span data-i18n="co.c2">计量认证 CMA</span></div>
+        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">ISO</text></svg><span data-i18n="co.c3">ISO 9001</span></div>
+        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">MA</text></svg><span data-i18n="co.c4">MA 矿用安全</span></div>
+      </div>
+    </div>
+    <div class="co-tags reveal">
+      <span class="k" data-i18n="co.pk">封装能力</span>
+      <span class="tag" data-i18n="co.p1">管式封装</span><span class="tag" data-i18n="co.p2">基片式封装</span><span class="tag" data-i18n="co.p3">埋入式封装</span><span class="tag" data-i18n="co.p4">全金属化 / 无应力封装</span>
+    </div>
+    <div class="co-tags reveal">
+      <span class="k" data-i18n="co.ik">已交付行业</span>
+      <span class="tag" data-i18n="co.i1">桥梁与建筑</span><span class="tag" data-i18n="co.i2">隧道与轨交</span><span class="tag" data-i18n="co.i3">电力与能源</span><span class="tag" data-i18n="co.i4">水利与岩土</span><span class="tag" data-i18n="co.i5">矿山</span><span class="tag" data-i18n="co.i6">风电</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 终章 ===================== -->
+<section class="finale" id="contact">
+  <div class="wrap">
+    <h2 class="h2 reveal" data-i18n="fin.h2">你的下一次事故,<br>本可以只是一条预警。</h2>
+    <p class="lead reveal" data-i18n="fin.lead">告诉我们监测对象与现场条件,三个工作日内,拿到点位设计、设备配置与报价。</p>
+    <div class="reveal"><a class="btn btn-primary" href="mailto:17621251612@163.com?subject=监测方案与报价咨询" data-i18n="cta.main2">获取方案与报价</a></div>
+    <div class="dl-index reveal">
+      <span class="k" data-i18n="fin.dlk">规格书直达</span>
+      <a href="#specs" data-spec="fbg">GM-FBG-16/32</a>
+      <a href="#specs" data-spec="das">GM-DAS-50/100</a>
+      <a href="#specs" data-spec="dts">GM-DTS-04/08</a>
+      <a href="#specs" data-spec="sensors" data-i18n="fin.dl4">GM-F 传感器全系</a>
+      <a href="#specs" data-spec="wind" data-i18n="fin.dl5">风电专用</a>
+      <a href="#specs" data-spec="sys" data-i18n="fin.dl6">行业系统</a>
+    </div>
+    <p class="contact-line reveal" data-i18n="fin.contact">销售总监 王永强 · 电话 / 微信 <a href="tel:17621251612">176 2125 1612</a>,或来信 <a href="mailto:17621251612@163.com">17621251612@163.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <span data-i18n="ft.co">© 2026 上海港盟科技有限公司</span>
+    <a href="https://gm-sensor.com" style="color:var(--text-3)">gm-sensor.com</a>
+    <span data-i18n="ft.icp">沪ICP备2024000000号</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__reduce=reduce;
+  window.__lang=(function(){try{return localStorage.getItem('gm-lang')||'zh'}catch(e){return 'zh'}})();
+
+  /* ==== 双语动态文案:动画状态机与读数 ==== */
+  window.DYN={
+    zh:{
+      st1:['正常运行 · 波长稳定','重载通过 · 应变爬升','越限 1620 με · 主机报警','平台预警 · 通知运维','复核恢复 · 曲线回落'],
+      ph1:['正常','荷载','越限','报警','恢复'],
+      fbgRead:function(d,s){return 'Δλ +'+d+' pm · 应变 '+s+' με'},
+      st2:['正常运行 · 沿线安静','异常扰动 · K66 附近','定位 K66+040 · 主机报警','平台预警 · 联动现场','扰动消失 · 恢复正常'],
+      ph2:['正常','扰动','定位','报警','恢复'],
+      dasEvent:'事件 · K66+040',
+      st3:['正常运行 · 全线温度平稳','接头温升 · 趋势爬坡','越限 78 ℃ · 主机报警','平台预警 · 派单检修','负荷调整 · 温度回落'],
+      ph3:['正常','温升','越限','报警','恢复'],
+      dtsRead:function(t){return '接头 J-12 · '+t+' ℃'},
+      plat:['T+0 · 发现趋势:DTS 捕捉接头温升','T+2 min · 分级推送:告警直达值班人','T+15 min · 工单确认,现场按定位处置','T+3 h · 自动闭环:销警归档,全程可溯'],
+      platStatic:'接入 → 研判 → 分级预警 → 自动闭环,全程留痕可溯'
+    },
+    en:{
+      st1:['Normal · wavelength stable','Heavy load · strain rising','Over limit 1620 με · host alarm','Platform alert · crew notified','Verified · curve settling back'],
+      ph1:['Normal','Load','Limit','Alarm','Reset'],
+      fbgRead:function(d,s){return 'Δλ +'+d+' pm · strain '+s+' με'},
+      st2:['Normal · line quiet','Disturbance · near K66','Located K66+040 · host alarm','Platform alert · site dispatched','Cleared · back to normal'],
+      ph2:['Normal','Event','Locate','Alarm','Reset'],
+      dasEvent:'Event · K66+040',
+      st3:['Normal · line temperature steady','Joint heating · trend climbing','Over 78 °C · host alarm','Platform alert · work order sent','Load adjusted · cooling down'],
+      ph3:['Normal','Rise','Limit','Alarm','Reset'],
+      dtsRead:function(t){return 'Joint J-12 · '+t+' °C'},
+      plat:['T+0 · Trend found: DTS catches joint heating','T+2 min · Graded push: alert reaches the duty operator','T+15 min · Work order confirmed, crew acts on location','T+3 h · Auto closure: alarm archived, fully traceable'],
+      platStatic:'Ingest → analyze → graded alerts → auto closure, fully traceable'
+    }
+  };
+  function DL(){return window.DYN[window.__lang]}
+  window.__DL=DL;
+
+  /* ==== 开场编排 ==== */
+  if(reduce){document.body.classList.add('on');}
+  else{requestAnimationFrame(function(){requestAnimationFrame(function(){document.body.classList.add('on')})});}
+
+  /* ==== Hero λ 实时读数(1550.12 nm 为 DAS 激光真实波长,抖动幅度即 ±2 pm 精度)==== */
+  (function(){
+    var e=document.getElementById('heroLam');if(!e)return;
+    if(reduce)return;
+    setInterval(function(){
+      if(document.hidden)return;
+      e.textContent='λ '+(1550.120+(Math.random()*4-2)/1000).toFixed(3)+' nm';
+    },900);
+  })();
+
+  /* ==== 滚动入场 ==== */
+  if(!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(n){io.observe(n)});
+  }else{
+    document.querySelectorAll('.reveal').forEach(function(n){n.classList.add('in')});
+  }
+
+  /* ============ 章节动画:三台主机各自的原理 + 场景状态机 ============ */
+  var PH_N=5, DUR=[2600,2000,1800,2400,1800];
+  function el(id){return document.getElementById(id)}
+  function setPh(group,i){
+    var ts=group.querySelectorAll('.phx');
+    ts.forEach(function(t,j){t.setAttribute('fill',j===i?'var(--accent)':'#66718A')});
+  }
+
+  /* ---- 章节一:GM-FBG-16/32 ---- */
+  function fbgPaint(p,prog,st){
+    var probe=el('probeIn'),back=el('probeBack'),peak=el('specPeak'),read=el('specRead');
+    var deck=el('kDeck'),pt=el('kPt'),truck=el('kTruck'),dot=el('st1dot'),txt=el('st1txt');
+    var t=st.t%2.4, x, bx;
+    if(t<1.2){x=28+(t/1.2)*624;probe.setAttribute('cx',x);probe.setAttribute('opacity','1');back.setAttribute('opacity','0');}
+    else{bx=372-((t-1.2)/1.2)*344;back.setAttribute('cx',Math.max(28,bx));back.setAttribute('opacity','1');probe.setAttribute('opacity','.25');}
+    var shift=(p===1?prog:(p===2||p===3?1:(p===4?1-prog:0)));
+    var cx=143+shift*76;
+    peak.setAttribute('d','M16 96 L'+(cx-23)+' 96 C'+(cx-11)+' 96 '+(cx-11)+' 26 '+cx+' 26 C'+(cx+11)+' 26 '+(cx+11)+' 96 '+(cx+23)+' 96 L270 96');
+    var alarm=(p===2||p===3);
+    peak.setAttribute('stroke',alarm?'var(--alarm)':(shift>0?'var(--warn)':'var(--accent)'));
+    var strain=Math.round(1180+shift*440), dpm=Math.round(shift*24);
+    read.textContent=DL().fbgRead(dpm,strain);
+    var tx=(p===0?prog*380-40:(p===1?150+prog*30:(p===2?180+prog*180:(p===4||p>=4?prog*380-40: p===3?370:-40))));
+    truck.setAttribute('transform','translate('+tx+',0)');
+    var sag=shift*6;
+    deck.setAttribute('d','M20 92 Q161 '+(92+sag*1.8)+' 302 92');
+    pt.setAttribute('stroke',alarm?'var(--alarm)':(shift>0?'var(--warn)':'var(--ok)'));
+    dot.setAttribute('fill',alarm?'var(--alarm)':(shift>0?'var(--warn)':'var(--ok)'));
+    txt.textContent=DL().st1[p];
+    setPh(el('ph1'),p);
+  }
+
+  /* ---- 章节二:GM-DAS-50/100 ---- */
+  var wfRows=[];
+  (function buildWF(){
+    var g=el('wf'); if(!g)return;
+    var NS='http://www.w3.org/2000/svg';
+    for(var r=0;r<10;r++){
+      var row=document.createElementNS(NS,'g');
+      for(var c=0;c<48;c++){
+        var rect=document.createElementNS(NS,'rect');
+        rect.setAttribute('x',c*12.4);rect.setAttribute('y',0);
+        rect.setAttribute('width',10.4);rect.setAttribute('height',8.6);rect.setAttribute('rx',1.5);
+        rect.setAttribute('fill','rgba(90,200,245,.10)');
+        row.appendChild(rect);
+      }
+      row.setAttribute('transform','translate(0,'+(r*10.6)+')');g.appendChild(row);wfRows.push(row);
+    }
+  })();
+  var wfTick=0;
+  function dasPaint(p,prog,st){
+    var probe=el('dasProbe'),rip=el('dasRipple'),dig=el('digger'),pos=el('dasPos');
+    var dot=el('st2dot'),txt=el('st2txt');
+    var t=st.t%1.9, x=(t/1.9)*624;
+    probe.setAttribute('cx',x);
+    var active=(p>=1&&p<=3), alarm=(p===2||p===3);
+    dig.setAttribute('opacity',active?'1':'0');
+    if(active){var rr=6+((st.t*40)%26);rip.setAttribute('r',rr);rip.setAttribute('opacity',String(.9-((rr-6)/26)*.9));}
+    else rip.setAttribute('opacity','0');
+    pos.textContent=DL().dasEvent;
+    pos.setAttribute('opacity',(p===2||p===3)?'1':'0');
+    if(st.t-wfTick>0.14){
+      wfTick=st.t;
+      var top=wfRows.pop();
+      var cells=top.childNodes;
+      for(var c=0;c<cells.length;c++){
+        var amp=Math.random()*.10+.06;
+        if(active&&c>=30&&c<=33)amp=alarm?.95:.55;
+        cells[c].setAttribute('fill',(active&&c>=30&&c<=33)?(alarm?'rgba(239,107,94,.9)':'rgba(231,179,77,.75)'):'rgba(90,200,245,'+amp.toFixed(2)+')');
+      }
+      wfRows.unshift(top);
+      wfRows.forEach(function(row,i){row.setAttribute('transform','translate(0,'+(i*10.6)+')')});
+      top.setAttribute('transform','translate(0,0)');
+    }
+    dot.setAttribute('fill',alarm?'var(--alarm)':(p===1?'var(--warn)':'var(--ok)'));
+    txt.textContent=DL().st2[p];
+    setPh(el('ph2'),p);
+  }
+
+  /* ---- 章节三:GM-DTS-04/08 ---- */
+  function dtsPaint(p,prog,st){
+    var probe=el('dtsProbe'),as=el('dtsAS'),sk=el('dtsS'),curve=el('dtsCurve'),read=el('dtsRead');
+    var dot=el('st3dot'),txt=el('st3txt');
+    var t=st.t%2.6,x;
+    if(t<1.3){x=(t/1.3)*624;probe.setAttribute('cx',x);probe.setAttribute('opacity','1');as.setAttribute('opacity','0');sk.setAttribute('opacity','0');}
+    else{var bx=624-((t-1.3)/1.3)*624;
+      as.setAttribute('cx',Math.max(0,bx));as.setAttribute('cy',14);as.setAttribute('opacity','1');
+      sk.setAttribute('cx',Math.max(0,bx*.92));sk.setAttribute('cy',26);sk.setAttribute('opacity','.8');
+      probe.setAttribute('opacity','.25');}
+    var heat=(p===1?prog:(p===2||p===3?1:(p===4?1-prog:0)));
+    var alarm=(p===2||p===3);
+    var peakH=heat*72, px=400;
+    curve.setAttribute('d','M14 112 L'+(px-42)+' 112 C'+(px-20)+' 112 '+(px-20)+' '+(112-peakH)+' '+px+' '+(112-peakH)+' C'+(px+20)+' '+(112-peakH)+' '+(px+20)+' 112 '+(px+42)+' 112 L610 112');
+    curve.setAttribute('stroke',alarm?'var(--alarm)':(heat>0?'var(--warn)':'var(--ok)'));
+    read.textContent=DL().dtsRead(Math.round(41+heat*37));
+    dot.setAttribute('fill',alarm?'var(--alarm)':(heat>0?'var(--warn)':'var(--ok)'));
+    txt.textContent=DL().st3[p];
+    setPh(el('ph3'),p);
+  }
+
+  /* ---- 状态机驱动:仅当章节可见时运行 ---- */
+  var machines=[
+    {id:'fbg',paint:fbgPaint},{id:'das',paint:dasPaint},{id:'dts',paint:dtsPaint}
+  ];
+  window.__machines=machines;
+  machines.forEach(function(m){
+    m.state={p:0,t:0,ph0:0,run:false,last:0};
+    var sec=el(m.id);
+    if(reduce){m.state.t=0.6;m.paint(2,1,m.state);return;}
+    var vio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        m.state.run=e.isIntersecting;
+        if(e.isIntersecting){m.state.last=performance.now();tick(m)}
+      });
+    },{threshold:.35});
+    vio.observe(sec);
+  });
+  function tick(m){
+    if(!m.state.run)return;
+    requestAnimationFrame(function(now){
+      var dt=Math.min(.05,(now-m.state.last)/1000);m.state.last=now;m.state.t+=dt;
+      if(!m.state.ph0)m.state.ph0=now;
+      var elapsed=(now-m.state.ph0);
+      if(elapsed>DUR[m.state.p]){m.state.p=(m.state.p+1)%PH_N;m.state.ph0=now;elapsed=0}
+      m.paint(m.state.p,Math.min(1,elapsed/DUR[m.state.p]),m.state);
+      tick(m);
+    });
+  }
+  document.addEventListener('visibilitychange',function(){
+    machines.forEach(function(m){
+      if(document.hidden)m.state.run=false;
+      else{var r=el(m.id).getBoundingClientRect();
+        if(r.top<innerHeight&&r.bottom>0&&!reduce){m.state.run=true;m.state.last=performance.now();tick(m)}}
+    });
+  });
+
+  /* ============ 证据墙数字滚动 ============ */
+  (function(){
+    var els=[].slice.call(document.querySelectorAll('.cnt'));
+    function fmt(v,d,c){
+      var t=v.toFixed(d);
+      if(c==='1'){var a=t.split('.');a[0]=a[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');t=a.join('.');}
+      return t;
+    }
+    function run(elx){
+      var v=parseFloat(elx.dataset.v),d=parseInt(elx.dataset.d||'0'),c=elx.dataset.c;
+      var t0=performance.now(),D=1400;
+      (function step(now){
+        var p=Math.min(1,(now-t0)/D);p=1-Math.pow(1-p,3);
+        elx.textContent=fmt(v*p,d,c);
+        if(p<1)requestAnimationFrame(step);
+      })(t0);
+    }
+    if(reduce){els.forEach(function(e){e.textContent=fmt(parseFloat(e.dataset.v),parseInt(e.dataset.d||'0'),e.dataset.c)});return;}
+    var io2=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){run(e.target);io2.unobserve(e.target)}});
+    },{threshold:.6});
+    els.forEach(function(e){io2.observe(e)});
+  })();
+
+  /* ============ 平台闭环相位引擎 ============ */
+  (function(){
+    var read=document.getElementById('pRead');if(!read)return;
+    var fin=[].slice.call(document.querySelectorAll('.fp.fin'));
+    var o1=document.getElementById('po1'),o2=document.getElementById('po2'),o3=document.getElementById('po3');
+    var ON=[[fin],[fin,[o1]],[[o3]],[[o2]]];
+    var idx=0;
+    function set(i){
+      idx=i;
+      read.textContent=DL().plat[i];
+      [fin,[o1],[o2],[o3]].forEach(function(g){g.forEach(function(p){p.classList.remove('on')})});
+      ON[i].forEach(function(g){g.forEach(function(p){p.classList.add('on')})});
+    }
+    window.__platSet=function(){ if(window.__reduce){read.textContent=DL().platStatic;} else set(idx); };
+    if(reduce){read.textContent=DL().platStatic;return;}
+    set(0);
+    setInterval(function(){if(document.hidden)return;set((idx+1)%4);},3000);
+  })();
+
+  /* ============ 规格书选项卡 ============ */
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.spec-tabs .chip'));
+    function activate(key){
+      tabs.forEach(function(t){t.setAttribute('aria-pressed',String(t.dataset.tab===key))});
+      [].slice.call(document.querySelectorAll('.spec-panel')).forEach(function(p){
+        p.classList.toggle('on',p.id==='sp-'+key);
+      });
+    }
+    window.__specTab=activate;
+    tabs.forEach(function(t){t.addEventListener('click',function(){activate(t.dataset.tab)})});
+    [].slice.call(document.querySelectorAll('a[data-spec]')).forEach(function(a){
+      a.addEventListener('click',function(){activate(a.dataset.spec)});
+    });
+  })();
+})();
+</script>
+
+<script>
+/* ============ 行业选型器 · 八大行业(中英双语数据) ============ */
+(function(){
+  var SEL={
+  zh:{
+    cable:{h:'电力电缆:接头过热,是火灾最早的自白',
+      pain:'电缆沟与综合管廊又长又封闭,人巡到不了也看不全,而接头过热正是火灾的第一前兆;智慧管廊要求温度状态全线可视、越限自动联动消防,而不是靠季度测温枪抽查碰运气。',
+      tags:['GM-DTS-04/08','GM-FT03 触头测温','感温光缆','消防联动'],
+      plan:'一根测温光缆沿沟连续测温,0.2 米一个温度点,接头爬温在越限前先暴露趋势;开关柜触头加装 GM-FT03 微型陶瓷测温,继电器干接点直连既有消防系统。',
+      eco:'轻量化经济账:一根光缆替代成排点式探头,4~8 通道覆盖多条廊道,无源端免校准巡检。',
+      pol:'方案语境 · 电缆隧道测温预警 / 开关柜触头测温',go:'#dts'},
+    corridor:{h:'综合管廊:一条廊道,装着一座城市的命脉',
+      pain:'电力舱、综合舱、燃气舱分舱布防,火灾探测要过 GB 50838 的验收,结构沉降又是长期隐患;点式探测器数量庞大、误报难查,业主要的是分区报警、联动处置、一屏看全。',
+      tags:['GM-DTS-04/08','GM-FBG-16/32','分舱布防','GB 50838'],
+      plan:'DTS 按 1 公里防火分区配置线型感温火灾探测,报警联动消防主机与风机水泵;FBG 应变与静力水准盯结构沉降,两类感知汇入同一平台。',
+      eco:'轻量化经济账:1 台主机管一个防火分区,感温光缆即探测器;规范验收路径现成,依据 GB 50116 / GB 50838 / GB/T 21197。',
+      pol:'方案语境 · 城市生命线 / 智慧管廊',go:'#dts'},
+    pipe:{h:'油气管道:第一杀手是别人家的挖掘机',
+      pain:'第三方施工破坏长期占据管道事故诱因之首,老旧管网更新改造与智慧管网建设同步推进;点式检漏罩不住几十公里的盲区,巡线人力成本却在逐年上涨。业主要的是全线连续、定位到米、误报可控的那双耳朵,而且最好别再往地里埋新东西。',
+      tags:['GM-DAS-50/100','既有光缆复用','GM-DTS 温变佐证','工单联动'],
+      plan:'沿线通信光缆直接化作 23,552 个听诊器,开挖 / 泄漏双算法,挖掘敲击定位到米;泄漏场景 DAS 听位置、DTS 看温变,双证据交叉降误报。',
+      eco:'轻量化经济账:不新增一只传感器,通信光缆即传感阵列;单主机覆盖 50~100 km,每公里成本一目了然。',
+      pol:'方案语境 · 老旧管网更新 / 智慧管网',go:'#das'},
+    perimeter:{h:'周界安防:围栏挡得住人,挡不住不知道',
+      pain:'机场、场站、营区的周界一拉就是几十公里,视频有盲区、红外怕天气、人力巡逻覆盖不过来;安防要的不是"有动静",而是行为分类与米级定位,攀爬、翻越、剪切分得清,误报率压得住。',
+      tags:['GM-DAS-50/100','行为分类','米级定位','视频联动'],
+      plan:'沿围界光缆全天候值守,攀爬、翻越、剪切行为分类识别、米级定位,联动视频复核与现场处置。',
+      eco:'轻量化经济账:一台主机守护一条周界,光缆隐蔽敷设无前端供电,全天候全天时无盲区。',
+      pol:'方案语境 · 机场 / 场站 / 营区安防',go:'#das'},
+    rail:{h:'轨道交通:保护区里的挖掘机,比故障更可怕',
+      pain:'保护区违规施工是运营安全的头号外部威胁,几十公里线路靠人巡与视频根本盯不过来;监管要求异常事件能定位、能追溯、能闭环,预警晚一分钟,处置就贵一个量级。',
+      tags:['GM-DAS-50/100','GM-FBG-16/32','保护区预警','无人机复核'],
+      plan:'DAS 沿线听保护区施工扰动,定位到米推送工单,联动无人机复核,预警、推送、复核分钟级闭环;FBG 盯轨道结构关键断面,DTS 兼作线型感温火灾探测。',
+      eco:'轻量化经济账:既有通信光缆直接复用,一条光缆同时承担安防、结构与消防三类感知;合肥轨道 4 号线 44.8 km 已在运验证。',
+      pol:'方案语境 · 轨交保护区监管 / 平安百年品质工程',go:'#das'},
+    bridge:{h:'桥梁隧道:巡检以天计,劣化以小时计',
+      pain:'大批服役二三十年的存量桥梁进入病害多发期,重点桥梁的结构健康监测正在从示范工程走向标配要求。业主真正缺的不是又一堆传感器数据,而是能分级预警、能自动出报告、出了事能回溯定责的结论;靠人工巡检和年度检测,给不出这个提前量。',
+      tags:['GM-FBG-16/32','应变 · 索力 · 模态','分级预警','自动日报'],
+      plan:'应变、温补、振动、倾角、位移、索力六类测点单纤串联,±2 pm 典型精度把微米级变形变成清晰趋势;模态成像跟踪固有频率与振型,平台自动日报与越限分级直达养护单位。',
+      eco:'轻量化经济账:无源传感器一次埋设长期服役,通道按构件重要度配置;自动报告替代人工整编。',
+      pol:'方案语境 · 城市生命线 / 桥梁结构健康监测',go:'#fbg'},
+    water:{h:'水利大坝:渗流看不见,决口看得见',
+      pain:'堤坝渗流通道藏在地下几米到几十米,钻探排查成本高、覆盖窄、还伤坝体;汛期要的是"汛前查得出、汛中盯得住、汛后修得准",传统手段给不出连续的地下图像。',
+      tags:['GM-DAS-50/100','渗流成像','GM-F 渗压 · 土压','浸润线重建'],
+      plan:'DAS 沿坝光缆对地下结构成像,速度剖面圈定渗漏通道与富水带;渗压计与土压力计组合重建坝体浸润线,长期在线盯趋势。',
+      eco:'轻量化经济账:光缆铺设一次、长期复用,较传统钻探排查成本大幅降低;南水北调、庐江堤坝、新疆干渠已实证。',
+      pol:'方案语境 · 汛期水利安全 / 病险水库除险加固',go:'#das'},
+    wind:{h:'风电:机组越造越大,运维不能越跑越贵',
+      pain:'机组大型化与深远海化把叶片载荷、塔筒应力和螺栓状态的问题成倍放大;"以大代小"改造潮已经启动,而海上运维一次出船的成本,决定了故障发现每晚一天都是真金白银。少人值守的智能场站,要求状态可远传、趋势可研判,而不是等年检报告。',
+      tags:['GM-WTB / WTT / WTF','GM-FL01 锚索计','GM-FBG-16/32','全光纤防雷'],
+      plan:'叶根载荷、塔筒应力、法兰间隙、混塔锚索四类专用传感器统一接入 GM-FBG-16/32,载荷与振动趋势进平台做预测性维护,构成风机结构安全整体监测系统。',
+      eco:'轻量化经济账:传感端不带电、免维护、天然防雷,改造机组只按关键部位布点,不必全量铺设。',
+      pol:'方案语境 · 双碳 / 老旧风电场改造升级',go:'#fbg'}
+  },
+  en:{
+    cable:{h:'Power cables: an overheating joint is the earliest confession of a fire',
+      pain:'Cable trenches and utility tunnels are long, sealed and hard to patrol, and joint overheating is the first sign of fire. A smart corridor needs line-wide temperature visibility with automatic fire-system interlock, not quarterly spot checks with a thermal gun.',
+      tags:['GM-DTS-04/08','GM-FT03 contact probes','Sensing cable','Fire interlock'],
+      plan:'One temperature-sensing cable runs the trench with a reading every 0.2 m, so a creeping joint shows its trend before the limit; GM-FT03 ceramic micro-probes watch switchgear contacts, and relay dry contacts wire straight into the existing fire system.',
+      eco:'The lightweight math: one cable replaces rows of point detectors, 4~8 channels cover multiple corridors, and the passive end needs no calibration patrols.',
+      pol:'Solution context · cable tunnel temperature alarm / switchgear contact sensing',go:'#dts'},
+    corridor:{h:'Utility corridors: one tunnel carries the lifelines of a city',
+      pain:'Power, utility and gas compartments each need their own protection, fire detection must pass GB 50838 acceptance, and structural settlement is a long-term risk. Owners want zoned alarms, interlocked response and one screen for everything, not thousands of point detectors with untraceable false alarms.',
+      tags:['GM-DTS-04/08','GM-FBG-16/32','Zoned protection','GB 50838'],
+      plan:'DTS provides linear heat detection per 1 km fire zone, with alarms interlocked to fire hosts, fans and pumps; FBG strain and hydrostatic levels watch settlement, and both feeds land in one platform.',
+      eco:'The lightweight math: one host per fire zone, the sensing cable is the detector; the acceptance path is ready-made per GB 50116 / GB 50838 / GB/T 21197.',
+      pol:'Solution context · urban lifelines / smart corridors',go:'#dts'},
+    pipe:{h:'Oil and gas pipelines: the number one killer is someone else\'s excavator',
+      pain:'Third-party construction remains the top cause of pipeline incidents, while aging-network renewal and smart-pipeline programs run in parallel. Point leak detectors cannot cover tens of kilometers of blind zones and line-patrol costs keep climbing. Owners want continuous coverage, meter-level location and controllable false alarms, ideally without burying anything new.',
+      tags:['GM-DAS-50/100','Reuse existing fiber','GM-DTS thermal evidence','Work-order interlock'],
+      plan:'The communication cable along the line becomes 23,552 stethoscopes with dual excavation / leak algorithms and meter-level location; for leaks, DAS hears the position while DTS sees the temperature change, and the crossed evidence suppresses false alarms.',
+      eco:'The lightweight math: not a single new sensor; the telecom cable is the array, one host covers 50~100 km and the cost per kilometer is plain to see.',
+      pol:'Solution context · aging network renewal / smart pipelines',go:'#das'},
+    perimeter:{h:'Perimeter security: a fence stops people, not not-knowing',
+      pain:'Airport, depot and campus perimeters run for dozens of kilometers; video has blind spots, infrared fears weather and patrols cannot keep up. Security needs behavior classification and meter-level location, telling climbing from cutting with false alarms kept down, not just "something moved".',
+      tags:['GM-DAS-50/100','Behavior classification','Meter-level location','Video interlock'],
+      plan:'A fiber along the fence keeps watch around the clock, classifying climbing, crossing and cutting with meter-level location, and triggers video review and on-site response.',
+      eco:'The lightweight math: one host guards one perimeter; the cable is buried out of sight with no powered front end, and coverage has no blind zone in any weather.',
+      pol:'Solution context · airports / depots / campuses',go:'#das'},
+    rail:{h:'Rail transit: an excavator in the protection zone beats any equipment failure',
+      pain:'Illegal construction in the protection zone is the top external threat to operations, and dozens of kilometers cannot be watched by patrols and cameras alone. Regulators demand events that can be located, traced and closed out; every minute of delay makes the response an order of magnitude dearer.',
+      tags:['GM-DAS-50/100','GM-FBG-16/32','Protection-zone alerts','Drone review'],
+      plan:'DAS listens for construction along the line and pushes work orders with meter-level location, drones fly the review, and the alert-push-review loop closes in minutes; FBG watches key track sections while DTS doubles as linear heat detection.',
+      eco:'The lightweight math: the existing telecom cable is reused as-is, one fiber carrying security, structure and fire sensing at once; proven in service on Hefei Metro Line 4 across 44.8 km.',
+      pol:'Solution context · transit protection-zone regulation',go:'#das'},
+    bridge:{h:'Bridges and tunnels: inspections count in days, deterioration in hours',
+      pain:'A large stock of bridges twenty to thirty years in service is entering its defect-prone years, and structural health monitoring is moving from showcase projects to standard requirement. What owners lack is not another pile of sensor data but conclusions that grade alerts, write their own reports and hold up in a post-incident review; manual inspection and annual testing cannot give that lead time.',
+      tags:['GM-FBG-16/32','Strain · cable force · modal','Graded alerts','Auto reports'],
+      plan:'Six point types(strain, temperature reference, vibration, tilt, displacement, cable force) run on one fiber; ±2 pm typical precision turns micron-level deformation into clean trends, modal imaging tracks natural frequencies, and the platform sends daily reports and graded alerts straight to the maintenance unit.',
+      eco:'The lightweight math: passive sensors are embedded once and serve for years, channels are allocated by member criticality, and automatic reports replace manual compilation.',
+      pol:'Solution context · urban lifelines / bridge SHM',go:'#fbg'},
+    water:{h:'Dams and levees: seepage is invisible, a breach is not',
+      pain:'Seepage channels hide meters to tens of meters underground; drilling surveys are costly, narrow and hurt the embankment. Flood season demands finding problems before the flood, watching them during it and repairing precisely after, and traditional tools cannot draw a continuous underground picture.',
+      tags:['GM-DAS-50/100','Seepage imaging','GM-F piezometers','Phreatic line rebuild'],
+      plan:'DAS images the subsurface along the dam fiber, velocity profiles ring seepage channels and water-rich zones; piezometers and earth pressure cells rebuild the phreatic line, watched online for the long term.',
+      eco:'The lightweight math: lay the cable once, reuse it for years, far below the cost of drilling surveys; proven on the South-North Water Transfer, Lujiang levee and Xinjiang canal.',
+      pol:'Solution context · flood-season safety / reservoir rehabilitation',go:'#das'},
+    wind:{h:'Wind power: turbines keep growing, O&M budgets must not',
+      pain:'Bigger turbines and deeper waters multiply the stakes in blade loads, tower stress and bolt condition. The repowering wave has started, and offshore the cost of one boat trip means every extra day to find a fault is real money. Lightly-manned smart farms need conditions that transmit and trends that can be judged remotely, not annual inspection reports.',
+      tags:['GM-WTB / WTT / WTF','GM-FL01 load cell','GM-FBG-16/32','All-fiber lightning immunity'],
+      plan:'Four dedicated sensor families(blade-root load, tower stress, flange gap, hybrid-tower anchor cables) feed one GM-FBG-16/32, with load and vibration trends driving predictive maintenance on the platform, forming a whole-turbine structural safety system.',
+      eco:'The lightweight math: the sensing end carries no power, needs no maintenance and is inherently lightning-proof; retrofits instrument only the critical positions.',
+      pol:'Solution context · dual-carbon / aging wind farm retrofits',go:'#fbg'}
+  }};
+  var chips=[].slice.call(document.querySelectorAll('.selq .chip'));
+  var H=document.getElementById('selH'),Pn=document.getElementById('selPain'),
+      Tg=document.getElementById('selTags'),Pl=document.getElementById('selPlan'),
+      Ec=document.getElementById('selEco'),Po=document.getElementById('selPol'),
+      G=document.getElementById('selGo');
+  var cur='cable';
+  function apply(k){
+    var m=SEL[window.__lang][k];if(!m)return;
+    cur=k;
+    H.textContent=m.h;Pn.textContent=m.pain;Pl.textContent=m.plan;
+    Ec.textContent=m.eco;Po.textContent=m.pol;G.setAttribute('href',m.go);
+    Tg.innerHTML='';
+    m.tags.forEach(function(t){var x=document.createElement('span');x.className='tag';x.textContent=t;Tg.appendChild(x);});
+    chips.forEach(function(c){c.setAttribute('aria-pressed',String(c.dataset.q===k));});
+  }
+  window.__selApply=function(){apply(cur)};
+  chips.forEach(function(c){c.addEventListener('click',function(){apply(c.dataset.q)});});
+  apply('cable');
+})();
+</script>
+
+<script>
+/* ============ 中英切换:EN 词典 + 应用器 ============ */
+(function(){
+  var EN={
+  'brand':'GM Sensing',
+  'nav.why':'Why','nav.hosts':'Interrogators','nav.sensors':'Sensors','nav.specs':'Datasheets','nav.industries':'Industries','nav.cases':'Track record','nav.company':'Company',
+  'cta.main':'Get a proposal & quote','cta.main2':'Get a proposal & quote',
+  'hero.h1':'Invisible risk,<br>visible for the first time.',
+  'hero.lead':'One fiber: up to 100 km and 23,552 sensing points. Every anomaly on your bridges, pipelines, cables and dams reaches your screen before it becomes an accident.',
+  'hero.how':'See how it works',
+  'why.h2':'Traditional monitoring<br>loses on three counts.',
+  'why.t1':'BLIND ZONES','why.h1x':'Point gauges only see where they sit','why.p1':'The hundreds of meters between two electronic sensors are an unwatched dark zone, and accidents love the space between two points.',
+  'why.t2':'INTERFERENCE','why.h2x':'Electronics fear power, water and lightning','why.p2':'Beside HV cables, in damp tunnels, through thunderstorm season: electronic sensors fail and cry wolf more often than real accidents happen.',
+  'why.t3':'LAG','why.h3x':'When patrols find it, it is already an accident','why.p3':'Inspection cycles are counted in days while deterioration and heating develop in hours. What you need is not a record. It is lead time.',
+  'proof.h2':'No adjectives needed.<br>The numbers speak.',
+  'proof.s1':'GM-DAS range per unit (optional)','proof.s2':'Parallel channels per unit','proof.s3':'GM-FBG wavelength repeatability','proof.s4':'GM-DTS spatial resolution','proof.s5':'GM-DTS full measurement cycle','proof.s6':'GM-FI01 tilt resolution',
+  'idea.h2':'So we turned the sensor<br>into a single fiber.',
+  'idea.lead':'Passive, EMI-immune, intrinsically safe. Wherever the cable reaches, sensing follows: every meter is a measuring point, on watch every second.',
+  'idea.n1':'Bridge','idea.n2':'Pipeline','idea.n3':'Cable','idea.n4':'Dam',
+  'idea.cap':'One cable acting as sensor, transmission line and patrol at once.',
+  'fbg.tag':'GM-FBG-16/32 FBG interrogator × classic scene: bridge structural health',
+  'fbg.h2':'The bridge is talking.<br>Now you can hear it.',
+  'fbg.copy':'Broadband light travels down the fiber; each grating reflects exactly one wavelength. Load the structure and the wavelength shifts. <b>±2 pm typical precision</b> turns micron-level change inside reinforced concrete into one clean curve on screen, with temperature cross-sensitivity cancelled at the source by a reference grating.',
+  'fbg.prod':'FBG interrogator · ±2 pm · compact 161×144×33 mm',
+  'fbg.k1':'Optical channels (options)','fbg.k2':'Wavelength precision (typical)','fbg.k3':'Optical dynamic range','fbg.k4':'Scan rate (faster on request)',
+  'fbg.spec':'Full specifications','fbg.cap':'Point precision: every load on a key member gets an echo',
+  'fbg.svg1':'Principle · grating reflection and wavelength shift','fbg.svg2':'Broadband in → one λ reflected','fbg.svg3':'Alarm threshold','fbg.svg4':'Midspan FBG strain gauge S-07',
+  'demo.note':'Demo data · thresholds set per project','demo.note2':'Demo data · thresholds set per project','demo.note3':'Demo data · thresholds set per project',
+  'das.tag':'GM-DAS-50/100 distributed acoustic interrogator × classic scene: pipelines & perimeters',
+  'das.h2':'A hundred kilometers of line.<br>Who touched it, and where: known.',
+  'das.copy':'A probe pulse runs along the telecom cable; any vibration shifts the phase of the light scattered back from that point. Phase demodulation turns the whole cable into <b>23,552 stethoscopes</b>: digging, knocking and leaks located to the meter, with ≥99% waveform fidelity to tell what it was.',
+  'das.prod':'Distributed acoustic / vibration interrogator · 2U rack · phase demodulation',
+  'das.k1':'Max range (with Raman amp)','das.k2':'Parallel channels','das.k3':'Bandwidth ceiling @1 km','das.k4':'Spatial resolution / locating',
+  'das.spec':'Full specifications','das.cap':'Distributed auscultation: third-party digging shows up in the alarm',
+  'das.svg1':'Principle · coherent Rayleigh phase sensing','das.svg2':'Waterfall · distance across, time down',
+  'dts.tag':'GM-DTS-04/08 distributed temperature interrogator × classic scene: cable tunnels & corridors',
+  'dts.h2':'See the trend<br>before the temperature runs away.',
+  'dts.copy':'Raman scattering returns two beams whose intensity ratio depends on temperature alone. OTDR slices position every <b>0.2 m</b> and a full scan takes 0.5 s: a temperature map over 12.5 km per channel, where even one degree creeping up a joint has nowhere to hide. Alarms wire straight into the fire host via dry contacts.',
+  'dts.prod':'Distributed temperature interrogator · 2U rack · 4~8 channels',
+  'dts.k1':'Range per channel','dts.k2':'Spatial resolution','dts.k3':'Accuracy · resolution 0.1 °C','dts.k4':'Full measurement cycle',
+  'dts.spec':'Full specifications','dts.cap':'A meter-by-meter heat map: hot spots removed before they become fire spots',
+  'dts.svg1':'Principle · Raman intensity-ratio thermometry','dts.svg2':'Probe pulse →','dts.svg3':'← anti-Stokes / Stokes','dts.svg4':'Temperature profile · 12.5 km / channel','dts.svg5':'Threshold 65 °C',
+  'siting.h2':'Deployment needs one ordinary equipment room.',
+  'siting.lead':'Six site requirements cover all three interrogators; recommended values to be confirmed per project after a site survey.',
+  'siting.c1':'Mains for DAS / DTS with UPS advised; FBG unit runs on DC 9~36 V',
+  'siting.c2':'19-inch rack space; FBG unit is 161×144×33 mm, desk or rack',
+  'siting.c3':'Grounding resistance, dedicated earth with surge and lightning protection',
+  'siting.c4':'Room temperature by model, humidity ≤85% RH non-condensing',
+  'siting.c5':'Fusion-spliced cable termination; pigtails per interrogator ports',
+  'siting.c6':'Ethernet uplink; RS485 / CAN / dry contacts, 4G or 2.4G radio optional',
+  'sen.h2':'Eight sensor families,<br>one naming system that explains itself.',
+  'sen.lead':'GM-F series: 8 families, 21 standard models. Range, size and packaging customizable across the line; selection, quoting and bidding readable at a glance.',
+  'nm.s1':'Brand','nm.s2':'FBG sensor','nm.s3':'Quantity code','nm.s4':'Series number',
+  'nm.eg':'Example: GM-FT01 = Gangmeng · grating · temperature · No. 01. Interrogator suffixes are the key spec: GM-FBG-16/32 (channels) · GM-DAS-50/100 (km) · GM-DTS-04/08 (channels)',
+  'nm.t':'Temperature','nm.sx':'Strain','nm.d':'Displacement','nm.p':'Pressure','nm.a':'Vibration','nm.i':'Tilt','nm.l':'Anchoring','nm.b':'Bolt',
+  'nm.foot':'Wind-power products keep their proven supply codes (GM-WTB / WTT / WTF); the former GM-PAC04 load cell is merged into GM-FL01.',
+  'cat.t.h':'Temperature','cat.t.p':'From structural thermometry to fire detection and switchgear contacts: all-fiber passive sensing, doubling as the network temperature reference.','cat.t.m':'FT01 general · FT02 fast response · FT03 ceramic micro','cat.t.g1':'±0.5 °C / 0.1 °C',
+  'cat.s.h':'Strain & rebar stress','cat.s.p':'Inside concrete, on the surface, along the rebar: the structural loading trio, temperature-paired with FT01.','cat.s.m':'FS01 embedded · FS02 surface-mount · FS03 rebar stress','cat.s.g1':'1% F.S. / 1 με',
+  'cat.d.h':'Displacement & settlement','cat.d.p':'Crack opening, structural displacement, long-throw draw-wire and hydrostatic leveling: deformation fully covered.','cat.d.m':'FD01 crack · FD02 displacement · FD03 draw-wire · FD04 hydrostatic','cat.d.g1':'0.01 mm resolution','cat.d.g2':'20 m draw-wire',
+  'cat.p.h':'Pressure','cat.p.p':'Pore water and earth pressure: the pair that rebuilds a dam\'s phreatic line and effective stress state.','cat.p.m':'FP01 piezometer · FP02 earth pressure cell','cat.p.g1':'Sink-in / embed',
+  'cat.a.h':'Vibration','cat.a.p':'First bridge modes from 0.5 Hz up: low-frequency, high sensitivity, combined for 2D / 3D measurement.','cat.a.m':'FA01 accelerometer · standard / enhanced',
+  'cat.i.h':'Tilt','cat.i.p':'Towers, pylons and high-rises; shield tunnel convergence and landslides: dual-grating self temperature compensation.','cat.i.m':'FI01 tilt sensor · biaxial option','cat.i.g1':'Dual-grating self-comp',
+  'cat.l.h':'Anchoring & support','cat.l.p':'From 2000 kN anchor cables to smart rock bolts: the complete cable-bolt-rock force chain.','cat.l.m':'FL01 load cell · FL02 bearing plate · FL03 instrumented bolt · FL04 separation · FL05 smart bolt','cat.l.g1':'120° eccentricity check',
+  'cat.b.h':'Bolt','cat.b.p':'Direct stress on segment and flange bolts; loosening and fracture trends caught before the break.','cat.b.m':'FB01 bolt stress sensor · sized per bolt','cat.b.g1':'Pre-fracture warning',
+  'wind.h':'Wind-power series · proven volume supply',
+  'wind.p':'Blade loads, tower stress, flange bolts, attitude and anchor cables; all-fiber design inherently lightning-immune, feeding one GM-FBG-16/32 and the platform.',
+  'wind.m1':'Blade-root load · ±5000 με · 14 pm/°C comp','wind.m2':'Surface stress · ±5000 με · 0.88 pm/με','wind.m3':'Biaxial vibration · ±5 g / ±10 g · 0.1~70 Hz','wind.m4':'Flange gap · ±300 μm · 0.05 μm resolving',
+  'sen.foot':'IP68 across the line (wind series IP65) · C-band 1528~1568 nm · FC/APC connectors; compatible with any C-band third-party interrogator, no vendor lock-in.',
+  'sen.footbtn':'Full series specs',
+  'sp.h2':'The datasheets, laid out right here.',
+  'sp.lead':'Key parameters kept in sync with the product manuals, so selection never means digging through PDFs; full datasheets and the selection handbook arrive by email.',
+  'sp.tab4':'GM-F sensors','sp.tab5':'Wind power','sp.tab6':'Industry systems',
+  'sp.fbg.h':'GM-FBG-16/32 FBG Interrogator','sp.fbg.sub':'Industrial FBG wavelength interrogation platform',
+  'sp.fbg.note':'Performance: ±2 pm typical, ±1 pm repeatability, 40 dB dynamic range. Industrial: wide temperature and supply range, low power. Compact: built to embed. Typical use: bridge and tunnel SHM, wind blades and hybrid towers, power equipment thermometry.',
+  'sp.fbg.r1':'Optical channels','sp.fbg.v1':'1~32 optional','sp.fbg.r2':'Wavelength range','sp.fbg.r3':'Wavelength precision','sp.fbg.v3':'±2 pm (typical)','sp.fbg.r4':'Repeatability / stability','sp.fbg.r5':'Dynamic range','sp.fbg.r6':'Scan rate','sp.fbg.v6':'1~100 Hz (faster on request)','sp.fbg.r7':'Interfaces','sp.fbg.v7':'RJ45 / RS485 / CAN / 2.4G radio','sp.fbg.r8':'Power','sp.fbg.r9':'Operating / storage temp','sp.fbg.r10':'Dimensions',
+  'sp.das.h':'GM-DAS-50/100 Distributed Acoustic / Vibration Interrogator','sp.das.sub':'Flagship distributed acoustic sensing platform',
+  'sp.das.note':'Long reach: 50 km standard, 100 km with the optional Raman amplifier. Wide and massive: 0.01 Hz~50 kHz response over 23,552 parallel channels. High fidelity: narrow-linewidth laser, ≥99% waveform fidelity, quantitative acoustic models for event classification. Typical use: oil and gas pipelines, perimeters, transit protection zones, seismic and geological survey.',
+  'sp.das.r1':'Measurement range','sp.das.v1':'50 km standard / 100 km optional','sp.das.r2':'Spatial resolution','sp.das.r3':'Frequency response','sp.das.r4':'Demodulation channels','sp.das.v4':'23,552 parallel','sp.das.r5':'Waveform fidelity','sp.das.r6':'Laser linewidth / RIN','sp.das.r7':'Acquisition','sp.das.r8':'Optical / data interface','sp.das.v8':'1~2 channels · USB4.0 (Thunderbolt 4)','sp.das.r9':'Chassis / power','sp.das.v9':'2U rack · 220 V AC','sp.das.r10':'Operating temperature',
+  'sp.dts.h':'GM-DTS-04/08 Distributed Temperature Interrogator','sp.dts.sub':'Distributed thermometry host · fire-system interlock',
+  'sp.dts.note':'In-house temperature-stabilized optoelectronics on an embedded ARM + Linux board; a code-defined linear heat detector covering kilometers per unit with sub-meter locating, long life and no maintenance. Typical use: cable tunnels, utility corridors, road tunnels, dams, oil and gas storage fire warning.',
+  'sp.dts.r1':'Fiber type','sp.dts.v1':'Multimode (single-mode long-haul on request)','sp.dts.r2':'Range','sp.dts.v2':'12.5 km / channel','sp.dts.r3':'Channels','sp.dts.v3':'4 (8 optional)','sp.dts.r4':'Spatial resolution','sp.dts.r5':'Accuracy / resolution','sp.dts.r6':'Measurement time','sp.dts.v6':'0.5 s (10,000 averages)','sp.dts.r7':'Temperature range','sp.dts.r8':'Electrical interfaces','sp.dts.v8':'RS485 / RJ45 / CAN · dry contacts','sp.dts.r9':'Power','sp.dts.r10':'Mounting','sp.dts.v10':'2U rack',
+  'sp.sen.h':'GM-F Sensor Series · 8 families, 21 models','sp.sen.sub':'IP68 across the line · C-band 1528~1568 nm · FC/APC',
+  'sp.sen.note':'Range, size and packaging customizable per project; strain sensors deploy paired with GM-FT01 for temperature-compensated true stress.',
+  'sp.th1':'Model','sp.th2':'Name','sp.th3':'Range','sp.th4':'Accuracy / resolution','sp.th5':'Key parameters',
+  'sp.g.t':'Temperature <span>T · TEMPERATURE</span>','sp.g.s':'Strain & rebar stress <span>S · STRAIN</span>','sp.g.d':'Displacement & settlement <span>D · DISPLACEMENT</span>','sp.g.p':'Pressure <span>P · PRESSURE</span>','sp.g.a':'Vibration <span>A · DYNAMICS</span>','sp.g.i':'Tilt <span>I · INCLINATION</span>','sp.g.l':'Anchoring & support <span>L · ANCHORING</span>','sp.g.b':'Bolt <span>B · BOLT</span>',
+  'mx.ft01':'General temperature sensor','mx.ft01r':'-40~120 °C (customizable)','mx.ft01k':'Φ9×100 mm · IP68 · clamp / lash / embed',
+  'mx.ft02':'Fast-response heat unit','mx.ft02r':'-40~120 °C (customizable)','mx.ft02k':'Φ7×100 mm · IP68 · Ex zones · fire detection',
+  'mx.ft03':'Ceramic micro temperature sensor','mx.ft03r':'-40~120 °C (customizable)','mx.ft03k':'Φ4×45 mm · IP68 · switchgear contacts, tight spots',
+  'mx.fs01':'Embedded strain gauge','mx.fs01k':'100 mm gauge · embed · IP68 · paired with FT01',
+  'mx.fs02':'Surface-mount strain gauge','mx.fs02k':'100 mm gauge · weld on steel / bond on concrete · IP68',
+  'mx.fs03':'Rebar stress gauge','mx.fs03r':'200 T / 100 C MPa','mx.fs03k':'All rebar sizes · 600 mm · butt-weld / lash',
+  'mx.fd01':'Crack meter','mx.fd01r':'20 mm (customizable)','mx.fd01k':'Fully sealed embed · -40~80 °C · IP68',
+  'mx.fd02':'Displacement meter','mx.fd02a':'0.1 / 0.5 mm · resolution 0.01 mm','mx.fd02k':'Φ40×200 mm · base mount, swappable and calibratable',
+  'mx.fd03':'Draw-wire displacement meter','mx.fd03r':'100 mm (customizable)','mx.fd03k':'Φ40×350 mm · 20 m wire for remote points',
+  'mx.fd04':'Hydrostatic level gauge','mx.fd04k':'Φ120×250 mm · networked settlement · steel / molded',
+  'mx.fp01':'Piezometer','mx.fp01r':'0.35 / 1 MPa (customizable)','mx.fp01k':'Φ30×120 mm · sink-in / embed · IP68',
+  'mx.fp02':'Earth pressure cell','mx.fp02r':'1 / 2 MPa (customizable)','mx.fp02k':'Sized to spec · embed · IP68 · pairs with piezometer',
+  'mx.fa01':'Accelerometer','mx.fa01a':'2 mg / 0.5 mg · ≈500 pm/g','mx.fa01k':'110×35×25 mm · IP68 · combine for 2D / 3D',
+  'mx.fi01':'Tilt sensor','mx.fi01k':'105×80×28 mm · bolt mount · IP68 · dual-grating self-comp',
+  'mx.fl01':'Anchor cable load cell (ex GM-PAC04)','mx.fl01a':'3~6 redundant gratings · 120° eccentricity',
+  'mx.fl02':'Anchor bearing-plate cell','mx.fl02k':'Seats between plate and rock face · IP54',
+  'mx.fl03':'Instrumented rock bolt','mx.fl03k':'Gratings inside the bolt · strain / axial force / moment / shear',
+  'mx.fl04':'Roof separation sensor','mx.fl04r':'200 mm resettable','mx.fl04k':'395×306×34 mm · early separation trends',
+  'mx.fl05':'Smart FRP bolt','mx.fl05r':'500 MPa tensile','mx.fl05a':'1% (0.5% optional)','mx.fl05k':'The FRP rod is the sensor · gratings drawn in · IP68',
+  'mx.fb01':'Bolt stress sensor','mx.fb01k':'Sized per bolt · armored waterproof · -30~+80 °C',
+  'sp.wd.h':'Wind-Power Monitoring Sensors','sp.wd.sub':'Proven volume-supply models · inherently lightning-immune',
+  'sp.wd.note':'Blade-root sections carry 3~4 load sensors within the 3% zone per JG/T 422-2013; blade loads, tower stress, flange gaps and hybrid-tower anchors feed one GM-FBG-16/32 and the platform, forming a whole-turbine structural safety system.',
+  'sp.th1b':'Model','sp.th2b':'Name','sp.th3b':'Range','sp.th4b':'Key figures','sp.th5b':'Protection / notes',
+  'wx.wtb01':'Blade-root load sensor','wx.wtb01a':'≤0.1% F.S. · comp 14 pm/°C','wx.wtb01k':'IP65 · specialty bonding · all-fiber lightning immunity',
+  'wx.wtt02':'Surface stress sensor','wx.wtt02a':'0.88 pm/με · 0.5% repeatability','wx.wtt02k':'IP65 · surface bond · interchangeable',
+  'wx.wtt03':'Biaxial vibration sensor','wx.wtt03a':'0.1~70 Hz · 500~1000 pm/g','wx.wtt03k':'IP65 · both axes at once · range per turbine',
+  'wx.wtf05':'Flange gap sensor','wx.wtf05a':'0.05 μm resolving · 53 μm/nm','wx.wtf05k':'102×32×5 mm · pre-fracture warning',
+  'wx.fi01':'Biaxial tilt sensor','wx.fi01k':'IP68 · tower attitude and foundation settlement',
+  'wx.fl01':'Anchor cable load cell','wx.fl01a':'3~6 gratings · 120° eccentricity','wx.fl01k':'IP67 · hybrid-tower anchors online 24 h',
+  'sp.sys.h':'Industry Systems & Turnkey Solutions','sp.sys.sub':'System-level delivery · code-compliant acceptance',
+  'sp.sys.c1h':'Mine roof stress monitoring (flameproof)','sp.sys.c1p':'Fiber sensing, computer inspection and data comms in one; roof state reported automatically, cutting underground patrols and informing bolting design.','sp.sys.c1m':'Processor↔sensors ≤5 km · ↔surface ≤10 km<br>Roof stress 0~70 kN · displacement 0~180 mm<br>Bolt stress 0~150 kN · 127 V pit / 220 V surface',
+  'sp.sys.c2h':'FBG structural health monitoring (SHM)','sp.sys.c2p':'Strain, temperature reference, vibration, tilt, displacement and cable force on one fiber into the SHM platform: online assessment, event alarms, contingency plans; delivered as sensors, integration or data service.','sp.sys.c2m':'GM-FBG-16/32 · 1~32 channels<br>1 pm resolution · 1 / 100 / 1000 Hz sampling<br>Detail drawings · installation & calibration · acceptance',
+  'sp.sys.c3h':'Cable tunnel & corridor thermometry','sp.sys.c3p':'GM-DTS-04/08 with sensing cable (sinusoidal or suspended) and software; GM-FT02 units reinforce high-risk spots, alarms interlock fire hosts, fans and pumps.','sp.sys.c3m':'1 km fire zone = 1 host + cable + zone software<br>Per GB 50116 · GB 50838 · GB/T 21197<br>0.2 m locating · 0.5 s response · 12.5 km / channel',
+  'sp.mailnote':'Full datasheet PDFs, selection handbook and authorization letters:',
+  'sp.mail':'request by email, delivered within one working day',
+  'net.h2':'Three interrogators, one network.',
+  'net.lead':'Sensors and cable do the sensing, three interrogators do the demodulation, the platform does the judgment and alerts find the right person. Every meter of fiber hangs on the same chain.',
+  'net.n1':'Sensors · cable','net.d1':'8 GM-F families · armored cable','net.n2':'Three interrogators','net.n3':'AI platform','net.d3':'Trends · judgment · reports','net.n4':'Graded alerts','net.d4':'Thresholds · events · interlock',
+  'net.cap':'One data chain: light goes in, decisions come out.',
+  'pf.h2':'Above the three interrogators<br>sits one brain.',
+  'pf.lead':'Owners\' real problems are concrete: systems that don\'t talk, alarms that fade into background noise, reports built overnight by hand. The platform has one job: turn data into conclusions, and deliver conclusions to people.',
+  'pf.i1h':'Unified multi-source ingestion','pf.i1p':'Cures data silos: interrogators, DAS / DTS hosts, environmental gear, video and third-party systems on one screen.',
+  'pf.i2h':'Intelligent anomaly detection','pf.i2p':'Cures alarm fatigue: thresholds, trends, correlation rules and models cross-check and grade events so every alarm is worth standing up for.',
+  'pf.i3h':'Trend forecasting & risk judgment','pf.i3p':'Cures hindsight: long-run data yields trends and risk grades, moving maintenance from fix-on-failure to maintain-on-forecast.',
+  'pf.i4h':'Automated reporting & O&M support','pf.i4p':'Cures manual compilation: daily status, alarm logs and maintenance advice generated automatically, fully logged and traceable.',
+  'pf.api':'Open interfaces','pf.relay':'Relay dry contacts',
+  'pf.panel':'From data to closed loop',
+  'pf.n1':'FBG host','pf.n2':'DAS host','pf.n3':'DTS host','pf.n4':'3rd-party systems',
+  'pf.o1':'Graded alerts','pf.o1d':'To the duty operator','pf.o2':'Auto reports','pf.o2d':'Daily · logged','pf.o3':'Work orders','pf.o3d':'Closed · traceable',
+  'pf.hub':'AI platform','pf.hubd':'Judgment hub',
+  'pf.foot':'Demonstration flow; timelines follow the project contingency plan. Every step is logged and reviewable in the platform.',
+  'sel.h2':'Eight industries,<br>each fighting its own exam.',
+  'sel.lead':'Infrastructure has entered its maintenance-and-renewal cycle while monitoring budgets demand lighter, cheaper, reusable. Pick your front line and take the lightweight answer sheet.',
+  'sel.q.cable':'Power cables','sel.q.corridor':'Utility corridors','sel.q.pipe':'Oil & gas pipelines','sel.q.perimeter':'Perimeter security','sel.q.rail':'Rail transit','sel.q.bridge':'Bridges & tunnels','sel.q.water':'Dams & levees','sel.q.wind':'Wind power',
+  'sel.go':'See how it works','sel.more':'Mine roofs, slopes, cold-chain warehouses and more hold up just as well. Monitoring data is turning from a cost item into an asset: from fix-after-failure to maintain-by-trend.',
+  'cs.h2':'Specs are a promise.<br>Projects are the proof.',
+  'cs.lead':'Operating projects across water, transit, highway, municipal and bridge domains; several delivered jointly with university research teams.',
+  'cs.c1w':'South-North Water Transfer · Water','cs.c1h':'PCCP wire-break monitoring','cs.c1p':'In a head-to-head trial on the Beijing section, monitoring over the pipeline\'s existing fiber made us the only vendor whose results matched ground truth exactly, leading to a joint R&D framework agreement.',
+  'cs.c1n1':'Only','cs.c1s1':'vendor matching ground truth','cs.c1n2':'Framework','cs.c1s2':'joint R&D agreement',
+  'cs.c2w':'Hefei Metro Line 4 · Transit','cs.c2h':'Protection-zone construction alerts','cs.c2p':'44.8 km under live watch. On record at Taohuatan station: alert at 15:36, push at 15:38, drone review at 15:41, the whole loop closed in 5 minutes.',
+  'cs.c2s1':'Under live monitoring','cs.c2s2':'Alert-push-review loop','cs.c2s3':'Alarms logged to date',
+  'cs.c3w':'G5011 Wuhu-Hefei Expressway · Highway','cs.c3h':'Road anomaly warning','cs.c3p':'22 km monitored in service. February 2025 accident on record: system alert pushed at 15:30, six minutes ahead of the emergency call; running fault-free since launch.',
+  'cs.c3s1':'Ahead of the 110 call','cs.c3s2':'Alarm accuracy','cs.c3s3':'Events found in 6 months',
+  'cs.c4w':'Lujiang levee · Water','cs.c4h':'Levee seepage survey',
+  'cs.c4p':'Commissioned by the Hefei government, imaging of a 300 m priority section mapped a continuous low-velocity band at 3~5 m and a water-rich zone at 7~10 m, informing pre-flood checks, in-flood watch and post-flood repair.',
+  'cs.c4s1':'Priority section imaged','cs.c4s2':'Seepage channel depth',
+  'cs.c5w':'Xinjiang canal / Shenzhen Metro 22','cs.c5h':'Seepage survey & pre-boring imaging',
+  'cs.c5p':'A 613 m canal section imaged to 30 m depth ringed water-rich seepage zones; ahead of TBM boring on Shenzhen Line 22, fine imaging of both bores flagged boulders and water-rich ground in advance.',
+  'cs.c5s1':'Canal section imaged','cs.c5s2':'Imaging depth',
+  'cs.c6w':'Nanchang Bayi Bridge · Bridge','cs.c6h':'Structural health checkup',
+  'cs.c6p':'Over the telecom cable alone, pier and stay-cable vibration signatures separated cleanly from traffic; modal imaging delivered natural frequencies, damping and mode shapes for long-term health tracking.',
+  'cs.c6n1':'Modal imaging','cs.c6s1':'Frequency · damping · shapes','cs.c6n2':'Telecom fiber','cs.c6s2':'zero added sensors',
+  'cs.ck':'Selected clients and partners',
+  'cs.cp':'China Earthquake Administration · Anhui & Jiangsu Seismological Bureaus · CAS South China Sea Institute of Oceanology · Hefei Metro · Anhui Transportation Holding · Jiangxi Transportation Investment · Tsinghua University · USTC · Zhejiang University',
+  'cs.cn':'List continuously updated; client marks shown only with written authorization. Several cases delivered jointly with university research teams.',
+  'dl.h2':'From inquiry to long-term operation,<br>a well-worn road.',
+  'dl.s1h':'Requirements & bidding support','dl.s1p':'Pin down assets, key risks and site conditions; authorization letters, technical responses, detail drawings and cost estimates issued free, with on-site bid support for key projects.',
+  'dl.s2h':'System design','dl.s2p':'Sensor selection, point layout, cable routing, interrogator configuration and platform functions.',
+  'dl.s3h':'Deployment','dl.s3p':'Installation, sensor placement, commissioning, data validation and basic training; shipped with installation manuals, splicing and calibration guides and acceptance test procedures.',
+  'dl.s4h':'Operation & maintenance','dl.s4p':'Remote access, alarm-policy tuning, data analysis, system expansion and long-term technical service.',
+  'dl.pathk':'Partnership path','dl.p1':'Demo unit','dl.p2':'Pilot section','dl.p3':'Volume supply / projects','dl.p4':'Annual O&M',
+  'dl.slah':'Warranty & response','dl.slap':'Standard service policy; the supply contract prevails.',
+  'dl.yr':'yr','dl.t1':'Hardware warranty, spares on hand','dl.t2':'On-site response, East China','dl.t3':'On-site response, nationwide','dl.t4':'Remote diagnostic hotline',
+  'co.h2':'First-rate numbers<br>come from a first-rate floor.',
+  'co.s1h':'Long-term field validation','co.s1p':'Products proven in volume across long-cycle projects, with focus on stability, data continuity and long-term reliability in harsh environments.',
+  'co.s2h':'Automated volume production','co.s2p':'Mature manufacturing and QC support stable delivery of standard products, volume purchases and major projects.',
+  'co.s3h':'In-house supply chain','co.s3p':'From core components and sensor packaging to interrogators and integration, for consistency, lead time and cost.',
+  'co.s4h':'OEM · ODM services','co.s4p':'Custom packaging, range and precision, interfaces and protocols, fiber lengths, housings and system functions.',
+  'co.f1':'R&D and testing','co.f2':'Manufacturing line',
+  'co.rh':'Research-grade origins',
+  'co.rp':'DAS technology co-developed with teams at USTC and Zhejiang University, with over 90% of core components domestically sourced; the "telecom cable as seismic array" paradigm stands validated in leading journals.',
+  'co.r1':'Seafloor fault survey by DAS','co.r2':'Volcanic eruption monitoring','co.r3':'Typhoon sea-state inversion','co.r4':'62 km coastal observation, Qiantang',
+  'co.ch':'Certifications & standards','co.cp':'Marks are design placeholders; official certificates prevail and numbers are available on request.',
+  'co.c1':'CNAS testing','co.c2':'CMA metrology','co.c3':'ISO 9001','co.c4':'MA mining safety',
+  'co.pk':'Packaging capability','co.p1':'Tube packaging','co.p2':'Substrate packaging','co.p3':'Embedded packaging','co.p4':'All-metal / stress-free',
+  'co.ik':'Industries delivered','co.i1':'Bridges & buildings','co.i2':'Tunnels & transit','co.i3':'Power & energy','co.i4':'Water & geotechnics','co.i5':'Mining','co.i6':'Wind power',
+  'fin.h2':'Your next accident<br>could have been just an alert.',
+  'fin.lead':'Tell us what you monitor and the site conditions; within three working days you get point layout, equipment configuration and a quote.',
+  'fin.dlk':'Datasheets','fin.dl4':'GM-F sensor series','fin.dl5':'Wind power','fin.dl6':'Industry systems',
+  'fin.contact':'Sales director Wang Yongqiang · phone / WeChat <a href="tel:17621251612">176 2125 1612</a>, or write to <a href="mailto:17621251612@163.com">17621251612@163.com</a>',
+  'ft.co':'© 2026 Shanghai Gangmeng Technology Co., Ltd.','ft.icp':'ICP 2024000000'
+  };
+
+  var zhCache=new Map();
+  var els=[].slice.call(document.querySelectorAll('[data-i18n]'));
+  var isSVG=function(el){return el.namespaceURI==='http://www.w3.org/2000/svg'};
+  function applyLang(lang){
+    window.__lang=lang;
+    els.forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(lang==='en'){
+        if(!zhCache.has(el))zhCache.set(el,isSVG(el)?el.textContent:el.innerHTML);
+        if(EN[k]!==undefined){if(isSVG(el)){el.textContent=EN[k].replace(/<[^>]+>/g,'')}else{el.innerHTML=EN[k]}}
+      }else{
+        if(zhCache.has(el)){if(isSVG(el)){el.textContent=zhCache.get(el)}else{el.innerHTML=zhCache.get(el)}}
+      }
+    });
+    document.documentElement.setAttribute('lang',lang==='en'?'en':'zh-CN');
+    document.title=lang==='en'?'GM Sensing · Invisible risk, visible for the first time':'港盟传感 · 看不见的风险,第一次看得见';
+    var md=document.querySelector('meta[name="description"]');
+    if(md)md.setAttribute('content',lang==='en'
+      ?'GM Sensing: three in-house interrogators (GM-FBG-16/32, GM-DAS-50/100, GM-DTS-04/08) and the GM-F sensor family (8 categories, 21 models). One fiber, up to 100 km and 23,552 channels, guarding bridges, pipelines, cables and dams.'
+      :'上海港盟科技:FBG、DAS、DTS 三大自研光纤监测主机与 GM-F 传感器家族(8 大类 21 款)。一根光纤,最长 100 公里、23,552 个通道,守护桥梁、管道、电缆与大坝。');
+    var btn=document.getElementById('langBtn');
+    btn.textContent=lang==='en'?'中':'EN';
+    btn.setAttribute('aria-label',lang==='en'?'切换为中文':'Switch language to English');
+    /* 动态引擎同步 */
+    var D=window.DYN[lang];
+    [['ph1','ph1'],['ph2','ph2'],['ph3','ph3']].forEach(function(pair){
+      var g=document.getElementById(pair[0]);if(!g)return;
+      var ts=g.querySelectorAll('.phx');
+      ts.forEach(function(t,i){t.textContent=D[pair[1]][i]});
+    });
+    if(window.__machines&&window.__reduce){window.__machines.forEach(function(m){m.paint(2,1,m.state)})}
+    if(window.__selApply)window.__selApply();
+    if(window.__platSet)window.__platSet();
+    try{localStorage.setItem('gm-lang',lang)}catch(e){}
+  }
+  document.getElementById('langBtn').addEventListener('click',function(){
+    applyLang(window.__lang==='en'?'zh':'en');
+  });
+  if(window.__lang==='en')applyLang('en');
+})();
+</script>
+</body>
+</html>
