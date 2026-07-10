@@ -72,7 +72,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media(max-width:560px){.nav .btn-sm{display:none}}
 
 /* ---- Hero:宣言式(信息即设计) ---- */
-.hero{min-height:100dvh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:110px 0 80px}
+.hero{min-height:100dvh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:100px 0 calc(min(320px,32dvh) + 44px)}
 .hero::before{content:"";position:absolute;inset:auto -20% -55% -20%;height:120%;background:radial-gradient(50% 42% at 50% 100%,rgba(90,200,245,.13),transparent 62%);pointer-events:none}
 .hero-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:26px;max-width:900px;padding:0 24px}
 .hero .lead{max-width:30em}
@@ -82,7 +82,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .js .on .stagein.s2{transition-delay:.25s}
 .js .on .stagein.s3{transition-delay:.5s}
 .js .on .stagein.s4{transition-delay:.75s}
-.guard{position:absolute;left:0;right:0;bottom:3dvh;height:min(320px,32dvh);pointer-events:none}
+.guard{position:absolute;left:0;right:0;bottom:2dvh;height:min(320px,32dvh);pointer-events:none;overflow:hidden}
 .guard svg{width:100%;height:100%}
 .pulse{stroke-dasharray:4 320;animation:travel 4.2s linear infinite}
 .pulse.d2{animation-delay:1.4s}.pulse.d3{animation-delay:2.8s}
@@ -1465,6 +1465,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 /* ============ 全域安全预警 · Hero 动画引擎 ============ */
 (function(){
   var svg=document.getElementById('guardSvg');if(!svg)return;
+  if(matchMedia('(max-width:760px)').matches)svg.setAttribute('preserveAspectRatio','xMidYMid slice');
   var reduce=window.__reduce;
   var GUARD={
     zh:{
@@ -1720,7 +1721,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'brand':'GM Sensing',
   'nav.why':'Why','nav.hosts':'Interrogators','nav.sensors':'Sensors','nav.specs':'Datasheets','nav.industries':'Industries','nav.cases':'Track record','nav.company':'Company',
   'cta.main':'Get a proposal & quote','cta.main2':'Get a proposal & quote',
-  'hero.h1':'Invisible risk,<br>visible for the first time.',
+  'hero.h1':'Invisible risk,<br>finally visible.',
   'hero.lead':'One fiber: up to 100 km and 23,552 sensing points. Every anomaly on your bridges, pipelines, cables and dams reaches your screen before it becomes an accident.',
   'hero.how':'See how it works',
   'why.h2':'Traditional monitoring<br>loses on three counts.',
