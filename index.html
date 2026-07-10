@@ -189,7 +189,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .wind-head h3{font-size:18px;font-weight:600}
 .wind-head p{font-size:12.5px;color:var(--text-3)}
 .wind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-@media(min-width:900px){.wind-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:900px){.wind-grid{grid-template-columns:repeat(3,1fr)}}
 .wind-item{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.035)}
 .wind-item .cat-plate{height:86px}
 .wind-item .wm{padding:10px 14px 12px;font-size:12px;color:var(--text-2);line-height:1.6}
@@ -358,7 +358,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   .chapter{position:static;min-height:0}
 }
 </style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"上海港盟科技有限公司","alternateName":"GM SENSING","url":"https://gm-sensor.com","email":"17621251612@163.com","telephone":"+86-176-2125-1612"},{"@context":"https://schema.org","@type":"Product","name":"GM-FBG-16/32 光纤光栅解调仪","description":"1~32 通道、±2 pm 波长精度(典型)、±1 pm 重复性的工业级 FBG 解调平台,161×144×33 mm 紧凑机身。","brand":{"@type":"Brand","name":"GM SENSING"}},{"@context":"https://schema.org","@type":"Product","name":"GM-DAS-50/100 分布式声波/振动解调仪","description":"单机 50 km 标配、100 km 选配,23,552 道并行解调、3.2 m 空间分辨率的分布式声波监测主机。","brand":{"@type":"Brand","name":"GM SENSING"}},{"@context":"https://schema.org","@type":"Product","name":"GM-DTS-04/08 分布式测温解调仪","description":"12.5 km/通道、4~8 通道、0.2 m 空间分辨率、±1 ℃ 精度的分布式测温主机,直连消防主机。","brand":{"@type":"Brand","name":"GM SENSING"}}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"上海港盟科技有限公司","alternateName":"GM SENSING","url":"https://www.gm-sensor.com","email":"17621251612@163.com","telephone":"+86-176-2125-1612","address":{"@type":"PostalAddress","streetAddress":"海基六路99弄智萃科技中心创新魔坊3期3号楼零界魔方729室","addressLocality":"上海市浦东新区","addressCountry":"CN"}},{"@context":"https://schema.org","@type":"Product","name":"GM-FBG-16/32 光纤光栅解调仪","description":"1~32 通道、±2 pm 波长精度(典型)、±1 pm 重复性的工业级 FBG 解调平台,161×144×33 mm 紧凑机身。","brand":{"@type":"Brand","name":"GM SENSING"}},{"@context":"https://schema.org","@type":"Product","name":"GM-DAS-50/100 分布式声波/振动解调仪","description":"单机 50 km 标配、100 km 选配,23,552 道并行解调、3.2 m 空间分辨率的分布式声波监测主机。","brand":{"@type":"Brand","name":"GM SENSING"}},{"@context":"https://schema.org","@type":"Product","name":"GM-DTS-04/08 分布式测温解调仪","description":"12.5 km/通道、4~8 通道、0.2 m 空间分辨率、±1 ℃ 精度的分布式测温主机,直连消防主机。","brand":{"@type":"Brand","name":"GM SENSING"}}]</script>
 </head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
@@ -784,11 +784,13 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
         <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtt02.webp" alt="GM-WTT02 表面应力传感器" loading="lazy"></div><div class="wm"><b>GM-WTT02</b><span data-i18n="wind.m2">表面应力 · ±5000 με · 0.88 pm/με</span></div></div>
         <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtt03.webp" alt="GM-WTT03 双轴振动传感器" loading="lazy"></div><div class="wm"><b>GM-WTT03</b><span data-i18n="wind.m3">双轴振动 · ±5 g / ±10 g · 0.1~70 Hz</span></div></div>
         <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtf05.webp" alt="GM-WTF05 法兰间隙传感器" loading="lazy"></div><div class="wm"><b>GM-WTF05</b><span data-i18n="wind.m4">法兰间隙 · ±300 μm · 分辨力 0.05 μm</span></div></div>
+        <div class="wind-item"><div class="cat-plate"><img src="img/sensor-i.webp" alt="GM-FI01 双轴倾角传感器" loading="lazy"></div><div class="wm"><b>GM-FI01</b><span data-i18n="wind.m5">双轴倾角 · ±5° · 精度 0.01° · 分辨率 0.001°</span></div></div>
+        <div class="wind-item"><div class="cat-plate"><img src="img/sensor-l.webp" alt="GM-FL01 锚索计" loading="lazy"></div><div class="wm"><b>GM-FL01</b><span data-i18n="wind.m6">锚索计 · 0~2000 kN · 120° 偏载识别 · 24H 在线</span></div></div>
       </div>
     </div>
 
     <div class="group-foot reveal">
-      <p data-i18n="sen.foot">全系 IP68(风电系列 IP65)· C 波段 1528~1568 nm · FC/APC 接头;兼容符合 C 波段标准的第三方解调设备,无供应商锁定。</p>
+      <p data-i18n="sen.foot">全系 IP68(风电系列 IP65)· C 波段 1528~1568 nm · FC/APC 接头;振动类含标准 / 增强两代,合计 21 款标准型号;兼容符合 C 波段标准的第三方解调设备,无供应商锁定。</p>
       <a class="btn btn-ghost btn-sm" href="#specs" data-spec="sensors" data-i18n="sen.footbtn">查看全系规格</a>
     </div>
   </div>
@@ -883,7 +885,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
             <tr><td class="m">GM-FP01</td><td class="n" data-i18n="mx.fp01">渗压计</td><td data-i18n="mx.fp01r">0.35 / 1 MPa(可定制)</td><td>0.5% / 0.1% F.S.</td><td data-i18n="mx.fp01k">Φ30×120 mm · 投入 / 埋入两用 · IP68</td></tr>
             <tr><td class="m">GM-FP02</td><td class="n" data-i18n="mx.fp02">土压力计</td><td data-i18n="mx.fp02r">1 / 2 MPa(可定制)</td><td>1% / 0.1% F.S.</td><td data-i18n="mx.fp02k">规格可定制 · 埋入 · IP68 · 与渗压计组合</td></tr>
             <tr class="grp"><td colspan="5" data-i18n="sp.g.a">振动类 <span>A · DYNAMICS</span></td></tr>
-            <tr><td class="m">GM-FA01</td><td class="n" data-i18n="mx.fa01">加速度传感器</td><td>2 g · 0.5~50 Hz</td><td data-i18n="mx.fa01a">2 mg / 0.5 mg · ≈500 pm/g</td><td data-i18n="mx.fa01k">110×35×25 mm · IP68 · 多支组合 2D / 3D</td></tr>
+            <tr><td class="m">GM-FA01</td><td class="n" data-i18n="mx.fa01">加速度传感器</td><td>2 g · 0.5~50 Hz</td><td data-i18n="mx.fa01a">2 mg / 0.5 mg · ≈500 pm/g</td><td data-i18n="mx.fa01k">110×35×25 mm · IP68 · 标准 / 增强两代 · 多支组合 2D / 3D</td></tr>
             <tr class="grp"><td colspan="5" data-i18n="sp.g.i">倾角类 <span>I · INCLINATION</span></td></tr>
             <tr><td class="m">GM-FI01</td><td class="n" data-i18n="mx.fi01">倾斜传感器</td><td>±5°</td><td>0.01° / 0.001°</td><td data-i18n="mx.fi01k">105×80×28 mm · 螺孔安装 · IP68 · 双光栅自温补</td></tr>
             <tr class="grp"><td colspan="5" data-i18n="sp.g.l">锚固与支护类 <span>L · ANCHORING</span></td></tr>
@@ -1191,13 +1193,15 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       <a href="#specs" data-spec="sys" data-i18n="fin.dl6">行业系统</a>
     </div>
     <p class="contact-line reveal" data-i18n="fin.contact">销售总监 王永强 · 电话 / 微信 <a href="tel:17621251612">176 2125 1612</a>,或来信 <a href="mailto:17621251612@163.com">17621251612@163.com</a></p>
+    <p class="contact-line reveal small" style="margin-top:12px" data-i18n="fin.addr">上海市浦东新区海基六路 99 弄智萃科技中心创新魔坊 3 期 3 号楼零界魔方 729 室 · <a href="https://www.gm-sensor.com">www.gm-sensor.com</a></p>
   </div>
 </section>
 
 <footer>
+  <div class="wrap" style="padding-bottom:12px"><span class="small" data-i18n="ft.addr">上海市浦东新区海基六路 99 弄智萃科技中心创新魔坊 3 期 3 号楼零界魔方 729 室</span></div>
   <div class="wrap foot-grid">
     <span data-i18n="ft.co">© 2026 上海港盟科技有限公司</span>
-    <a href="https://gm-sensor.com" style="color:var(--text-3)">gm-sensor.com</a>
+    <a href="https://www.gm-sensor.com" style="color:var(--text-3)">www.gm-sensor.com</a>
     <span data-i18n="ft.icp">沪ICP备2024000000号</span>
   </div>
 </footer>
@@ -1781,7 +1785,9 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'wind.h':'Wind-power series · proven volume supply',
   'wind.p':'Blade loads, tower stress, flange bolts, attitude and anchor cables; all-fiber design inherently lightning-immune, feeding one GM-FBG-16/32 and the platform.',
   'wind.m1':'Blade-root load · ±5000 με · 14 pm/°C comp','wind.m2':'Surface stress · ±5000 με · 0.88 pm/με','wind.m3':'Biaxial vibration · ±5 g / ±10 g · 0.1~70 Hz','wind.m4':'Flange gap · ±300 μm · 0.05 μm resolving',
-  'sen.foot':'IP68 across the line (wind series IP65) · C-band 1528~1568 nm · FC/APC connectors; compatible with any C-band third-party interrogator, no vendor lock-in.',
+  'wind.m5':'Biaxial tilt · ±5° · 0.01° accuracy · 0.001° resolution',
+  'wind.m6':'Anchor load cell · 0~2000 kN · 120° eccentricity · online 24 h',
+  'sen.foot':'IP68 across the line (wind series IP65) · C-band 1528~1568 nm · FC/APC connectors; vibration comes in standard and enhanced generations for 21 standard models in total; compatible with any C-band third-party interrogator, no vendor lock-in.',
   'sen.footbtn':'Full series specs',
   'sp.h2':'The datasheets, laid out right here.',
   'sp.lead':'Key parameters kept in sync with the product manuals, so selection never means digging through PDFs; full datasheets and the selection handbook arrive by email.',
@@ -1811,7 +1817,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'mx.fd04':'Hydrostatic level gauge','mx.fd04k':'Φ120×250 mm · networked settlement · steel / molded',
   'mx.fp01':'Piezometer','mx.fp01r':'0.35 / 1 MPa (customizable)','mx.fp01k':'Φ30×120 mm · sink-in / embed · IP68',
   'mx.fp02':'Earth pressure cell','mx.fp02r':'1 / 2 MPa (customizable)','mx.fp02k':'Sized to spec · embed · IP68 · pairs with piezometer',
-  'mx.fa01':'Accelerometer','mx.fa01a':'2 mg / 0.5 mg · ≈500 pm/g','mx.fa01k':'110×35×25 mm · IP68 · combine for 2D / 3D',
+  'mx.fa01':'Accelerometer','mx.fa01a':'2 mg / 0.5 mg · ≈500 pm/g','mx.fa01k':'110×35×25 mm · IP68 · standard / enhanced · combine for 2D / 3D',
   'mx.fi01':'Tilt sensor','mx.fi01k':'105×80×28 mm · bolt mount · IP68 · dual-grating self-comp',
   'mx.fl01':'Anchor cable load cell (ex GM-PAC04)','mx.fl01a':'3~6 redundant gratings · 120° eccentricity',
   'mx.fl02':'Anchor bearing-plate cell','mx.fl02k':'Seats between plate and rock face · IP54',
@@ -1898,6 +1904,8 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'fin.h2':'Your next accident<br>could have been just an alert.',
   'fin.lead':'Tell us what you monitor and the site conditions; within three working days you get point layout, equipment configuration and a quote.',
   'fin.dlk':'Datasheets','fin.dl4':'GM-F sensor series','fin.dl5':'Wind power','fin.dl6':'Industry systems',
+  'fin.addr':'Room 729, Zero-Boundary Cube, Building 3, Innovation Mofang Phase 3, Zhicui Technology Center, Lane 99 Haiji 6th Road, Pudong New Area, Shanghai · <a href="https://www.gm-sensor.com">www.gm-sensor.com</a>',
+  'ft.addr':'Room 729, Zero-Boundary Cube, Building 3, Innovation Mofang Phase 3, Zhicui Technology Center, Lane 99 Haiji 6th Road, Pudong New Area, Shanghai',
   'fin.contact':'Sales director Wang Yongqiang · phone / WeChat <a href="tel:17621251612">176 2125 1612</a>, or write to <a href="mailto:17621251612@163.com">17621251612@163.com</a>',
   'ft.co':'© 2026 Shanghai Gangmeng Technology Co., Ltd.','ft.icp':'ICP 2024000000'
   };
