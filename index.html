@@ -9,25 +9,24 @@
 <meta property="og:description" content="GM-FBG-16/32、GM-DAS-50/100、GM-DTS-04/08 三大自研主机与 GM-F 全系传感器。一根光纤,最长 100 公里、23,552 个测点,把隐患变成提前送达的预警。">
 <meta property="og:type" content="website">
 <meta name="description" content="上海港盟科技:FBG、DAS、DTS 三大自研光纤监测主机与 GM-F 传感器家族(8 大类 21 款)。一根光纤,最长 100 公里、23,552 个通道,守护桥梁、管道、电缆与大坝。">
-<meta name="theme-color" content="#05070C">
+<meta name="theme-color" content="#000000">
 <style>
 /* ============ 港盟传感 · 发布会式暗色舞台 ============ */
 :root{
-  --bg:#05070C;
-  --bg-2:#080B12;
-  --surface:#0D1119;
-  --surface-2:#121727;
-  --line:rgba(148,163,190,.12);
-  --line-strong:rgba(148,163,190,.26);
-  --text:#EDF0F6;
-  --text-2:#98A2B6;
-  --text-3:#66718A;
+  --bg:#000000;
+  --bg-2:#050507;
+  --surface:#0E0E11;
+  --surface-2:#141419;
+  --line:rgba(255,255,255,.09);
+  --line-strong:rgba(255,255,255,.22);
+  --text:#F5F5F7;
+  --text-2:#A1A1A6;
+  --text-3:#6E6E73;
   --accent:#5AC8F5;                 /* 信号青:全站唯一强调色 */
   --accent-dim:rgba(90,200,245,.13);
   --ok:#3FC98F;--warn:#E7B34D;--alarm:#EF6B5E;  /* 仅用于监测演示中的真实状态 */
-  --plate:#EFEFED;                  /* 产品实拍浅色台面,与 PDF 版式一致 */
   --radius:16px;
-  --font-sans:"Geist","Inter",ui-sans-serif,system-ui,-apple-system,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  --font-sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",system-ui,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
   --font-mono:"Geist Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -61,7 +60,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
 
 /* ---- 导航 ---- */
-.nav{position:fixed;inset:0 0 auto;z-index:80;height:64px;background:rgba(5,7,12,.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{position:fixed;inset:0 0 auto;z-index:80;height:64px;background:rgba(0,0,0,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
 .nav .wrap{height:100%;display:flex;align-items:center;gap:26px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:600;white-space:nowrap}
 .nav-links{display:none;gap:22px;font-size:14px;color:var(--text-2);white-space:nowrap}
@@ -83,7 +82,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .js .on .stagein.s2{transition-delay:.25s}
 .js .on .stagein.s3{transition-delay:.5s}
 .js .on .stagein.s4{transition-delay:.75s}
-.hero-fiber{position:absolute;left:0;right:0;bottom:11dvh;height:120px;pointer-events:none}
+.guard{position:absolute;left:0;right:0;bottom:3dvh;height:min(320px,32dvh);pointer-events:none}
+.guard svg{width:100%;height:100%}
 .pulse{stroke-dasharray:4 320;animation:travel 4.2s linear infinite}
 .pulse.d2{animation-delay:1.4s}.pulse.d3{animation-delay:2.8s}
 @keyframes travel{to{stroke-dashoffset:-324}}
@@ -117,9 +117,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .chapters{position:relative}
 .chapter{position:relative;display:flex;align-items:center;padding:100px 0 80px;border-top:1px solid var(--line)}
 @media(min-width:1080px) and (min-height:840px){.chapter{position:sticky;top:0;min-height:100dvh;padding:110px 0 70px}}
-.chapter:nth-of-type(1){background:linear-gradient(180deg,#070A11,#05070C)}
-.chapter:nth-of-type(2){background:linear-gradient(180deg,#080C15,#060811)}
-.chapter:nth-of-type(3){background:linear-gradient(180deg,#0A0E18,#070A12)}
+.chapter:nth-of-type(1){background:linear-gradient(180deg,#060607,#000000)}
+.chapter:nth-of-type(2){background:linear-gradient(180deg,#070708,#000000)}
+.chapter:nth-of-type(3){background:linear-gradient(180deg,#08080A,#000000)}
 .ch-grid{display:grid;gap:36px;width:100%}
 @media(min-width:1080px){.ch-grid{grid-template-columns:5fr 7fr;gap:56px;align-items:center}}
 .ch-copy{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
@@ -128,19 +128,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .ch-copy .pain-line b{color:var(--text);font-weight:600}
 .ch-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;margin-top:6px}
 @media(min-width:560px){.ch-specs{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.tile{border:1px solid var(--line);border-radius:12px;background:rgba(5,8,14,.6);padding:14px 14px 12px;display:flex;flex-direction:column;gap:4px}
+.tile{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04);padding:14px 14px 12px;display:flex;flex-direction:column;gap:4px}
 .tile b{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:clamp(19px,1.9vw,23px);font-weight:500;line-height:1.15}
 .tile b small{font-size:.58em;color:var(--text-2);margin-left:2px;font-weight:500}
 .tile span{font-size:11.5px;color:var(--text-3);line-height:1.45}
 .ch-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-.ch-stage{border:1px solid var(--line);border-radius:var(--radius);background:#04060B;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+.ch-stage{border:1px solid var(--line);border-radius:var(--radius);background:#09090B;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
 .ch-stage .cap{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:12px 16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--text-3)}
 .live{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;color:var(--ok)}
 .live i{width:7px;height:7px;border-radius:99px;background:var(--ok);animation:blink 2.2s ease-in-out infinite}
 @keyframes blink{50%{opacity:.35}}
 /* 章节产品实拍:浅色台面,与 PDF 版式同源 */
-.ch-prod{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:12px;background:#0A0F1A;padding:10px 16px 10px 10px;width:100%}
-.ch-prod img{height:96px;width:auto;object-fit:cover;border-radius:8px;background:var(--plate)}
+.ch-prod{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:12px;background:#0E0E11;padding:10px 16px 10px 10px;width:100%}
+.ch-prod img{height:92px;width:auto;object-fit:contain;filter:drop-shadow(0 12px 22px rgba(0,0,0,.65))}
 .ch-prod .m{font-family:var(--font-mono);font-size:11.5px;color:var(--text-3);line-height:1.7}
 .ch-prod .m b{display:block;font-size:13px;font-weight:500;color:var(--text-2)}
 
@@ -153,7 +153,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* ---- 命名体系带 ---- */
 .naming{margin-top:56px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:26px 26px 22px}
 .code-banner{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
-.code-seg{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;border:1px solid var(--line-strong);border-radius:10px;padding:10px 16px 9px;background:rgba(5,8,14,.5)}
+.code-seg{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;border:1px solid var(--line-strong);border-radius:10px;padding:10px 16px 9px;background:rgba(255,255,255,.035)}
 .code-seg b{font-family:var(--font-mono);font-size:clamp(19px,2.4vw,26px);font-weight:500;color:var(--text)}
 .code-seg span{font-size:11px;color:var(--text-3)}
 .code-seg.hl{border-color:var(--accent);background:var(--accent-dim)}
@@ -173,8 +173,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media(min-width:1120px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
 .cat{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s}
 .cat:hover{border-color:var(--line-strong)}
-.cat-plate{background:var(--plate);height:104px;display:grid;place-items:center;overflow:hidden}
-.cat-plate img{max-height:88%;width:auto;max-width:92%;object-fit:contain}
+.cat-plate{background:radial-gradient(85% 120% at 50% 0%,#1A1C21 0%,#0B0C0E 62%,#050506 100%);height:118px;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.cat-plate img{max-height:72%;width:auto;max-width:84%;object-fit:contain;filter:drop-shadow(0 12px 20px rgba(0,0,0,.6))}
 .cat-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
 .cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
 .cat-head h4{font-size:16px;font-weight:600}
@@ -190,8 +190,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .wind-head p{font-size:12.5px;color:var(--text-3)}
 .wind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
 @media(min-width:900px){.wind-grid{grid-template-columns:repeat(4,1fr)}}
-.wind-item{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(5,8,14,.5)}
-.wind-item .cat-plate{height:76px}
+.wind-item{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.035)}
+.wind-item .cat-plate{height:86px}
 .wind-item .wm{padding:10px 14px 12px;font-size:12px;color:var(--text-2);line-height:1.6}
 .wind-item .wm b{display:block;font-family:var(--font-mono);font-size:11px;color:var(--accent);font-weight:500;margin-bottom:2px}
 .group-foot{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between}
@@ -226,7 +226,7 @@ table.spec-matrix tr.grp td span{font-family:var(--font-mono);font-size:10.5px;c
 table.spec-matrix tr:not(.grp) td{border-bottom:1px solid var(--line)}
 .spec-sys{display:grid;gap:14px}
 @media(min-width:900px){.spec-sys{grid-template-columns:repeat(3,1fr)}}
-.sys-card{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:rgba(5,8,14,.5)}
+.sys-card{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:rgba(255,255,255,.035)}
 .sys-card h5{font-size:15px;font-weight:600;margin-bottom:8px}
 .sys-card p{font-size:12.5px;color:var(--text-2);line-height:1.7}
 .sys-card .mono-line{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--text-3);line-height:1.9}
@@ -245,7 +245,7 @@ table.spec-matrix tr:not(.grp) td{border-bottom:1px solid var(--line)}
 .plat-item{border-left:1px solid var(--line-strong);padding-left:20px}
 .plat-item h4{font-size:16.5px;font-weight:600;margin-bottom:6px}
 .plat-item p{font-size:14px;color:var(--text-2);line-height:1.7}
-.plat-panel{border:1px solid var(--line);border-radius:var(--radius);background:#04060B;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+.plat-panel{border:1px solid var(--line);border-radius:var(--radius);background:#09090B;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
 .plat-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);font-size:13px;color:var(--text-2)}
 .flow{padding:10px 6px 4px}
 .fp{stroke:var(--line-strong);transition:stroke .5s,opacity .5s;opacity:.55}
@@ -317,7 +317,7 @@ table.spec-matrix tr:not(.grp) td{border-bottom:1px solid var(--line)}
 .co-strengths p{font-size:14px;color:var(--text-2);line-height:1.7}
 .co-photos{display:grid;gap:14px;margin-top:44px}
 @media(min-width:760px){.co-photos{grid-template-columns:1fr 1fr}}
-.co-photos figure{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#04060B}
+.co-photos figure{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#09090B}
 .co-photos img{width:100%;height:auto;display:block}
 .co-photos figcaption{padding:10px 16px;font-size:12.5px;color:var(--text-3);border-top:1px solid var(--line)}
 .research-strip{margin-top:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:22px 26px}
@@ -396,13 +396,22 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       <a class="btn btn-ghost" href="#why" data-i18n="hero.how">先看它如何工作</a>
     </div>
   </div>
-  <svg class="hero-fiber" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="rgba(148,163,190,.16)" stroke-width="1.6"/>
-    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse"/>
-    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse d2" opacity=".55"/>
-    <path d="M0 70 C 360 30, 520 104, 780 62 S 1180 26, 1440 66" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse d3" opacity=".3"/>
-    <text id="heroLam" x="1404" y="36" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="rgba(90,200,245,.85)">λ 1550.120 nm</text>
-  </svg>
+  <div class="guard" aria-label="全域安全预警演示:光纤主干串联八类设施,事件被检测、定位、推送并闭环">
+    <svg id="guardSvg" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <path id="gBB" d="" fill="none" stroke="rgba(160,160,170,.16)" stroke-width="1.6"/>
+      <path id="gP1" d="" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse" style="stroke-dasharray:4 460;animation-duration:6s"/>
+      <path id="gP2" d="" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse" style="stroke-dasharray:4 460;animation-duration:6s;animation-delay:3s" opacity=".5"/>
+      <g id="gNodes" font-family="Geist Mono,ui-monospace,monospace"></g>
+      <circle id="gRip" r="0" fill="none" stroke-width="1.6" opacity="0"/>
+      <g id="gChip" opacity="0">
+        <rect id="gChipR" rx="9" height="46" fill="rgba(8,8,10,.92)" stroke="rgba(255,255,255,.16)"/>
+        <circle id="gChipDot" r="4"/>
+        <text id="gChipT1" font-size="12" fill="#F5F5F7" font-weight="600"></text>
+        <text id="gChipT2" font-size="10.5" fill="#A1A1A6" font-family="Geist Mono,ui-monospace,monospace"></text>
+      </g>
+      <text id="heroLam" x="1416" y="26" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="rgba(90,200,245,.85)">λ 1550.120 nm</text>
+    </svg>
+  </div>
 </header>
 
 <!-- ===================== 痛点 ===================== -->
@@ -451,14 +460,14 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     <p class="lead reveal" style="max-width:32em" data-i18n="idea.lead">无源、抗电磁、本质安全。光缆铺到哪里,感知就延伸到哪里:每一米都是测点,每一秒都在值守。</p>
     <figure class="idea-fig reveal" aria-label="一根光纤贯穿桥梁、管道、电缆与大坝四类设施,光脉冲沿线巡检">
       <svg viewBox="0 0 1000 180" aria-hidden="true">
-        <path id="ideaF" d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="rgba(148,163,190,.18)" stroke-width="1.8"/>
+        <path id="ideaF" d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="rgba(160,160,170,.18)" stroke-width="1.8"/>
         <path d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="var(--accent)" stroke-width="2.2" class="pulse"/>
         <path d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="var(--accent)" stroke-width="2.2" class="pulse d2" opacity=".5"/>
-        <g font-family="Geist Mono,ui-monospace,monospace" font-size="12" fill="#66718A" text-anchor="middle">
-          <g><circle cx="150" cy="86" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="150" y="60" data-i18n="idea.n1">桥梁</text></g>
-          <g><circle cx="430" cy="112" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="430" y="150" data-i18n="idea.n2">管道</text></g>
-          <g><circle cx="690" cy="72" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="690" y="46" data-i18n="idea.n3">电缆</text></g>
-          <g><circle cx="900" cy="92" r="4.5" fill="#05070C" stroke="var(--accent)" stroke-width="1.6"/><text x="900" y="130" data-i18n="idea.n4">大坝</text></g>
+        <g font-family="Geist Mono,ui-monospace,monospace" font-size="12" fill="#6E6E73" text-anchor="middle">
+          <g><circle cx="150" cy="86" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="150" y="60" data-i18n="idea.n1">桥梁</text></g>
+          <g><circle cx="430" cy="112" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="430" y="150" data-i18n="idea.n2">管道</text></g>
+          <g><circle cx="690" cy="72" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="690" y="46" data-i18n="idea.n3">电缆</text></g>
+          <g><circle cx="900" cy="92" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="900" y="130" data-i18n="idea.n4">大坝</text></g>
         </g>
       </svg>
       <figcaption data-i18n="idea.cap">同一条光缆,同时是传感器、传输线与巡检员。</figcaption>
@@ -492,41 +501,41 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </div>
       <figure class="ch-stage">
         <svg viewBox="0 0 680 400" role="img" aria-label="FBG 原理与桥梁场景动画:宽谱光经过光栅反射特定波长,车辆通过桥梁时应变使反射峰偏移,越限触发报警">
-          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#66718A" data-i18n="fbg.svg1">原理 · 光栅反射与波长偏移</text>
-          <line x1="28" y1="78" x2="652" y2="78" stroke="rgba(148,163,190,.2)" stroke-width="1.6"/>
-          <g stroke="rgba(148,163,190,.5)" stroke-width="1.4">
+          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#6E6E73" data-i18n="fbg.svg1">原理 · 光栅反射与波长偏移</text>
+          <line x1="28" y1="78" x2="652" y2="78" stroke="rgba(160,160,170,.2)" stroke-width="1.6"/>
+          <g stroke="rgba(160,160,170,.5)" stroke-width="1.4">
             <g><line x1="206" y1="66" x2="206" y2="90"/><line x1="212" y1="66" x2="212" y2="90"/><line x1="218" y1="66" x2="218" y2="90"/></g>
             <g><line x1="366" y1="66" x2="366" y2="90"/><line x1="372" y1="66" x2="372" y2="90"/><line x1="378" y1="66" x2="378" y2="90"/></g>
             <g><line x1="526" y1="66" x2="526" y2="90"/><line x1="532" y1="66" x2="532" y2="90"/><line x1="538" y1="66" x2="538" y2="90"/></g>
           </g>
           <circle id="probeIn" cx="28" cy="78" r="4.5" fill="var(--accent)"/>
           <circle id="probeBack" cx="372" cy="78" r="3.5" fill="var(--warn)" opacity="0"/>
-          <text x="652" y="56" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="fbg.svg2">宽谱入射 → 特定 λ 反射</text>
+          <text x="652" y="56" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#6E6E73" data-i18n="fbg.svg2">宽谱入射 → 特定 λ 反射</text>
           <g transform="translate(28,108)">
-            <rect width="286" height="120" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
-            <line x1="16" y1="96" x2="270" y2="96" stroke="rgba(148,163,190,.2)"/>
+            <rect width="286" height="120" rx="10" fill="#0C0C0F" stroke="rgba(160,160,170,.14)"/>
+            <line x1="16" y1="96" x2="270" y2="96" stroke="rgba(160,160,170,.2)"/>
             <path id="specPeak" d="M16 96 L120 96 C132 96 132 26 143 26 C154 26 154 96 166 96 L270 96" fill="none" stroke="var(--accent)" stroke-width="2"/>
             <line id="specTh" x1="212" y1="20" x2="212" y2="96" stroke="rgba(239,107,94,.55)" stroke-dasharray="4 5"/>
             <text x="212" y="14" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="9" fill="rgba(239,107,94,.85)" data-i18n="fbg.svg3">报警阈值</text>
-            <text id="specRead" x="16" y="114" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#98A2B6">Δλ +0 pm · 应变 1180 με</text>
+            <text id="specRead" x="16" y="114" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#A1A1A6">Δλ +0 pm · 应变 1180 με</text>
           </g>
           <g transform="translate(330,108)">
-            <rect width="322" height="120" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
-            <g stroke="rgba(148,163,190,.4)" stroke-width="1.6"><line x1="80" y1="92" x2="80" y2="34"/><line x1="242" y1="92" x2="242" y2="34"/></g>
-            <g stroke="rgba(148,163,190,.18)"><line x1="80" y1="40" x2="30" y2="88"/><line x1="80" y1="40" x2="130" y2="88"/><line x1="242" y1="40" x2="192" y2="88"/><line x1="242" y1="40" x2="292" y2="88"/></g>
+            <rect width="322" height="120" rx="10" fill="#0C0C0F" stroke="rgba(160,160,170,.14)"/>
+            <g stroke="rgba(160,160,170,.4)" stroke-width="1.6"><line x1="80" y1="92" x2="80" y2="34"/><line x1="242" y1="92" x2="242" y2="34"/></g>
+            <g stroke="rgba(160,160,170,.18)"><line x1="80" y1="40" x2="30" y2="88"/><line x1="80" y1="40" x2="130" y2="88"/><line x1="242" y1="40" x2="192" y2="88"/><line x1="242" y1="40" x2="292" y2="88"/></g>
             <path id="kDeck" d="M20 92 L302 92" stroke="var(--text)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-            <circle id="kPt" cx="161" cy="98" r="4.5" fill="#05070C" stroke="var(--ok)" stroke-width="1.8"/>
-            <g id="kTruck"><rect x="-40" y="80" width="32" height="10" rx="2.5" fill="rgba(237,240,246,.85)"/><circle cx="-32" cy="93" r="3" fill="#66718A"/><circle cx="-16" cy="93" r="3" fill="#66718A"/></g>
-            <text x="20" y="114" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="fbg.svg4">跨中 FBG 应变计 S-07</text>
+            <circle id="kPt" cx="161" cy="98" r="4.5" fill="#000000" stroke="var(--ok)" stroke-width="1.8"/>
+            <g id="kTruck"><rect x="-40" y="80" width="32" height="10" rx="2.5" fill="rgba(237,240,246,.85)"/><circle cx="-32" cy="93" r="3" fill="#6E6E73"/><circle cx="-16" cy="93" r="3" fill="#6E6E73"/></g>
+            <text x="20" y="114" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#6E6E73" data-i18n="fbg.svg4">跨中 FBG 应变计 S-07</text>
           </g>
           <g font-family="Geist Mono,ui-monospace,monospace" font-size="12">
             <circle id="st1dot" cx="36" cy="262" r="5" fill="var(--ok)"/>
-            <text id="st1txt" x="52" y="266" fill="#98A2B6">正常运行 · 波长稳定</text>
+            <text id="st1txt" x="52" y="266" fill="#A1A1A6">正常运行 · 波长稳定</text>
           </g>
-          <g id="ph1" transform="translate(28,286)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A">
+          <g id="ph1" transform="translate(28,286)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#6E6E73">
             <text x="0" y="12" class="phx on">正常</text><text x="64" y="12" class="phx">荷载</text><text x="128" y="12" class="phx">越限</text><text x="192" y="12" class="phx">报警</text><text x="256" y="12" class="phx">恢复</text>
           </g>
-          <text x="28" y="330" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#4E586E" data-i18n="demo.note">演示数据 · 实际阈值按项目配置</text>
+          <text x="28" y="330" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#515154" data-i18n="demo.note">演示数据 · 实际阈值按项目配置</text>
         </svg>
         <figcaption class="cap"><span data-i18n="fbg.cap">点式高精度:关键构件的每一次受力都有回音</span><span class="live"><i></i>LIVE</span></figcaption>
       </figure>
@@ -556,11 +565,11 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </div>
       <figure class="ch-stage">
         <svg viewBox="0 0 680 400" role="img" aria-label="DAS 原理与管道场景动画:探测脉冲沿光缆传播,第三方施工扰动引起相位变化,瀑布图显示事件位置并报警">
-          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#66718A" data-i18n="das.svg1">原理 · 相干瑞利散射相位探测</text>
+          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#6E6E73" data-i18n="das.svg1">原理 · 相干瑞利散射相位探测</text>
           <g transform="translate(28,52)">
-            <g stroke="rgba(148,163,190,.3)" stroke-width="1.2"><line x1="0" y1="8" x2="624" y2="8"/><line x1="0" y1="30" x2="624" y2="30"/></g>
-            <rect width="624" height="22" y="8" fill="rgba(148,163,190,.05)"/>
-            <g fill="rgba(148,163,190,.28)"><rect x="150" y="4" width="6" height="30"/><rect x="410" y="4" width="6" height="30"/></g>
+            <g stroke="rgba(160,160,170,.3)" stroke-width="1.2"><line x1="0" y1="8" x2="624" y2="8"/><line x1="0" y1="30" x2="624" y2="30"/></g>
+            <rect width="624" height="22" y="8" fill="rgba(160,160,170,.05)"/>
+            <g fill="rgba(160,160,170,.28)"><rect x="150" y="4" width="6" height="30"/><rect x="410" y="4" width="6" height="30"/></g>
             <line x1="0" y1="48" x2="624" y2="48" stroke="rgba(90,200,245,.3)" stroke-width="1.4"/>
             <circle id="dasProbe" cx="0" cy="48" r="4" fill="var(--accent)"/>
             <g id="digger" transform="translate(412,-14)" opacity="0">
@@ -568,23 +577,23 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
               <line x1="10" y1="4" x2="24" y2="14" stroke="var(--warn)" stroke-width="2"/>
             </g>
             <circle id="dasRipple" cx="412" cy="48" r="6" fill="none" stroke="var(--alarm)" stroke-width="1.6" opacity="0"/>
-            <text x="0" y="76" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A">K0</text>
-            <text x="624" y="76" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A">K100</text>
+            <text x="0" y="76" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#6E6E73">K0</text>
+            <text x="624" y="76" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#6E6E73">K100</text>
             <text id="dasPos" x="412" y="76" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="var(--alarm)" opacity="0">事件 · K66+040</text>
           </g>
           <g transform="translate(28,152)">
-            <rect width="624" height="150" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
-            <text x="14" y="22" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A" data-i18n="das.svg2">瀑布图 · 横轴距离,纵轴时间</text>
+            <rect width="624" height="150" rx="10" fill="#0C0C0F" stroke="rgba(160,160,170,.14)"/>
+            <text x="14" y="22" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#6E6E73" data-i18n="das.svg2">瀑布图 · 横轴距离,纵轴时间</text>
             <g id="wf" transform="translate(14,32)"></g>
           </g>
           <g font-family="Geist Mono,ui-monospace,monospace" font-size="12">
             <circle id="st2dot" cx="36" cy="332" r="5" fill="var(--ok)"/>
-            <text id="st2txt" x="52" y="336" fill="#98A2B6">正常运行 · 沿线安静</text>
+            <text id="st2txt" x="52" y="336" fill="#A1A1A6">正常运行 · 沿线安静</text>
           </g>
-          <g id="ph2" transform="translate(28,354)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A">
+          <g id="ph2" transform="translate(28,354)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#6E6E73">
             <text x="0" y="12" class="phx on">正常</text><text x="64" y="12" class="phx">扰动</text><text x="128" y="12" class="phx">定位</text><text x="192" y="12" class="phx">报警</text><text x="256" y="12" class="phx">恢复</text>
           </g>
-          <text x="470" y="366" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#4E586E" data-i18n="demo.note2">演示数据 · 阈值按项目配置</text>
+          <text x="470" y="366" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#515154" data-i18n="demo.note2">演示数据 · 阈值按项目配置</text>
         </svg>
         <figcaption class="cap"><span data-i18n="das.cap">分布式听诊:第三方施工在报警声里现形</span><span class="live"><i></i>LIVE</span></figcaption>
       </figure>
@@ -614,32 +623,32 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </div>
       <figure class="ch-stage">
         <svg viewBox="0 0 680 400" role="img" aria-label="DTS 原理与电缆场景动画:拉曼散射两束返回光强度比换算温度,电缆接头温升越限触发报警后处置恢复">
-          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#66718A" data-i18n="dts.svg1">原理 · 拉曼散射强度比测温</text>
+          <text x="28" y="34" font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#6E6E73" data-i18n="dts.svg1">原理 · 拉曼散射强度比测温</text>
           <g transform="translate(28,52)">
-            <line x1="0" y1="20" x2="624" y2="20" stroke="rgba(148,163,190,.2)" stroke-width="1.6"/>
+            <line x1="0" y1="20" x2="624" y2="20" stroke="rgba(160,160,170,.2)" stroke-width="1.6"/>
             <circle id="dtsProbe" cx="0" cy="20" r="4" fill="var(--accent)"/>
             <circle id="dtsAS" cx="0" cy="20" r="3" fill="var(--warn)" opacity="0"/>
-            <circle id="dtsS" cx="0" cy="20" r="3" fill="rgba(148,163,190,.8)" opacity="0"/>
-            <text x="0" y="52" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="dts.svg2">入射脉冲 →</text>
-            <text x="624" y="52" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#66718A" data-i18n="dts.svg3">← 反斯托克斯 / 斯托克斯</text>
+            <circle id="dtsS" cx="0" cy="20" r="3" fill="rgba(160,160,170,.8)" opacity="0"/>
+            <text x="0" y="52" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#6E6E73" data-i18n="dts.svg2">入射脉冲 →</text>
+            <text x="624" y="52" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#6E6E73" data-i18n="dts.svg3">← 反斯托克斯 / 斯托克斯</text>
           </g>
           <g transform="translate(28,124)">
-            <rect width="624" height="150" rx="10" fill="#070B12" stroke="rgba(148,163,190,.14)"/>
-            <text x="14" y="22" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A" data-i18n="dts.svg4">温度剖面 · 12.5 km / 通道</text>
-            <line x1="14" y1="112" x2="610" y2="112" stroke="rgba(148,163,190,.2)"/>
+            <rect width="624" height="150" rx="10" fill="#0C0C0F" stroke="rgba(160,160,170,.14)"/>
+            <text x="14" y="22" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#6E6E73" data-i18n="dts.svg4">温度剖面 · 12.5 km / 通道</text>
+            <line x1="14" y1="112" x2="610" y2="112" stroke="rgba(160,160,170,.2)"/>
             <line x1="14" y1="52" x2="610" y2="52" stroke="rgba(239,107,94,.5)" stroke-dasharray="4 5"/>
             <text x="610" y="44" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="9" fill="rgba(239,107,94,.85)" data-i18n="dts.svg5">阈值 65 ℃</text>
             <path id="dtsCurve" d="M14 112 L610 112" fill="none" stroke="var(--ok)" stroke-width="2"/>
-            <text id="dtsRead" x="14" y="136" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#98A2B6">接头 J-12 · 41 ℃</text>
+            <text id="dtsRead" x="14" y="136" font-family="Geist Mono,ui-monospace,monospace" font-size="10.5" fill="#A1A1A6">接头 J-12 · 41 ℃</text>
           </g>
           <g font-family="Geist Mono,ui-monospace,monospace" font-size="12">
             <circle id="st3dot" cx="36" cy="308" r="5" fill="var(--ok)"/>
-            <text id="st3txt" x="52" y="312" fill="#98A2B6">正常运行 · 全线温度平稳</text>
+            <text id="st3txt" x="52" y="312" fill="#A1A1A6">正常运行 · 全线温度平稳</text>
           </g>
-          <g id="ph3" transform="translate(28,330)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#66718A">
+          <g id="ph3" transform="translate(28,330)" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#6E6E73">
             <text x="0" y="12" class="phx on">正常</text><text x="64" y="12" class="phx">温升</text><text x="128" y="12" class="phx">越限</text><text x="192" y="12" class="phx">报警</text><text x="256" y="12" class="phx">恢复</text>
           </g>
-          <text x="28" y="372" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#4E586E" data-i18n="demo.note3">演示数据 · 实际阈值按项目配置</text>
+          <text x="28" y="372" font-family="Geist Mono,ui-monospace,monospace" font-size="10" fill="#515154" data-i18n="demo.note3">演示数据 · 实际阈值按项目配置</text>
         </svg>
         <figcaption class="cap"><span data-i18n="dts.cap">逐米温度地图:热点在成为火点之前被摘除</span><span class="live"><i></i>LIVE</span></figcaption>
       </figure>
@@ -940,21 +949,21 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="net.lead">传感器与光缆负责感知,三台主机负责解调,平台负责研判,预警负责找到人。每一米光纤,都接在同一条链路上。</p>
     <figure class="sys-fig reveal">
       <svg viewBox="0 0 1120 210" style="width:100%;height:auto" role="img" aria-label="系统全景:传感器与光缆接入 FBG、DAS、DTS 三台主机,汇入 AI 平台,输出分级预警">
-        <line x1="30" y1="105" x2="1090" y2="105" stroke="rgba(148,163,190,.16)" stroke-width="1.4"/>
+        <line x1="30" y1="105" x2="1090" y2="105" stroke="rgba(160,160,170,.16)" stroke-width="1.4"/>
         <path d="M30 105 L1090 105" stroke="var(--accent)" stroke-width="2" class="pulse" style="stroke-dasharray:4 380;animation-duration:5.5s"/>
         <g font-family="Geist Mono,ui-monospace,monospace" text-anchor="middle">
-          <g><circle cx="120" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="120" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n1">传感器 · 光缆</text>
-             <text x="120" y="140" font-size="10.5" fill="#66718A" data-i18n="net.d1">GM-F 八大类 · 铠装光缆</text></g>
-          <g><circle cx="420" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="420" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n2">三大解调主机</text>
-             <text x="420" y="140" font-size="10.5" fill="#66718A">FBG · DAS · DTS</text></g>
-          <g><circle cx="730" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="730" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n3">AI 监测平台</text>
-             <text x="730" y="140" font-size="10.5" fill="#66718A" data-i18n="net.d3">趋势 · 研判 · 报告</text></g>
-          <g><circle cx="1000" cy="105" r="7" fill="#05070C" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="1000" y="76" font-size="12.5" fill="#EDF0F6" data-i18n="net.n4">分级预警</text>
-             <text x="1000" y="140" font-size="10.5" fill="#66718A" data-i18n="net.d4">阈值 · 事件 · 联动</text></g>
+          <g><circle cx="120" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="120" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n1">传感器 · 光缆</text>
+             <text x="120" y="140" font-size="10.5" fill="#6E6E73" data-i18n="net.d1">GM-F 八大类 · 铠装光缆</text></g>
+          <g><circle cx="420" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="420" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n2">三大解调主机</text>
+             <text x="420" y="140" font-size="10.5" fill="#6E6E73">FBG · DAS · DTS</text></g>
+          <g><circle cx="730" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="730" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n3">AI 监测平台</text>
+             <text x="730" y="140" font-size="10.5" fill="#6E6E73" data-i18n="net.d3">趋势 · 研判 · 报告</text></g>
+          <g><circle cx="1000" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
+             <text x="1000" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n4">分级预警</text>
+             <text x="1000" y="140" font-size="10.5" fill="#6E6E73" data-i18n="net.d4">阈值 · 事件 · 联动</text></g>
         </g>
       </svg>
       <figcaption data-i18n="net.cap">同一条数据链路:光信号进,处置结论出。</figcaption>
@@ -982,12 +991,12 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     <div class="plat-panel reveal" aria-label="平台闭环流程动画:多源数据汇入平台,分级预警、自动报告与处置工单流出">
       <div class="plat-head"><span data-i18n="pf.panel">从数据到闭环</span><span class="live"><i></i>LIVE</span></div>
       <svg class="flow" viewBox="0 0 560 380" style="width:100%;display:block">
-        <g font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#98A2B6">
+        <g font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#A1A1A6">
           <text x="24" y="66" data-i18n="pf.n1">FBG 主机</text><text x="24" y="142" data-i18n="pf.n2">DAS 主机</text>
           <text x="24" y="218" data-i18n="pf.n3">DTS 主机</text><text x="24" y="294" data-i18n="pf.n4">第三方系统</text>
-          <text x="452" y="96" fill="#EDF0F6" data-i18n="pf.o1">分级预警</text><text x="452" y="112" font-size="9.5" data-i18n="pf.o1d">直达值班人</text>
-          <text x="452" y="190" fill="#EDF0F6" data-i18n="pf.o2">自动报告</text><text x="452" y="206" font-size="9.5" data-i18n="pf.o2d">日报 · 留痕</text>
-          <text x="452" y="284" fill="#EDF0F6" data-i18n="pf.o3">处置工单</text><text x="452" y="300" font-size="9.5" data-i18n="pf.o3d">闭环 · 可溯</text>
+          <text x="452" y="96" fill="#F5F5F7" data-i18n="pf.o1">分级预警</text><text x="452" y="112" font-size="9.5" data-i18n="pf.o1d">直达值班人</text>
+          <text x="452" y="190" fill="#F5F5F7" data-i18n="pf.o2">自动报告</text><text x="452" y="206" font-size="9.5" data-i18n="pf.o2d">日报 · 留痕</text>
+          <text x="452" y="284" fill="#F5F5F7" data-i18n="pf.o3">处置工单</text><text x="452" y="300" font-size="9.5" data-i18n="pf.o3d">闭环 · 可溯</text>
         </g>
         <g fill="none" stroke-width="1.6">
           <path class="fp fin" d="M118 62 C 190 62, 210 178, 268 182"/>
@@ -999,10 +1008,10 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
           <path class="fp fo3" id="po3" d="M312 202 C 360 226, 395 266, 444 280"/>
         </g>
         <g id="hub">
-          <circle cx="290" cy="189" r="34" fill="#04060B" stroke="var(--accent)" stroke-width="1.8"/>
+          <circle cx="290" cy="189" r="34" fill="#09090B" stroke="var(--accent)" stroke-width="1.8"/>
           <circle class="hubring" cx="290" cy="189" r="42" fill="none" stroke="var(--accent)" stroke-width="1" opacity=".35"/>
-          <text x="290" y="185" text-anchor="middle" font-size="12" fill="#EDF0F6" font-family="inherit" data-i18n="pf.hub">AI 平台</text>
-          <text x="290" y="201" text-anchor="middle" font-size="9.5" fill="#66718A" font-family="Geist Mono,ui-monospace,monospace" data-i18n="pf.hubd">研判中枢</text>
+          <text x="290" y="185" text-anchor="middle" font-size="12" fill="#F5F5F7" font-family="inherit" data-i18n="pf.hub">AI 平台</text>
+          <text x="290" y="201" text-anchor="middle" font-size="9.5" fill="#6E6E73" font-family="Geist Mono,ui-monospace,monospace" data-i18n="pf.hubd">研判中枢</text>
         </g>
         <g font-family="Geist Mono,ui-monospace,monospace">
           <text id="pRead" x="280" y="352" text-anchor="middle" font-size="12" fill="var(--accent)">T+0 · 发现趋势:DTS 捕捉接头温升</text>
@@ -1260,7 +1269,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   function el(id){return document.getElementById(id)}
   function setPh(group,i){
     var ts=group.querySelectorAll('.phx');
-    ts.forEach(function(t,j){t.setAttribute('fill',j===i?'var(--accent)':'#66718A')});
+    ts.forEach(function(t,j){t.setAttribute('fill',j===i?'var(--accent)':'#6E6E73')});
   }
 
   /* ---- 章节一:GM-FBG-16/32 ---- */
@@ -1449,6 +1458,133 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       a.addEventListener('click',function(){activate(a.dataset.spec)});
     });
   })();
+})();
+</script>
+
+<script>
+/* ============ 全域安全预警 · Hero 动画引擎 ============ */
+(function(){
+  var svg=document.getElementById('guardSvg');if(!svg)return;
+  var reduce=window.__reduce;
+  var GUARD={
+    zh:{
+      hub:'三大主机 · AI 平台',
+      labels:{bridge:'桥梁',pipe:'管道',cable:'电缆',dam:'大坝',rail:'轨交',corridor:'管廊',perimeter:'周界',wind:'风电'},
+      events:{bridge:'应变越限 1620 με · S-07',pipe:'第三方开挖 · K66+040',cable:'接头温升 78 ℃ · J-12',dam:'渗流异常 · 桩号 0+300',rail:'保护区施工 · DK12+300',corridor:'感温超限 65 ℃ · 电力舱',perimeter:'攀爬事件 · 东段 E-04',wind:'叶根载荷异常 · #17 机组'},
+      phases:['检测到异常 · 定位中','主机报警 · 已定位','平台分级推送 · 工单生成','处置闭环 · 恢复值守']
+    },
+    en:{
+      hub:'Interrogators · AI platform',
+      labels:{bridge:'Bridge',pipe:'Pipeline',cable:'Cable',dam:'Dam',rail:'Rail',corridor:'Corridor',perimeter:'Perimeter',wind:'Wind'},
+      events:{bridge:'Strain over limit 1620 με · S-07',pipe:'Third-party digging · K66+040',cable:'Joint heating 78 °C · J-12',dam:'Seepage anomaly · Sta. 0+300',rail:'Construction in zone · DK12+300',corridor:'Heat over 65 °C · power bay',perimeter:'Climb event · east E-04',wind:'Blade-root load anomaly · unit #17'},
+      phases:['Anomaly detected · locating','Host alarm · located','Graded push · work order','Closed out · back on watch']
+    }
+  };
+  function G(){return GUARD[window.__lang==='en'?'en':'zh']}
+  var NODES=[
+    {k:'bridge',x:110,y:178,lab:-1},{k:'pipe',x:275,y:214,lab:1},{k:'cable',x:435,y:186,lab:-1},{k:'dam',x:580,y:158,lab:1},
+    {k:'rail',x:865,y:158,lab:1},{k:'corridor',x:1015,y:190,lab:-1},{k:'perimeter',x:1170,y:214,lab:1},{k:'wind',x:1330,y:172,lab:-1}
+  ];
+  var HUB={x:722,y:168};
+  /* 主干路径:平滑穿过全部节点与中枢 */
+  var pts=NODES.slice(0,4).concat([HUB]).concat(NODES.slice(4));
+  function pathD(){
+    var d='M-20 200 L'+(pts[0].x-64)+' '+(pts[0].y+10);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i], n=pts[i+1];
+      var nx=n?n.x:1470, ny=n?n.y:150;
+      d+=' C '+(p.x+ (nx-p.x)*0.4)+' '+p.y+', '+(nx-(nx-p.x)*0.4)+' '+ny+', '+nx+' '+ny;
+    }
+    return d;
+  }
+  var d=pathD();
+  ['gBB','gP1','gP2'].forEach(function(id){document.getElementById(id).setAttribute('d',d)});
+  /* 节点与标签 */
+  var NS='http://www.w3.org/2000/svg';
+  var gN=document.getElementById('gNodes');
+  var dots={};
+  NODES.forEach(function(n){
+    var c=document.createElementNS(NS,'circle');
+    c.setAttribute('cx',n.x);c.setAttribute('cy',n.y);c.setAttribute('r',5);
+    c.setAttribute('fill','#000000');c.setAttribute('stroke','rgba(160,160,170,.55)');c.setAttribute('stroke-width',1.6);
+    gN.appendChild(c);dots[n.k]=c;
+    var t=document.createElementNS(NS,'text');
+    t.setAttribute('x',n.x);t.setAttribute('y',n.y+(n.lab<0?-16:26));
+    t.setAttribute('text-anchor','middle');t.setAttribute('font-size',11);t.setAttribute('fill','#6E6E73');
+    t.dataset.gk=n.k;t.textContent=G().labels[n.k];
+    gN.appendChild(t);
+  });
+  var hubC=document.createElementNS(NS,'circle');
+  hubC.setAttribute('cx',HUB.x);hubC.setAttribute('cy',HUB.y);hubC.setAttribute('r',9);
+  hubC.setAttribute('fill','#0A0A0C');hubC.setAttribute('stroke','var(--accent)');hubC.setAttribute('stroke-width',1.8);
+  gN.appendChild(hubC);
+  var hubR=document.createElementNS(NS,'circle');
+  hubR.setAttribute('cx',HUB.x);hubR.setAttribute('cy',HUB.y);hubR.setAttribute('r',17);
+  hubR.setAttribute('fill','none');hubR.setAttribute('stroke','rgba(90,200,245,.4)');hubR.setAttribute('stroke-dasharray','3 5');
+  gN.appendChild(hubR);
+  var hubT=document.createElementNS(NS,'text');
+  hubT.setAttribute('x',HUB.x);hubT.setAttribute('y',HUB.y-28);hubT.setAttribute('text-anchor','middle');
+  hubT.setAttribute('font-size',11.5);hubT.setAttribute('fill','#A1A1A6');hubT.dataset.ghub='1';
+  hubT.textContent=G().hub;gN.appendChild(hubT);
+  /* 事件循环 */
+  var rip=document.getElementById('gRip'),chip=document.getElementById('gChip'),
+      chipR=document.getElementById('gChipR'),chipDot=document.getElementById('gChipDot'),
+      t1=document.getElementById('gChipT1'),t2=document.getElementById('gChipT2');
+  var COLORS=['var(--warn)','var(--alarm)','var(--accent)','var(--ok)'];
+  var cur=1, t0=0, run=false, last=0;
+  function phaseOf(t){return t<1.2?0:(t<2.6?1:(t<4.2?2:3))}
+  function width(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>255?12:6.6}return w}
+  function setChip(n,ph){
+    var g=G();
+    var l1=g.labels[n.k]+' · '+g.events[n.k];
+    var l2=g.phases[ph];
+    t1.textContent=l1;t2.textContent=l2;
+    var w=Math.max(width(l1),width(l2))+40;
+    var cx=Math.min(Math.max(n.x-w/2,16),1440-w-16);
+    var cy=n.y+(n.lab<0?18:-64);
+    if(cy<8)cy=n.y+18;
+    chipR.setAttribute('x',cx);chipR.setAttribute('y',cy);chipR.setAttribute('width',w);
+    chipDot.setAttribute('cx',cx+16);chipDot.setAttribute('cy',cy+23);chipDot.setAttribute('fill',COLORS[ph]);
+    t1.setAttribute('x',cx+28);t1.setAttribute('y',cy+19);
+    t2.setAttribute('x',cx+28);t2.setAttribute('y',cy+36);
+  }
+  function frame(now){
+    if(!run)return;
+    var t=(now-t0)/1000;
+    if(t>5.6){cur=(cur+Math.floor(Math.random()*(NODES.length-1))+1)%NODES.length;t0=now;t=0;}
+    var n=NODES[cur], ph=phaseOf(t);
+    var col=COLORS[ph];
+    NODES.forEach(function(m){dots[m.k].setAttribute('stroke',m===n?col:'rgba(160,160,170,.55)')});
+    if(ph<3){
+      var rr=7+((t*26)%24);
+      rip.setAttribute('cx',n.x);rip.setAttribute('cy',n.y);rip.setAttribute('r',rr);
+      rip.setAttribute('stroke',col);rip.setAttribute('opacity',String(.85*(1-(rr-7)/24)));
+    } else rip.setAttribute('opacity','0');
+    setChip(n,ph);
+    chip.setAttribute('opacity',t<0.25?String(t/0.25):(t>5.1?String(Math.max(0,(5.6-t)/0.5)):'1'));
+    requestAnimationFrame(frame);
+  }
+  window.__guardLang=function(){
+    var g=G();
+    gN.querySelectorAll('text').forEach(function(t){
+      if(t.dataset.ghub)t.textContent=g.hub;
+      else if(t.dataset.gk)t.textContent=g.labels[t.dataset.gk];
+    });
+    if(reduce)setChip(NODES[1],1);
+  };
+  if(reduce){
+    var n=NODES[1];
+    dots[n.k].setAttribute('stroke','var(--alarm)');
+    setChip(n,1);chip.setAttribute('opacity','1');
+    return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var was=run;run=e.isIntersecting;
+      if(run&&!was){t0=performance.now();requestAnimationFrame(frame);}
+    });
+  },{threshold:.2});
+  io.observe(svg);
 })();
 </script>
 
@@ -1798,6 +1934,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     if(window.__machines&&window.__reduce){window.__machines.forEach(function(m){m.paint(2,1,m.state)})}
     if(window.__selApply)window.__selApply();
     if(window.__platSet)window.__platSet();
+    if(window.__guardLang)window.__guardLang();
     try{localStorage.setItem('gm-lang',lang)}catch(e){}
   }
   document.getElementById('langBtn').addEventListener('click',function(){
