@@ -109,12 +109,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .pn b small{font-size:.34em;color:var(--text-2);margin-left:4px;font-weight:500}
 .pn span{display:block;margin-top:14px;font-size:14.5px;color:var(--text-3)}
 
-/* ---- 大创意 ---- */
-.idea{padding:150px 0;position:relative;overflow:hidden}
-.idea .wrap{display:grid;gap:40px;max-width:1000px;text-align:center;justify-items:center}
-.idea-fig{width:100%;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,var(--surface),var(--bg-2));padding:26px 20px 16px}
-.idea-fig figcaption{font-size:13px;color:var(--text-3);padding-top:12px}
-
 /* ---- 章节:主机 × 场景 × 原理 ---- */
 .chapters{position:relative}
 .chapter{position:relative;display:flex;align-items:center;padding:100px 0 80px;border-top:1px solid var(--line)}
@@ -666,28 +660,6 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       <div class="pn reveal"><b><i class="cnt" data-v="0.5" data-d="1">0</i><small>s</small></b><span data-i18n="proof.s5">GM-DTS 完成一轮测量</span></div>
       <div class="pn reveal"><b><i class="cnt" data-v="0.001" data-d="3">0</i><small>°</small></b><span data-i18n="proof.s6">GM-FI01 倾角分辨率</span></div>
     </div>
-  </div>
-</section>
-
-<!-- ===================== 大创意 ===================== -->
-<section class="idea">
-  <div class="wrap">
-    <h2 class="h2 reveal" data-i18n="idea.h2">所以我们把传感器,<br>做成了一根光纤。</h2>
-    <p class="lead reveal" style="max-width:32em" data-i18n="idea.lead">无源、抗电磁、本质安全。光缆铺到哪里,感知就延伸到哪里:每一米都是测点,每一秒都在值守。</p>
-    <figure class="idea-fig reveal" aria-label="一根光纤贯穿桥梁、管道、电缆与大坝四类设施,光脉冲沿线巡检">
-      <svg viewBox="0 0 1000 180" aria-hidden="true">
-        <path id="ideaF" d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="rgba(160,160,170,.18)" stroke-width="1.8"/>
-        <path d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="var(--accent)" stroke-width="2.2" class="pulse"/>
-        <path d="M20 120 C 200 60, 320 150, 500 96 S 820 40, 980 100" fill="none" stroke="var(--accent)" stroke-width="2.2" class="pulse d2" opacity=".5"/>
-        <g font-family="Geist Mono,ui-monospace,monospace" font-size="12" fill="#6E6E73" text-anchor="middle">
-          <g><circle cx="150" cy="86" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="150" y="60" data-i18n="idea.n1">桥梁</text></g>
-          <g><circle cx="430" cy="112" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="430" y="150" data-i18n="idea.n2">管道</text></g>
-          <g><circle cx="690" cy="72" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="690" y="46" data-i18n="idea.n3">电缆</text></g>
-          <g><circle cx="900" cy="92" r="4.5" fill="#000000" stroke="var(--accent)" stroke-width="1.6"/><text x="900" y="130" data-i18n="idea.n4">大坝</text></g>
-        </g>
-      </svg>
-      <figcaption data-i18n="idea.cap">同一条光缆,同时是传感器、传输线与巡检员。</figcaption>
-    </figure>
   </div>
 </section>
 
