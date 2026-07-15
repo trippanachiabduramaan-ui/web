@@ -1501,23 +1501,34 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 </script>
 
 <script>
-/* ============ 全域安全预警 · Hero 动画引擎 ============ */
+/* ============ 全域安全预警 · 系统原理动画引擎 v2 ============ */
+/* 原理可视化:主机发探测脉冲沿光缆巡检 → 扰动点背向散射回波返回 → Δt 定位 → 平台分级推送 → 处置闭环 */
 (function(){
   var svg=document.getElementById('guardSvg');if(!svg)return;
   if(matchMedia('(max-width:760px)').matches)svg.setAttribute('preserveAspectRatio','xMidYMid slice');
   var reduce=window.__reduce;
   var GUARD={
     zh:{
-      hub:'三大主机 · AI 平台',
+      hub:'解调主机 · FBG / DAS / DTS',
+      plat:'监测平台 · 分级预警 · 值班人',
+      probeLab:'探测脉冲 · 沿光缆巡检',
+      echoLab:'背向散射 · Δt 时间差定位',
+      dt:function(loc){return 'Δt × v ÷ 2 → 定位 '+loc},
       labels:{bridge:'桥梁',pipe:'管道',cable:'电缆',dam:'大坝',rail:'轨交',corridor:'管廊',perimeter:'周界',wind:'风电'},
+      locs:{bridge:'S-07',pipe:'K66+040',cable:'J-12',dam:'桩号 0+300',rail:'DK12+300',corridor:'电力舱',perimeter:'东段 E-04',wind:'#17 机组'},
       events:{bridge:'应变越限 1620 με · S-07',pipe:'第三方开挖 · K66+040',cable:'接头温升 78 ℃ · J-12',dam:'渗流异常 · 桩号 0+300',rail:'保护区施工 · DK12+300',corridor:'感温超限 65 ℃ · 电力舱',perimeter:'攀爬事件 · 东段 E-04',wind:'叶根载荷异常 · #17 机组'},
-      phases:['检测到异常 · 定位中','主机报警 · 已定位','平台分级推送 · 工单生成','处置闭环 · 恢复值守']
+      phases:['异常扰动 · 检测中','背向散射返回 · 定位中','主机报警 · 已定位','平台分级推送 · 工单生成','处置闭环 · 恢复值守']
     },
     en:{
-      hub:'Interrogators · AI platform',
+      hub:'Interrogators · FBG / DAS / DTS',
+      plat:'Platform · graded alert · duty operator',
+      probeLab:'Probe pulses · patrolling the fiber',
+      echoLab:'Backscatter · Δt time-of-flight locating',
+      dt:function(loc){return 'Δt × v ÷ 2 → located at '+loc},
       labels:{bridge:'Bridge',pipe:'Pipeline',cable:'Cable',dam:'Dam',rail:'Rail',corridor:'Corridor',perimeter:'Perimeter',wind:'Wind'},
+      locs:{bridge:'S-07',pipe:'K66+040',cable:'J-12',dam:'Sta. 0+300',rail:'DK12+300',corridor:'power bay',perimeter:'east E-04',wind:'unit #17'},
       events:{bridge:'Strain over limit 1620 με · S-07',pipe:'Third-party digging · K66+040',cable:'Joint heating 78 °C · J-12',dam:'Seepage anomaly · Sta. 0+300',rail:'Construction in zone · DK12+300',corridor:'Heat over 65 °C · power bay',perimeter:'Climb event · east E-04',wind:'Blade-root load anomaly · unit #17'},
-      phases:['Anomaly detected · locating','Host alarm · located','Graded push · work order','Closed out · back on watch']
+      phases:['Disturbance · detecting','Backscatter returning · locating','Host alarm · located','Graded push · work order','Closed out · back on watch']
     }
   };
   function G(){return GUARD[window.__lang==='en'?'en':'zh']}
@@ -1525,54 +1536,67 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     {k:'bridge',x:110,y:178,lab:-1},{k:'pipe',x:275,y:214,lab:1},{k:'cable',x:435,y:186,lab:-1},{k:'dam',x:580,y:158,lab:1},
     {k:'rail',x:865,y:158,lab:1},{k:'corridor',x:1015,y:190,lab:-1},{k:'perimeter',x:1170,y:214,lab:1},{k:'wind',x:1330,y:172,lab:-1}
   ];
-  var HUB={x:722,y:168};
-  /* 主干路径:平滑穿过全部节点与中枢 */
+  var HUB={x:722,y:168},PLAT={x:722,y:46};
   var pts=NODES.slice(0,4).concat([HUB]).concat(NODES.slice(4));
   function pathD(){
     var d='M-20 200 L'+(pts[0].x-64)+' '+(pts[0].y+10);
     for(var i=0;i<pts.length;i++){
       var p=pts[i], n=pts[i+1];
       var nx=n?n.x:1470, ny=n?n.y:150;
-      d+=' C '+(p.x+ (nx-p.x)*0.4)+' '+p.y+', '+(nx-(nx-p.x)*0.4)+' '+ny+', '+nx+' '+ny;
+      d+=' C '+(p.x+(nx-p.x)*0.4)+' '+p.y+', '+(nx-(nx-p.x)*0.4)+' '+ny+', '+nx+' '+ny;
     }
     return d;
   }
   var d=pathD();
-  ['gBB','gP1','gP2'].forEach(function(id){document.getElementById(id).setAttribute('d',d)});
-  /* 节点与标签 */
+  ['gBB','gP1','gP2'].forEach(function(id){var e=document.getElementById(id);if(e)e.setAttribute('d',d)});
+  var gp2=document.getElementById('gP2');if(gp2)gp2.setAttribute('display','none');
+  var BB=document.getElementById('gBB'), LEN=BB.getTotalLength();
+  function sAt(pt){ /* 求某坐标在路径上的弧长参数 */
+    var best=0,bd=1e9;
+    for(var s=0;s<=LEN;s+=8){var p=BB.getPointAtLength(s);var dx=p.x-pt.x,dy=p.y-pt.y,dd=dx*dx+dy*dy;if(dd<bd){bd=dd;best=s}}
+    return best;
+  }
+  var sHub=sAt(HUB);
+  NODES.forEach(function(n){n.s=sAt(n)});
   var NS='http://www.w3.org/2000/svg';
   var gN=document.getElementById('gNodes');
+  function mk(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);(parent||gN).appendChild(e);return e}
+  /* 节点与标签 */
   var dots={};
   NODES.forEach(function(n){
-    var c=document.createElementNS(NS,'circle');
-    c.setAttribute('cx',n.x);c.setAttribute('cy',n.y);c.setAttribute('r',5);
-    c.setAttribute('fill','#000000');c.setAttribute('stroke','rgba(160,160,170,.55)');c.setAttribute('stroke-width',1.6);
-    gN.appendChild(c);dots[n.k]=c;
-    var t=document.createElementNS(NS,'text');
-    t.setAttribute('x',n.x);t.setAttribute('y',n.y+(n.lab<0?-16:26));
-    t.setAttribute('text-anchor','middle');t.setAttribute('font-size',11);t.setAttribute('fill','#6E6E73');
+    dots[n.k]=mk('circle',{cx:n.x,cy:n.y,r:5,fill:'#000000',stroke:'rgba(160,160,170,.55)','stroke-width':1.6});
+    var t=mk('text',{x:n.x,y:n.y+(n.lab<0?-16:26),'text-anchor':'middle','font-size':11,fill:'#6E6E73'});
     t.dataset.gk=n.k;t.textContent=G().labels[n.k];
-    gN.appendChild(t);
   });
-  var hubC=document.createElementNS(NS,'circle');
-  hubC.setAttribute('cx',HUB.x);hubC.setAttribute('cy',HUB.y);hubC.setAttribute('r',9);
-  hubC.setAttribute('fill','#0A0A0C');hubC.setAttribute('stroke','var(--accent)');hubC.setAttribute('stroke-width',1.8);
-  gN.appendChild(hubC);
-  var hubR=document.createElementNS(NS,'circle');
-  hubR.setAttribute('cx',HUB.x);hubR.setAttribute('cy',HUB.y);hubR.setAttribute('r',17);
-  hubR.setAttribute('fill','none');hubR.setAttribute('stroke','rgba(90,200,245,.4)');hubR.setAttribute('stroke-dasharray','3 5');
-  gN.appendChild(hubR);
-  var hubT=document.createElementNS(NS,'text');
-  hubT.setAttribute('x',HUB.x);hubT.setAttribute('y',HUB.y-28);hubT.setAttribute('text-anchor','middle');
-  hubT.setAttribute('font-size',11.5);hubT.setAttribute('fill','#A1A1A6');hubT.dataset.ghub='1';
-  hubT.textContent=G().hub;gN.appendChild(hubT);
-  /* 事件循环 */
+  /* 中枢主机 */
+  mk('circle',{cx:HUB.x,cy:HUB.y,r:9,fill:'#0A0A0C',stroke:'var(--accent)','stroke-width':1.8});
+  mk('circle',{cx:HUB.x,cy:HUB.y,r:17,fill:'none',stroke:'rgba(90,200,245,.4)','stroke-dasharray':'3 5'});
+  var hubT=mk('text',{x:HUB.x,y:HUB.y+34,'text-anchor':'middle','font-size':11,fill:'#A1A1A6'});
+  hubT.dataset.ghub='1';hubT.textContent=G().hub;
+  var hubFlash=mk('circle',{cx:HUB.x,cy:HUB.y,r:9,fill:'none',stroke:'var(--accent)','stroke-width':1.6,opacity:0});
+  /* Δt 定位读出 */
+  var hubRead=mk('text',{x:HUB.x,y:HUB.y+52,'text-anchor':'middle','font-size':10.5,fill:'var(--accent)','font-family':'Geist Mono,ui-monospace,monospace',opacity:0});
+  /* 平台与推送光束 */
+  var beam=mk('line',{x1:HUB.x,y1:HUB.y-17,x2:PLAT.x,y2:PLAT.y+8,stroke:'rgba(160,160,170,.22)','stroke-width':1.2});
+  mk('circle',{cx:PLAT.x,cy:PLAT.y,r:5,fill:'#0A0A0C',stroke:'rgba(160,160,170,.6)','stroke-width':1.5});
+  var platT=mk('text',{x:PLAT.x+14,y:PLAT.y+4,'font-size':10.5,fill:'#6E6E73'});
+  platT.dataset.gplat='1';platT.textContent=G().plat;
+  var platPulse=mk('circle',{cx:PLAT.x,cy:PLAT.y,r:5,fill:'none',stroke:'var(--accent)','stroke-width':1.4,opacity:0});
+  /* 原理注释(左右下角) */
+  var capL=mk('text',{x:20,y:308,'font-size':10,fill:'#515154','font-family':'Geist Mono,ui-monospace,monospace'});
+  capL.dataset.gcapl='1';capL.textContent=G().probeLab;
+  var capR=mk('text',{x:1420,y:308,'text-anchor':'end','font-size':10,fill:'#515154','font-family':'Geist Mono,ui-monospace,monospace'});
+  capR.dataset.gcapr='1';capR.textContent=G().echoLab;
+  /* 探测脉冲与回波(点池) */
+  var probes=[],echo=null;
+  function spawnProbe(dir){
+    var c=mk('circle',{r:3,fill:'var(--accent)',opacity:.9});
+    probes.push({el:c,s:sHub,dir:dir,speed:330});
+  }
   var rip=document.getElementById('gRip'),chip=document.getElementById('gChip'),
       chipR=document.getElementById('gChipR'),chipDot=document.getElementById('gChipDot'),
       t1=document.getElementById('gChipT1'),t2=document.getElementById('gChipT2');
-  var COLORS=['var(--warn)','var(--alarm)','var(--accent)','var(--ok)'];
-  var cur=1, t0=0, run=false, last=0;
-  function phaseOf(t){return t<1.2?0:(t<2.6?1:(t<4.2?2:3))}
+  var COLORS=['var(--warn)','var(--warn)','var(--alarm)','var(--accent)','var(--ok)'];
   function width(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>255?12:6.6}return w}
   function setChip(n,ph){
     var g=G();
@@ -1588,45 +1612,125 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     t1.setAttribute('x',cx+28);t1.setAttribute('y',cy+19);
     t2.setAttribute('x',cx+28);t2.setAttribute('y',cy+36);
   }
+  /* ---- 事件状态机 ----
+     idle → disturb(扰动出现,等探测脉冲经过) → echoing(回波返程) → located(Δt 定位+报警)
+     → push(推送平台) → closed(闭环) → fadeout → idle */
+  var ST='idle', stT=0, cur=NODES[1], last=performance.now(), spawnT=0, dirFlip=1, run=false, chipA=0;
+  function pick(){var i;do{i=Math.floor(Math.random()*NODES.length)}while(NODES[i]===cur);cur=NODES[i]}
+  function phaseIdx(){return ST==='disturb'?0:ST==='echoing'?1:ST==='located'?2:ST==='push'?3:4}
   function frame(now){
     if(!run)return;
-    var t=(now-t0)/1000;
-    if(t>5.6){cur=(cur+Math.floor(Math.random()*(NODES.length-1))+1)%NODES.length;t0=now;t=0;}
-    var n=NODES[cur], ph=phaseOf(t);
-    var col=COLORS[ph];
-    NODES.forEach(function(m){dots[m.k].setAttribute('stroke',m===n?col:'rgba(160,160,170,.55)')});
-    if(ph<3){
-      var rr=7+((t*26)%24);
-      rip.setAttribute('cx',n.x);rip.setAttribute('cy',n.y);rip.setAttribute('r',rr);
+    var dt=Math.min(.05,(now-last)/1000);last=now;stT+=dt;
+    /* 探测脉冲池:中枢双向发射 */
+    spawnT-=dt;
+    if(spawnT<=0){spawnProbe(dirFlip);dirFlip=-dirFlip;spawnT=1.05}
+    for(var i=probes.length-1;i>=0;i--){
+      var p=probes[i];p.s+=p.dir*p.speed*dt;
+      if(p.s<0||p.s>LEN){p.el.remove();probes.splice(i,1);continue}
+      var pt=BB.getPointAtLength(p.s);
+      p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y);
+      p.el.setAttribute('opacity',String(.85*(1-Math.abs(p.s-sHub)/LEN*.8)));
+      /* 扰动等待期:脉冲经过事件点 → 触发回波 */
+      if(ST==='disturb'&&!echo){
+        var before=p.s-p.dir*p.speed*dt;
+        if((before-cur.s)*(p.s-cur.s)<=0){
+          var c=mk('circle',{r:3.2,fill:'var(--warn)',opacity:1});
+          echo={el:c,s:cur.s,dir:cur.s>sHub?-1:1,speed:430};
+          ST='echoing';stT=0;
+        }
+      }
+    }
+    /* 回波返程 */
+    if(echo){
+      echo.s+=echo.dir*echo.speed*dt;
+      var done=(echo.dir<0&&echo.s<=sHub)||(echo.dir>0&&echo.s>=sHub);
+      if(done){
+        echo.el.remove();echo=null;
+        ST='located';stT=0;
+        hubRead.textContent=G().dt(G().locs[cur.k]);
+      }else{
+        var ep=BB.getPointAtLength(echo.s);
+        echo.el.setAttribute('cx',ep.x);echo.el.setAttribute('cy',ep.y);
+      }
+    }
+    /* 状态推进 */
+    if(ST==='idle'&&stT>1.0){pick();ST='disturb';stT=0}
+    else if(ST==='disturb'&&stT>3.5){ST='echoing';stT=0; if(!echo){var c2=mk('circle',{r:3.2,fill:'var(--warn)',opacity:1});echo={el:c2,s:cur.s,dir:cur.s>sHub?-1:1,speed:430};}}
+    else if(ST==='located'&&stT>1.6){ST='push';stT=0}
+    else if(ST==='push'&&stT>1.6){ST='closed';stT=0}
+    else if(ST==='closed'&&stT>1.3){ST='fade';stT=0}
+    else if(ST==='fade'&&stT>0.5){ST='idle';stT=0;hubRead.setAttribute('opacity','0')}
+    var ph=phaseIdx(), col=COLORS[Math.min(ph,4)];
+    var active=(ST!=='idle'&&ST!=='fade');
+    /* 节点态 */
+    NODES.forEach(function(m){dots[m.k].setAttribute('stroke',m===cur&&active?col:'rgba(160,160,170,.55)')});
+    /* 扰动涟漪 */
+    if(active&&ST!=='closed'){
+      var rr=7+((stT*26)%24);
+      rip.setAttribute('cx',cur.x);rip.setAttribute('cy',cur.y);rip.setAttribute('r',rr);
       rip.setAttribute('stroke',col);rip.setAttribute('opacity',String(.85*(1-(rr-7)/24)));
-    } else rip.setAttribute('opacity','0');
-    setChip(n,ph);
-    var vis=t<0.25?t/0.25:(t>5.1?Math.max(0,(5.6-t)/0.5):1);
-    chip.setAttribute('opacity',String(vis));
-    if(window.__fiberWarm)window.__fiberWarm(n.x/1440,[.45,.95,.4,.12][ph]*vis);
+    }else if(ST==='closed'){
+      var gr=7+stT*16;
+      rip.setAttribute('cx',cur.x);rip.setAttribute('cy',cur.y);rip.setAttribute('r',gr);
+      rip.setAttribute('stroke','var(--ok)');rip.setAttribute('opacity',String(Math.max(0,.8-stT*.6)));
+    }else rip.setAttribute('opacity','0');
+    /* 中枢闪烁 + Δt 读出 */
+    if(ST==='located'){
+      var fr=9+stT*22;
+      hubFlash.setAttribute('r',fr);hubFlash.setAttribute('stroke','var(--alarm)');
+      hubFlash.setAttribute('opacity',String(Math.max(0,.9-stT*.7)));
+      hubRead.setAttribute('opacity',String(Math.min(1,stT*3)));
+    }else if(ST==='push'||ST==='closed'){hubFlash.setAttribute('opacity','0');hubRead.setAttribute('opacity','1')}
+    else hubFlash.setAttribute('opacity','0');
+    /* 推送光束 */
+    if(ST==='push'){
+      beam.setAttribute('stroke','var(--accent)');
+      beam.setAttribute('stroke-dasharray','4 6');
+      beam.setAttribute('stroke-dashoffset',String(-stT*40));
+      platPulse.setAttribute('r',String(5+((stT*18)%14)));
+      platPulse.setAttribute('opacity',String(.8*(1-((stT*18)%14)/14)));
+    }else{
+      beam.setAttribute('stroke','rgba(160,160,170,.22)');beam.removeAttribute('stroke-dasharray');
+      platPulse.setAttribute('opacity','0');
+    }
+    /* 事件卡片 */
+    var chipTarget=active?1:0;
+    chipA+=(chipTarget-chipA)*Math.min(1,dt*7);
+    if(active)setChip(cur,ph);
+    chip.setAttribute('opacity',String(chipA));
+    if(window.__fiberWarm)window.__fiberWarm(cur.x/1440,[.45,.6,.95,.4,.12][ph]*chipA);
     requestAnimationFrame(frame);
   }
   window.__guardLang=function(){
     var g=G();
     gN.querySelectorAll('text').forEach(function(t){
       if(t.dataset.ghub)t.textContent=g.hub;
+      else if(t.dataset.gplat)t.textContent=g.plat;
+      else if(t.dataset.gcapl)t.textContent=g.probeLab;
+      else if(t.dataset.gcapr)t.textContent=g.echoLab;
       else if(t.dataset.gk)t.textContent=g.labels[t.dataset.gk];
     });
-    if(reduce)setChip(NODES[1],1);
+    if(reduce){cur=NODES[1];setChip(cur,2);hubRead.textContent=G().dt(G().locs[cur.k]);}
   };
-  if(reduce){
-    var n=NODES[1];
-    dots[n.k].setAttribute('stroke','var(--alarm)');
-    setChip(n,1);chip.setAttribute('opacity','1');
+  if(reduce){ /* 静态原理帧:管道事件已定位 */
+    cur=NODES[1];
+    dots[cur.k].setAttribute('stroke','var(--alarm)');
+    setChip(cur,2);chip.setAttribute('opacity','1');
+    hubRead.textContent=G().dt(G().locs[cur.k]);hubRead.setAttribute('opacity','1');
     return;
   }
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
-      var was=run;run=e.isIntersecting;
-      if(run&&!was){t0=performance.now();requestAnimationFrame(frame);}
+      var was=run;run=e.isIntersecting&&!document.hidden;
+      if(run&&!was){last=performance.now();requestAnimationFrame(frame);}
     });
   },{threshold:.2});
   io.observe(svg);
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden)run=false;
+    else{var r=svg.getBoundingClientRect();
+      if(r.bottom>0&&r.top<innerHeight&&!run){run=true;last=performance.now();requestAnimationFrame(frame);}}
+  });
 })();
 </script>
 
