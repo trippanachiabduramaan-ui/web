@@ -72,7 +72,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media(max-width:560px){.nav .btn-sm{display:none}}
 
 /* ---- Hero:宣言式(信息即设计) ---- */
-.hero{min-height:100dvh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:100px 0 calc(min(320px,32dvh) + 44px)}
+.hero{min-height:100dvh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:104px 0 72px}
 .hero::before{content:"";position:absolute;inset:auto -20% -55% -20%;height:120%;background:radial-gradient(50% 42% at 50% 100%,rgba(90,200,245,.13),transparent 62%);pointer-events:none}
 .hero-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:26px;max-width:900px;padding:0 24px}
 .hero .lead{max-width:30em}
@@ -82,8 +82,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .js .on .stagein.s2{transition-delay:.25s}
 .js .on .stagein.s3{transition-delay:.5s}
 .js .on .stagein.s4{transition-delay:.75s}
-.guard{position:absolute;left:0;right:0;bottom:2dvh;height:min(320px,32dvh);pointer-events:none;overflow:hidden}
-.guard svg{width:100%;height:100%}
+.hero-flow{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:46px;width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
 .pulse{stroke-dasharray:4 320;animation:travel 4.2s linear infinite}
 .pulse.d2{animation-delay:1.4s}.pulse.d3{animation-delay:2.8s}
 @keyframes travel{to{stroke-dashoffset:-324}}
@@ -349,6 +348,81 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 .foot-grid{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between}
 
 
+
+/* ---- 全域安全预警 · 电影级分镜场景(FiberSafetyScene 移植) ---- */
+.fs{position:relative;overflow:hidden;border-radius:1.75rem;border:1px solid rgba(255,255,255,.1);color:#fff;width:100%;text-align:left}
+.fs-head{position:relative;z-index:10;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:16px 20px 0}
+.fs-eyebrow{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid rgba(34,211,238,.3);background:rgba(34,211,238,.1);padding:2px 10px;font-size:11px;font-weight:500;letter-spacing:.18em;color:#67e8f9}
+.fs-blink{width:6px;height:6px;border-radius:999px;background:#67e8f9;animation:fsbl 1.4s ease-in-out infinite}
+@keyframes fsbl{0%,100%{opacity:1}50%{opacity:.25}}
+.fs-spacer{flex:1}
+#fs-cc{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:500}
+#fs-cc-dot{width:6px;height:6px;border-radius:999px;background:#34d399;display:inline-block}
+#fs-toggle{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);padding:4px 12px;font-size:12px;font-weight:500;color:#e2e8f0;backdrop-filter:blur(6px);transition:background .2s;cursor:pointer}
+#fs-toggle:hover{background:rgba(255,255,255,.1)}
+.fs-scene{position:relative;z-index:0;margin-top:12px;padding:0 20px}
+.fs-low{position:relative;z-index:10;margin-top:8px;display:grid;align-items:start;gap:20px;border-top:1px solid rgba(255,255,255,.05);padding:16px 20px 20px}
+@media(min-width:1024px){.fs-low{grid-template-columns:1.6fr 1fr}.fs-head{padding:16px 28px 0}.fs-scene{padding:0 28px}.fs-low{padding:16px 28px 20px}}
+.fs-narr{max-width:42rem}
+#fs-tag{font-size:11px;font-weight:600;letter-spacing:.18em;color:#67e8f9}
+#fs-title{margin-top:4px;font-size:18px;font-weight:600;letter-spacing:-.01em}
+@media(min-width:640px){#fs-title{font-size:20px}}
+#fs-sub{margin-top:6px;font-size:13px;line-height:1.85;color:#cbd5e1}
+.fs-dots{margin-top:12px;display:flex;align-items:center;gap:8px}
+.fs-bdot{height:6px;border-radius:999px;background:rgba(255,255,255,.2);transition:all .3s;display:inline-block}
+.fs-log-box{border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);padding:12px;backdrop-filter:blur(6px)}
+.fs-log-head{margin-bottom:8px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:.03em;color:#94a3b8}
+.fs-log-head i{width:6px;height:6px;border-radius:999px;background:#22d3ee}
+#fs-log{display:flex;min-height:64px;flex-direction:column;gap:6px}
+#fs-log-ph{font-size:11px;color:#64748b}
+.fs-logrow{display:flex;align-items:center;gap:8px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);padding:6px 10px;font-size:11px;color:#e2e8f0;backdrop-filter:blur(4px)}
+.fs-logrow .tm{font-family:var(--font-mono);font-size:10px;color:#94a3b8}
+.fs-foot{position:relative;z-index:10;border-top:1px solid rgba(255,255,255,.1);padding:12px 20px;text-align:center;font-size:13px;font-weight:500;letter-spacing:.02em;color:rgba(165,243,252,.9)}
+.fs-grid{pointer-events:none;position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:radial-gradient(120% 80% at 50% 10%,#000 30%,transparent 75%);mask-image:radial-gradient(120% 80% at 50% 10%,#000 30%,transparent 75%)}
+.fs-pt{filter:drop-shadow(0 0 4px #38bdf8)}
+.fs-eq rect{transform-box:fill-box;transform-origin:bottom;animation:fseq 1.1s ease-in-out infinite}
+.fs-eq rect:nth-child(2){animation-delay:.12s}.fs-eq rect:nth-child(3){animation-delay:.24s}.fs-eq rect:nth-child(4){animation-delay:.08s}.fs-eq rect:nth-child(5){animation-delay:.2s}.fs-eq rect:nth-child(6){animation-delay:.3s}.fs-eq rect:nth-child(7){animation-delay:.16s}
+@keyframes fseq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.fs .asset{transition:opacity .7s ease,filter .7s ease}
+.fs[data-beat="1"] .asset:not(.a-fbg),.fs[data-beat="2"] .asset:not(.a-dts),.fs[data-beat="3"] .asset:not(.a-das){opacity:.26}
+.fs[data-beat="1"] .a-fbg{filter:drop-shadow(0 0 9px rgba(96,165,250,0.55))}
+.fs[data-beat="2"] .a-dts{filter:drop-shadow(0 0 9px rgba(251,191,36,0.55))}
+.fs[data-beat="3"] .a-das{filter:drop-shadow(0 0 9px rgba(45,212,191,0.5))}
+.fs[data-beat="4"] .asset{filter:drop-shadow(0 0 7px rgba(52,211,153,0.4))}
+.sensor-fbg{transition:filter .4s}
+.fs[data-beat="1"] .sensor-fbg{filter:drop-shadow(0 0 5px #60a5fa);animation:fspx 1.1s ease-in-out infinite}
+@keyframes fspx{0%,100%{opacity:1}50%{opacity:.45}}
+.dts-line{transition:opacity .4s}
+.fs[data-beat="2"] .dts-line{stroke:#fde68a;filter:drop-shadow(0 0 5px #fbbf24);animation:fsdash 1s linear infinite}
+.das-line{transition:opacity .4s}
+.fs[data-beat="3"] .das-line{filter:drop-shadow(0 0 5px #2dd4bf);animation:fsdash 1s linear infinite}
+@keyframes fsdash{to{stroke-dashoffset:-20}}
+.fs .ev{visibility:hidden}
+.fs[data-beat="1"] .ev-fbg,.fs[data-beat="2"] .ev-dts,.fs[data-beat="3"] .ev-das{visibility:visible}
+.ev-sensor{filter:drop-shadow(0 0 5px #ef4444);animation:fspx 1s ease-in-out infinite}
+.ev-flame{transform-box:fill-box;transform-origin:bottom center;animation:fsflame .5s ease-in-out infinite alternate}
+@keyframes fsflame{from{transform:scaleY(.8) scaleX(1)}to{transform:scaleY(1.15) scaleX(.88)}}
+#fs-ping{opacity:0;transition:opacity .4s}
+.fs[data-beat="1"] #fs-ping,.fs[data-beat="2"] #fs-ping,.fs[data-beat="3"] #fs-ping{opacity:1}
+.fs .host rect{transition:stroke .4s,filter .4s}
+.fs[data-beat="1"] .host-fbg rect{stroke:#60a5fa;filter:drop-shadow(0 0 6px #60a5fa)}
+.fs[data-beat="2"] .host-dts rect{stroke:#fbbf24;filter:drop-shadow(0 0 6px #fbbf24)}
+.fs[data-beat="3"] .host-das rect{stroke:#2dd4bf;filter:drop-shadow(0 0 6px #2dd4bf)}
+.host-led{filter:drop-shadow(0 0 3px currentColor)}
+.fs .beam{visibility:hidden}
+.fs[data-beat="1"] .beam-fbg,.fs[data-beat="2"] .beam-dts,.fs[data-beat="3"] .beam-das{visibility:visible}
+.beam-line{stroke:#fca5a5;stroke-width:2;opacity:.85;stroke-dasharray:4 8;animation:fsbeam .7s linear infinite;filter:drop-shadow(0 0 4px rgba(248,113,113,0.7))}
+@keyframes fsbeam{to{stroke-dashoffset:-24}}
+.beam-pulse{filter:drop-shadow(0 0 6px #fff)}
+#fs-flash.on{animation:fsflash .7s ease-out}
+@keyframes fsflash{0%{opacity:0}22%{opacity:.5}100%{opacity:0}}
+.fs-fly{animation:fsfly .45s ease-out}
+@keyframes fsfly{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.fs-ring{transform-box:fill-box;transform-origin:center;animation:fsring 1.8s ease-out infinite}
+.fs-ring.r2{animation-delay:.9s}
+@keyframes fsring{0%{transform:scale(.4);opacity:.9}100%{transform:scale(4);opacity:0}}
+@media (prefers-reduced-motion: reduce){.fs-pt,.fs-eq rect,.fs-ring,.fs-blink,.sensor-fbg,.dts-line,.das-line,.ev-sensor,.ev-flame,.beam-line{animation:none !important}}
+
 /* ---- 光纤光域背景 ---- */
 #fiberBg{position:absolute;inset:0;width:100%;height:100%;opacity:.85;pointer-events:none}
 /* ---- 导航进度光线 ---- */
@@ -422,6 +496,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 <!-- ===================== 宣言 Hero ===================== -->
 <header class="hero" id="top">
   <canvas id="fiberBg" aria-hidden="true"></canvas>
+  <div class="hero-flow">
   <div class="hero-inner">
     <span class="eyebrow stagein">Shanghai Gangmeng · Fiber Sensing</span>
     <h1 class="display stagein s2" data-i18n="hero.h1">看不见的风险,<br>第一次看得见。</h1>
@@ -431,21 +506,148 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       <a class="btn btn-ghost" href="#why" data-i18n="hero.how">先看它如何工作</a>
     </div>
   </div>
-  <div class="guard" aria-label="全域安全预警演示:光纤主干串联八类设施,事件被检测、定位、推送并闭环">
-    <svg id="guardSvg" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <path id="gBB" d="" fill="none" stroke="rgba(160,160,170,.16)" stroke-width="1.6"/>
-      <path id="gP1" d="" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse" style="stroke-dasharray:4 460;animation-duration:6s"/>
-      <path id="gP2" d="" fill="none" stroke="var(--accent)" stroke-width="2" class="pulse" style="stroke-dasharray:4 460;animation-duration:6s;animation-delay:3s" opacity=".5"/>
-      <g id="gNodes" font-family="Geist Mono,ui-monospace,monospace"></g>
-      <circle id="gRip" r="0" fill="none" stroke-width="1.6" opacity="0"/>
-      <g id="gChip" opacity="0">
-        <rect id="gChipR" rx="9" height="46" fill="rgba(8,8,10,.92)" stroke="rgba(255,255,255,.16)"/>
-        <circle id="gChipDot" r="4"/>
-        <text id="gChipT1" font-size="12" fill="#F5F5F7" font-weight="600"></text>
-        <text id="gChipT2" font-size="10.5" fill="#A1A1A6" font-family="Geist Mono,ui-monospace,monospace"></text>
-      </g>
-      <text id="heroLam" x="1416" y="26" text-anchor="end" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="rgba(90,200,245,.85)">λ 1550.120 nm</text>
-    </svg>
+  <div id="fs" class="fs" data-beat="0" style="background: radial-gradient(140% 120% at 80% -20%, rgba(56,189,248,0.18), transparent 50%), radial-gradient(120% 130% at 10% 120%, rgba(59,130,246,0.16), transparent 52%), linear-gradient(180deg, #0b1426 0%, #081020 48%, #050a14 100%);">
+      <div class="fs-head">
+        <span class="fs-eyebrow"><span class="fs-blink"></span><span id="fs-eyebrow-t">全域安全预警</span></span>
+        <span class="fs-spacer"></span>
+        <span id="fs-cc" style="background:rgba(52,211,153,0.14);color:#6ee7b7"><span id="fs-cc-dot"></span><span id="fs-cc-t">监测中心 · 全域正常</span></span>
+        <button id="fs-toggle" type="button" aria-label="暂停"><span id="fs-toggle-i">&#10073;&#10073;</span></button>
+      </div>
+      <div class="fs-scene">
+      <svg viewBox="0 0 960 432" style="display:block;width:100%" role="img" aria-label="光纤传感全域安全预警场景动画">
+        <defs>
+          <linearGradient id="fs-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e1c34"></stop><stop offset="1" stop-color="#0a1426"></stop></linearGradient>
+          <path id="fs-fh-fbg" d="M400 300 C 520 210, 600 160, 674 142" fill="none"></path>
+          <path id="fs-fh-dts" d="M742 288 C 762 230, 772 182, 774 142" fill="none"></path>
+          <path id="fs-fh-das" d="M672 363 C 790 285, 858 198, 874 142" fill="none"></path>
+          <path id="fs-up-fbg" d="M674 142 L674 84" fill="none"></path>
+          <path id="fs-up-dts" d="M774 142 L774 84" fill="none"></path>
+          <path id="fs-up-das" d="M874 142 L874 84" fill="none"></path>
+          <path id="fs-beam-fbg" d="M400 300 C 520 210, 600 160, 674 142 L674 84" fill="none"></path>
+          <path id="fs-beam-dts" d="M742 288 C 762 230, 772 182, 774 142 L774 84" fill="none"></path>
+          <path id="fs-beam-das" d="M672 363 C 790 285, 858 198, 874 142 L874 84" fill="none"></path>
+        </defs>
+        <rect x="0" y="0" width="960" height="300" fill="url(#fs-sky)"></rect>
+        <circle cx="80" cy="40" r="1" fill="#cbd5e1" opacity="0.5"></circle><circle cx="180" cy="70" r="1" fill="#cbd5e1" opacity="0.5"></circle><circle cx="300" cy="36" r="1" fill="#cbd5e1" opacity="0.5"></circle><circle cx="520" cy="58" r="1" fill="#cbd5e1" opacity="0.5"></circle><circle cx="700" cy="30" r="1" fill="#cbd5e1" opacity="0.5"></circle><circle cx="840" cy="64" r="1" fill="#cbd5e1" opacity="0.5"></circle><circle cx="610" cy="90" r="1" fill="#cbd5e1" opacity="0.5"></circle><circle cx="410" cy="96" r="1" fill="#cbd5e1" opacity="0.5"></circle>
+        <g opacity="0.18" fill="#1e3a5f">
+          <rect x="40" y="230" width="26" height="70"></rect><rect x="72" y="250" width="18" height="50"></rect><rect x="96" y="215" width="22" height="85"></rect><rect x="770" y="240" width="24" height="60"></rect><rect x="800" y="220" width="18" height="80"></rect><rect x="824" y="250" width="26" height="50"></rect><rect x="900" y="232" width="20" height="68"></rect>
+        </g>
+        <rect x="0" y="300" width="960" height="132" fill="#060c18"></rect>
+        <line x1="0" y1="300" x2="960" y2="300" stroke="rgba(125,211,252,0.16)"></line>
+        <g>
+          <rect x="624" y="30" width="300" height="54" rx="13" fill="rgba(255,255,255,0.05)" stroke="rgba(125,211,252,0.45)"></rect>
+          <rect id="fs-flash" x="624" y="30" width="300" height="54" rx="13" fill="#22d3ee" opacity="0" pointer-events="none"></rect>
+          <g class="fs-eq" transform="translate(642,42)"><rect x="0" y="0" width="4" height="20" rx="2" fill="#38bdf8" opacity="0.85"></rect><rect x="8" y="0" width="4" height="20" rx="2" fill="#38bdf8" opacity="0.85"></rect><rect x="16" y="0" width="4" height="20" rx="2" fill="#38bdf8" opacity="0.85"></rect><rect x="24" y="0" width="4" height="20" rx="2" fill="#38bdf8" opacity="0.85"></rect><rect x="32" y="0" width="4" height="20" rx="2" fill="#38bdf8" opacity="0.85"></rect><rect x="40" y="0" width="4" height="20" rx="2" fill="#38bdf8" opacity="0.85"></rect><rect x="48" y="0" width="4" height="20" rx="2" fill="#38bdf8" opacity="0.85"></rect></g>
+          <text id="fs-lb-center" x="800" y="72" text-anchor="middle" fill="#7dd3fc" font-size="10.5">监控中心平台</text>
+        </g>
+        <g>
+          <use href="#fs-fh-fbg" stroke="#60a5fa" stroke-width="1.3" fill="none" opacity="0.32"></use>
+          <use href="#fs-up-fbg" stroke="#60a5fa" stroke-width="1.3" fill="none" opacity="0.4"></use>
+          <circle r="2.3" class="fs-pt" fill="#60a5fa"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite"><mpath href="#fs-fh-fbg"></mpath></animateMotion></circle>
+          <circle r="2.3" class="fs-pt" fill="#60a5fa"><animateMotion dur="2.8s" begin="-1.6s" repeatCount="indefinite"><mpath href="#fs-fh-fbg"></mpath></animateMotion></circle>
+          <circle r="2.3" class="fs-pt" fill="#60a5fa"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#fs-up-fbg"></mpath></animateMotion></circle>
+        </g>
+        <g>
+          <use href="#fs-fh-dts" stroke="#fbbf24" stroke-width="1.3" fill="none" opacity="0.32"></use>
+          <use href="#fs-up-dts" stroke="#fbbf24" stroke-width="1.3" fill="none" opacity="0.4"></use>
+          <circle r="2.3" class="fs-pt" fill="#fbbf24"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite"><mpath href="#fs-fh-dts"></mpath></animateMotion></circle>
+          <circle r="2.3" class="fs-pt" fill="#fbbf24"><animateMotion dur="2.8s" begin="-1.6s" repeatCount="indefinite"><mpath href="#fs-fh-dts"></mpath></animateMotion></circle>
+          <circle r="2.3" class="fs-pt" fill="#fbbf24"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#fs-up-dts"></mpath></animateMotion></circle>
+        </g>
+        <g>
+          <use href="#fs-fh-das" stroke="#2dd4bf" stroke-width="1.3" fill="none" opacity="0.32"></use>
+          <use href="#fs-up-das" stroke="#2dd4bf" stroke-width="1.3" fill="none" opacity="0.4"></use>
+          <circle r="2.3" class="fs-pt" fill="#2dd4bf"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite"><mpath href="#fs-fh-das"></mpath></animateMotion></circle>
+          <circle r="2.3" class="fs-pt" fill="#2dd4bf"><animateMotion dur="2.8s" begin="-1.6s" repeatCount="indefinite"><mpath href="#fs-fh-das"></mpath></animateMotion></circle>
+          <circle r="2.3" class="fs-pt" fill="#2dd4bf"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#fs-up-das"></mpath></animateMotion></circle>
+        </g>
+        <g class="host host-fbg">
+          <rect x="628" y="108" width="92" height="34" rx="7" fill="rgba(10,18,32,0.94)" stroke="rgba(255,255,255,0.16)"></rect>
+          <circle class="host-led" cx="640" cy="125" r="3" fill="#60a5fa"></circle>
+          <text x="682" y="122" text-anchor="middle" fill="#e2e8f0" font-size="9.5" font-weight="600">FBG</text>
+          <text id="fs-hn2-fbg" x="682" y="134" text-anchor="middle" fill="#8aa0bd" font-size="8">解调主机</text>
+        </g>
+        <g class="host host-dts">
+          <rect x="728" y="108" width="92" height="34" rx="7" fill="rgba(10,18,32,0.94)" stroke="rgba(255,255,255,0.16)"></rect>
+          <circle class="host-led" cx="740" cy="125" r="3" fill="#fbbf24"></circle>
+          <text x="782" y="122" text-anchor="middle" fill="#e2e8f0" font-size="9.5" font-weight="600">DTS</text>
+          <text id="fs-hn2-dts" x="782" y="134" text-anchor="middle" fill="#8aa0bd" font-size="8">主机</text>
+        </g>
+        <g class="host host-das">
+          <rect x="828" y="108" width="92" height="34" rx="7" fill="rgba(10,18,32,0.94)" stroke="rgba(255,255,255,0.16)"></rect>
+          <circle class="host-led" cx="840" cy="125" r="3" fill="#2dd4bf"></circle>
+          <text x="882" y="122" text-anchor="middle" fill="#e2e8f0" font-size="9.5" font-weight="600">DAS</text>
+          <text id="fs-hn2-das" x="882" y="134" text-anchor="middle" fill="#8aa0bd" font-size="8">主机</text>
+        </g>
+        <text id="fs-lb-hosts" x="774" y="160" text-anchor="middle" fill="#5b6b86" font-size="9">三套独立监测主机</text>
+        <g class="asset a-fbg">
+          <rect x="120" y="150" width="80" height="150" rx="3" fill="#0f2138" stroke="rgba(255,255,255,0.14)"></rect>
+          <rect x="130" y="162" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="152" y="162" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="174" y="162" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect>
+          <rect x="130" y="188" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="152" y="188" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="174" y="188" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect>
+          <rect x="130" y="214" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="152" y="214" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="174" y="214" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect>
+          <rect x="130" y="240" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="152" y="240" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="174" y="240" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect>
+          <rect x="130" y="266" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="152" y="266" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect><rect x="174" y="266" width="14" height="15" rx="1.5" fill="#13314f" stroke="rgba(125,211,252,0.12)"></rect>
+          <line x1="360" y1="150" x2="360" y2="300" stroke="rgba(255,255,255,0.2)" stroke-width="3"></line>
+          <line x1="360" y1="156" x2="300" y2="300" stroke="rgba(125,211,252,0.2)"></line><line x1="360" y1="156" x2="330" y2="300" stroke="rgba(125,211,252,0.2)"></line><line x1="360" y1="156" x2="392" y2="300" stroke="rgba(125,211,252,0.2)"></line><line x1="360" y1="156" x2="430" y2="300" stroke="rgba(125,211,252,0.2)"></line>
+          <rect x="284" y="298" width="200" height="7" rx="2" fill="#11263d" stroke="rgba(255,255,255,0.14)"></rect>
+          <rect class="sensor-fbg" x="120" y="296" width="8" height="8" rx="1.5" fill="#1e3a8a" stroke="#60a5fa"></rect><rect class="sensor-fbg" x="120" y="246" width="8" height="8" rx="1.5" fill="#1e3a8a" stroke="#60a5fa"></rect><rect class="sensor-fbg" x="120" y="196" width="8" height="8" rx="1.5" fill="#1e3a8a" stroke="#60a5fa"></rect><rect class="sensor-fbg" x="352" y="216" width="8" height="8" rx="1.5" fill="#1e3a8a" stroke="#60a5fa"></rect><rect class="sensor-fbg" x="326" y="297" width="8" height="8" rx="1.5" fill="#1e3a8a" stroke="#60a5fa"></rect><rect class="sensor-fbg" x="426" y="297" width="8" height="8" rx="1.5" fill="#1e3a8a" stroke="#60a5fa"></rect>
+          <text id="fs-lb-fbg" x="160" y="324" text-anchor="middle" fill="#5b6b86" font-size="9.5">结构健康</text>
+        </g>
+        <g class="asset a-dts">
+          <ellipse cx="660" cy="246" rx="34" ry="9" fill="#1b2a16" stroke="rgba(251,191,36,0.3)"></ellipse>
+          <rect x="626" y="246" width="68" height="54" fill="#16240f" stroke="rgba(255,255,255,0.12)"></rect>
+          <path d="M694 286 L740 286 L740 300" fill="none" stroke="#243a14" stroke-width="6"></path>
+          <path class="dts-line" d="M694 284 L742 284 L742 300" fill="none" stroke="#fbbf24" stroke-width="1.6" stroke-dasharray="5 5"></path>
+          <text id="fs-lb-dts" x="660" y="324" text-anchor="middle" fill="#5b6b86" font-size="9.5">温度安全</text>
+        </g>
+        <g class="asset a-das">
+          <rect x="300" y="356" width="600" height="14" rx="7" fill="#0c1726" stroke="rgba(255,255,255,0.1)"></rect>
+          <line class="das-line" x1="306" y1="363" x2="894" y2="363" stroke="#2dd4bf" stroke-width="1.6" stroke-dasharray="4 6"></line>
+          <line x1="470" y1="338" x2="470" y2="356" stroke="rgba(255,255,255,0.16)"></line><line x1="520" y1="338" x2="520" y2="356" stroke="rgba(255,255,255,0.16)"></line><line x1="570" y1="338" x2="570" y2="356" stroke="rgba(255,255,255,0.16)"></line>
+          <text id="fs-lb-das" x="600" y="392" text-anchor="middle" fill="#5b6b86" font-size="9.5">埋地管线 · 周界</text>
+        </g>
+        <g class="ev ev-fbg">
+          <line x1="400" y1="270" x2="400" y2="293" stroke="#f87171" stroke-width="3"></line>
+          <path d="M394 287 L400 296 L406 287" fill="none" stroke="#f87171" stroke-width="3"></path>
+          <rect class="ev-sensor" x="395" y="297" width="10" height="10" rx="1.5" fill="#ef4444" stroke="#fecaca"></rect>
+          <text id="fs-lb-ov" x="400" y="262" text-anchor="middle" fill="#fca5a5" font-size="9">结构超载</text>
+        </g>
+        <g class="ev ev-dts" transform="translate(742,284)">
+          <circle r="7" fill="none" stroke="#fb7185" stroke-width="1.5"></circle>
+          <path class="ev-flame" d="M0 0 C -5 -7, 4 -10, 1 -18 C 7 -12, 7 -3, 0 0 Z" fill="#fb923c"></path>
+          <text id="fs-lb-hot" x="0" y="-24" text-anchor="middle" fill="#fca5a5" font-size="9">热点 78℃</text>
+        </g>
+        <g class="ev ev-das" transform="translate(648,326)">
+          <rect x="-16" y="6" width="40" height="20" rx="3" fill="#3a1d12" stroke="#f59e0b"></rect>
+          <line x1="20" y1="8" x2="44" y2="-10" stroke="#f59e0b" stroke-width="3"></line>
+          <rect x="40" y="-16" width="12" height="9" rx="1.5" fill="#7c2d12" stroke="#f59e0b"></rect>
+          <text id="fs-lb-dig" x="6" y="-20" text-anchor="middle" fill="#fca5a5" font-size="9">第三方施工</text>
+        </g>
+        <g id="fs-ping" transform="translate(672,363)">
+          <circle class="fs-ring" r="12" fill="none" stroke="#f87171" stroke-width="2"></circle>
+          <circle class="fs-ring r2" r="12" fill="none" stroke="#f87171" stroke-width="2"></circle>
+          <circle r="3.5" fill="#fb7185"></circle>
+        </g>
+        <g class="beam beam-fbg"><use href="#fs-beam-fbg" class="beam-line"></use><circle r="3" class="beam-pulse" fill="#fff"><animateMotion dur="1.3s" repeatCount="indefinite"><mpath href="#fs-beam-fbg"></mpath></animateMotion></circle></g>
+        <g class="beam beam-dts"><use href="#fs-beam-dts" class="beam-line"></use><circle r="3" class="beam-pulse" fill="#fff"><animateMotion dur="1.3s" repeatCount="indefinite"><mpath href="#fs-beam-dts"></mpath></animateMotion></circle></g>
+        <g class="beam beam-das"><use href="#fs-beam-das" class="beam-line"></use><circle r="3" class="beam-pulse" fill="#fff"><animateMotion dur="1.3s" repeatCount="indefinite"><mpath href="#fs-beam-das"></mpath></animateMotion></circle></g>
+      </svg>
+      </div>
+      <div class="fs-low">
+        <div class="fs-narr">
+          <div id="fs-tag"></div>
+          <div id="fs-title"></div>
+          <div id="fs-sub"></div>
+          <div class="fs-dots"><span id="fs-dot-0" class="fs-bdot" style="width:14px"></span><span id="fs-dot-1" class="fs-bdot" style="width:14px"></span><span id="fs-dot-2" class="fs-bdot" style="width:14px"></span><span id="fs-dot-3" class="fs-bdot" style="width:14px"></span><span id="fs-dot-4" class="fs-bdot" style="width:14px"></span></div>
+        </div>
+        <div class="fs-log-box">
+          <div class="fs-log-head"><i></i><span id="fs-log-title">上报日志</span></div>
+          <div id="fs-log"><div id="fs-log-ph">等待事件上报…</div></div>
+        </div>
+      </div>
+      <div class="fs-foot" id="fs-footer">国际一流光纤传感技术 · 让风险,在发生之前被感知</div>
+      <div class="fs-grid"></div>
+    </div>
   </div>
 </header>
 
@@ -1501,236 +1703,117 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 </script>
 
 <script>
-/* ============ 全域安全预警 · 系统原理动画引擎 v2 ============ */
-/* 原理可视化:主机发探测脉冲沿光缆巡检 → 扰动点背向散射回波返回 → Δt 定位 → 平台分级推送 → 处置闭环 */
+/* ============ 全域安全预警 · 电影级分镜场景引擎(移植自 FiberSafetyScene)============ */
 (function(){
-  var svg=document.getElementById('guardSvg');if(!svg)return;
-  if(matchMedia('(max-width:760px)').matches)svg.setAttribute('preserveAspectRatio','xMidYMid slice');
+  var root=document.getElementById('fs');if(!root)return;
   var reduce=window.__reduce;
-  var GUARD={
+  var FS={
     zh:{
-      hub:'解调主机 · FBG / DAS / DTS',
-      plat:'监测平台 · 分级预警 · 值班人',
-      probeLab:'探测脉冲 · 沿光缆巡检',
-      echoLab:'背向散射 · Δt 时间差定位',
-      dt:function(loc){return 'Δt × v ÷ 2 → 定位 '+loc},
-      labels:{bridge:'桥梁',pipe:'管道',cable:'电缆',dam:'大坝',rail:'轨交',corridor:'管廊',perimeter:'周界',wind:'风电'},
-      locs:{bridge:'S-07',pipe:'K66+040',cable:'J-12',dam:'桩号 0+300',rail:'DK12+300',corridor:'电力舱',perimeter:'东段 E-04',wind:'#17 机组'},
-      events:{bridge:'应变越限 1620 με · S-07',pipe:'第三方开挖 · K66+040',cable:'接头温升 78 ℃ · J-12',dam:'渗流异常 · 桩号 0+300',rail:'保护区施工 · DK12+300',corridor:'感温超限 65 ℃ · 电力舱',perimeter:'攀爬事件 · 东段 E-04',wind:'叶根载荷异常 · #17 机组'},
-      phases:['异常扰动 · 检测中','背向散射返回 · 定位中','主机报警 · 已定位','平台分级推送 · 工单生成','处置闭环 · 恢复值守']
+      eyebrow:'全域安全预警',
+      footer:'国际一流光纤传感技术 · 让风险,在发生之前被感知',
+      ccOk:'监测中心 · 全域正常',ccAlert:'监测中心 · 预警',ccDone:'监测中心 · 风险已化解',
+      logTitle:'上报日志',awaiting:'等待事件上报…',
+      pause:'暂停',play:'播放',
+      beats:[
+        {tag:'全域感知 · OVERVIEW',title:'一张光纤网络,守护整个项目',sub:'高楼、桥梁、能源管线:同一套光纤同时感知应变、温度与振动,数据实时汇入监测中心。'},
+        {tag:'结构健康 · FBG',title:'FBG 捕捉结构过载',sub:'波长随应变偏移 Δλ:桥面发生超载,FBG 即刻定位超阈值应变,在结构损伤前提前预警。'},
+        {tag:'温度安全 · DTS',title:'DTS 锁定电缆热点',sub:'拉曼散射 + OTDR 逐米测温:电缆 / 储罐热点升至 78 ℃,DTS 在升温阶段精确定位,火灾防患于未然。'},
+        {tag:'振动安防 · DAS',title:'DAS 识别管线开挖',sub:'相干瑞利相位感知振动:第三方施工逼近埋地管道,DAS 秒级定位扰动,提前预警入侵破坏。'},
+        {tag:'全域守护 · RESOLVED',title:'三重感知 · 防患于未然',sub:'FBG、DTS、DAS 协同守护:每一处风险,都在发生之前被发现、被定位、被化解。'}
+      ],
+      reps:['','FBG · 结构应变超阈值 · 桥面','DTS · 电缆热点 78℃ · 定位 142 m','DAS · 管线开挖扰动 · 定位 86 m',''],
+      svg:{center:'监控中心平台',hosts:'三套独立监测主机',fbg:'结构健康',dts:'温度安全',das:'埋地管线 · 周界',ov:'结构超载',hot:'热点 78℃',dig:'第三方施工',hn2fbg:'解调主机',hn2dts:'主机',hn2das:'主机'}
     },
     en:{
-      hub:'Interrogators · FBG / DAS / DTS',
-      plat:'Platform · graded alert · duty operator',
-      probeLab:'Probe pulses · patrolling the fiber',
-      echoLab:'Backscatter · Δt time-of-flight locating',
-      dt:function(loc){return 'Δt × v ÷ 2 → located at '+loc},
-      labels:{bridge:'Bridge',pipe:'Pipeline',cable:'Cable',dam:'Dam',rail:'Rail',corridor:'Corridor',perimeter:'Perimeter',wind:'Wind'},
-      locs:{bridge:'S-07',pipe:'K66+040',cable:'J-12',dam:'Sta. 0+300',rail:'DK12+300',corridor:'power bay',perimeter:'east E-04',wind:'unit #17'},
-      events:{bridge:'Strain over limit 1620 με · S-07',pipe:'Third-party digging · K66+040',cable:'Joint heating 78 °C · J-12',dam:'Seepage anomaly · Sta. 0+300',rail:'Construction in zone · DK12+300',corridor:'Heat over 65 °C · power bay',perimeter:'Climb event · east E-04',wind:'Blade-root load anomaly · unit #17'},
-      phases:['Disturbance · detecting','Backscatter returning · locating','Host alarm · located','Graded push · work order','Closed out · back on watch']
+      eyebrow:'FIBER SAFETY SCENE',
+      footer:'World-class fiber-optic sensing: sense the risk before it happens',
+      ccOk:'Monitoring center · all normal',ccAlert:'Monitoring center · early warning',ccDone:'Monitoring center · risks resolved',
+      logTitle:'Report log',awaiting:'Awaiting events…',
+      pause:'Pause',play:'Play',
+      beats:[
+        {tag:'OVERVIEW',title:'One fiber network guards the whole project',sub:'Buildings, bridges and energy pipelines: one fiber senses strain, temperature and vibration at once, streaming to the monitoring center.'},
+        {tag:'STRUCTURE · FBG',title:'FBG catches structural overload',sub:'Wavelength shifts Δλ with strain: the bridge deck is overloaded, FBG locates the over-limit strain instantly and warns before structural damage.'},
+        {tag:'TEMPERATURE · DTS',title:'DTS catches a cable hot spot',sub:'Raman + OTDR measures every metre: a cable / tank hot spot rises to 78 ℃, DTS pinpoints it during the temperature-rise stage and pre-warns of fire.'},
+        {tag:'VIBRATION · DAS',title:'DAS catches pipeline digging',sub:'Coherent Rayleigh phase senses vibration: third-party digging nears the buried pipeline, DAS locates the disturbance within seconds and warns of intrusion.'},
+        {tag:'RESOLVED',title:'Three sensings, risk resolved beforehand',sub:'FBG, DTS and DAS guard together: every risk is found, located and resolved before it ever happens.'}
+      ],
+      reps:['','FBG · strain over limit · bridge','DTS · hot spot 78℃ · @142 m','DAS · digging disturbance · @86 m',''],
+      svg:{center:'Monitoring center',hosts:'Monitoring hosts (independent)',fbg:'Structure',dts:'Temperature',das:'Buried pipeline / perimeter',ov:'Overload',hot:'Hot spot 78℃',dig:'3rd-party digging',hn2fbg:'interrogator',hn2dts:'host',hn2das:'host'}
     }
   };
-  function G(){return GUARD[window.__lang==='en'?'en':'zh']}
-  var NODES=[
-    {k:'bridge',x:110,y:178,lab:-1},{k:'pipe',x:275,y:214,lab:1},{k:'cable',x:435,y:186,lab:-1},{k:'dam',x:580,y:158,lab:1},
-    {k:'rail',x:865,y:158,lab:1},{k:'corridor',x:1015,y:190,lab:-1},{k:'perimeter',x:1170,y:214,lab:1},{k:'wind',x:1330,y:172,lab:-1}
-  ];
-  var HUB={x:722,y:168},PLAT={x:722,y:46};
-  var pts=NODES.slice(0,4).concat([HUB]).concat(NODES.slice(4));
-  function pathD(){
-    var d='M-20 200 L'+(pts[0].x-64)+' '+(pts[0].y+10);
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i], n=pts[i+1];
-      var nx=n?n.x:1470, ny=n?n.y:150;
-      d+=' C '+(p.x+(nx-p.x)*0.4)+' '+p.y+', '+(nx-(nx-p.x)*0.4)+' '+ny+', '+nx+' '+ny;
-    }
-    return d;
+  function T(){return FS[window.__lang==='en'?'en':'zh']}
+  var g=function(id){return document.getElementById(id)};
+  var seq=[{b:0,d:4200},{b:1,d:5600},{b:2,d:5600},{b:3,d:5600},{b:4,d:4800}];
+  var pos={1:[400,300],2:[742,288],3:[672,363]};
+  var cols={1:'#60a5fa',2:'#fbbf24',3:'#2dd4bf'};
+  var i=0,timer=null,playing=true,curB=0;
+  function pad2(n){return (n<10?'0':'')+n}
+  function nowt(){var d=new Date();return pad2(d.getHours())+':'+pad2(d.getMinutes())+':'+pad2(d.getSeconds())}
+  function flash(){var f=g('fs-flash');if(!f)return;f.classList.remove('on');void f.getBoundingClientRect();f.classList.add('on')}
+  function addLog(b){
+    var log=g('fs-log');if(!log)return;
+    var ph=g('fs-log-ph');if(ph)ph.remove();
+    var row=document.createElement('div');
+    row.className='fs-fly fs-logrow';
+    row.innerHTML='<span class="tm">'+nowt()+'</span><span style="color:'+cols[b]+'">&#9679;</span><span>'+T().reps[b]+'</span>';
+    log.insertBefore(row,log.firstChild);
+    while(log.children.length>3)log.removeChild(log.lastChild);
   }
-  var d=pathD();
-  ['gBB','gP1','gP2'].forEach(function(id){var e=document.getElementById(id);if(e)e.setAttribute('d',d)});
-  var gp2=document.getElementById('gP2');if(gp2)gp2.setAttribute('display','none');
-  var BB=document.getElementById('gBB'), LEN=BB.getTotalLength();
-  function sAt(pt){ /* 求某坐标在路径上的弧长参数 */
-    var best=0,bd=1e9;
-    for(var s=0;s<=LEN;s+=8){var p=BB.getPointAtLength(s);var dx=p.x-pt.x,dy=p.y-pt.y,dd=dx*dx+dy*dy;if(dd<bd){bd=dd;best=s}}
-    return best;
-  }
-  var sHub=sAt(HUB);
-  NODES.forEach(function(n){n.s=sAt(n)});
-  var NS='http://www.w3.org/2000/svg';
-  var gN=document.getElementById('gNodes');
-  function mk(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);(parent||gN).appendChild(e);return e}
-  /* 节点与标签 */
-  var dots={};
-  NODES.forEach(function(n){
-    dots[n.k]=mk('circle',{cx:n.x,cy:n.y,r:5,fill:'#000000',stroke:'rgba(160,160,170,.55)','stroke-width':1.6});
-    var t=mk('text',{x:n.x,y:n.y+(n.lab<0?-16:26),'text-anchor':'middle','font-size':11,fill:'#6E6E73'});
-    t.dataset.gk=n.k;t.textContent=G().labels[n.k];
-  });
-  /* 中枢主机 */
-  mk('circle',{cx:HUB.x,cy:HUB.y,r:9,fill:'#0A0A0C',stroke:'var(--accent)','stroke-width':1.8});
-  mk('circle',{cx:HUB.x,cy:HUB.y,r:17,fill:'none',stroke:'rgba(90,200,245,.4)','stroke-dasharray':'3 5'});
-  var hubT=mk('text',{x:HUB.x,y:HUB.y+34,'text-anchor':'middle','font-size':11,fill:'#A1A1A6'});
-  hubT.dataset.ghub='1';hubT.textContent=G().hub;
-  var hubFlash=mk('circle',{cx:HUB.x,cy:HUB.y,r:9,fill:'none',stroke:'var(--accent)','stroke-width':1.6,opacity:0});
-  /* Δt 定位读出 */
-  var hubRead=mk('text',{x:HUB.x,y:HUB.y+52,'text-anchor':'middle','font-size':10.5,fill:'var(--accent)','font-family':'Geist Mono,ui-monospace,monospace',opacity:0});
-  /* 平台与推送光束 */
-  var beam=mk('line',{x1:HUB.x,y1:HUB.y-17,x2:PLAT.x,y2:PLAT.y+8,stroke:'rgba(160,160,170,.22)','stroke-width':1.2});
-  mk('circle',{cx:PLAT.x,cy:PLAT.y,r:5,fill:'#0A0A0C',stroke:'rgba(160,160,170,.6)','stroke-width':1.5});
-  var platT=mk('text',{x:PLAT.x+14,y:PLAT.y+4,'font-size':10.5,fill:'#6E6E73'});
-  platT.dataset.gplat='1';platT.textContent=G().plat;
-  var platPulse=mk('circle',{cx:PLAT.x,cy:PLAT.y,r:5,fill:'none',stroke:'var(--accent)','stroke-width':1.4,opacity:0});
-  /* 原理注释(左右下角) */
-  var capL=mk('text',{x:20,y:308,'font-size':10,fill:'#515154','font-family':'Geist Mono,ui-monospace,monospace'});
-  capL.dataset.gcapl='1';capL.textContent=G().probeLab;
-  var capR=mk('text',{x:1420,y:308,'text-anchor':'end','font-size':10,fill:'#515154','font-family':'Geist Mono,ui-monospace,monospace'});
-  capR.dataset.gcapr='1';capR.textContent=G().echoLab;
-  /* 探测脉冲与回波(点池) */
-  var probes=[],echo=null;
-  function spawnProbe(dir){
-    var c=mk('circle',{r:3,fill:'var(--accent)',opacity:.9});
-    probes.push({el:c,s:sHub,dir:dir,speed:330});
-  }
-  var rip=document.getElementById('gRip'),chip=document.getElementById('gChip'),
-      chipR=document.getElementById('gChipR'),chipDot=document.getElementById('gChipDot'),
-      t1=document.getElementById('gChipT1'),t2=document.getElementById('gChipT2');
-  var COLORS=['var(--warn)','var(--warn)','var(--alarm)','var(--accent)','var(--ok)'];
-  function width(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>255?12:6.6}return w}
-  function setChip(n,ph){
-    var g=G();
-    var l1=g.labels[n.k]+' · '+g.events[n.k];
-    var l2=g.phases[ph];
-    t1.textContent=l1;t2.textContent=l2;
-    var w=Math.max(width(l1),width(l2))+40;
-    var cx=Math.min(Math.max(n.x-w/2,16),1440-w-16);
-    var cy=n.y+(n.lab<0?18:-64);
-    if(cy<8)cy=n.y+18;
-    chipR.setAttribute('x',cx);chipR.setAttribute('y',cy);chipR.setAttribute('width',w);
-    chipDot.setAttribute('cx',cx+16);chipDot.setAttribute('cy',cy+23);chipDot.setAttribute('fill',COLORS[ph]);
-    t1.setAttribute('x',cx+28);t1.setAttribute('y',cy+19);
-    t2.setAttribute('x',cx+28);t2.setAttribute('y',cy+36);
-  }
-  /* ---- 事件状态机 ----
-     idle → disturb(扰动出现,等探测脉冲经过) → echoing(回波返程) → located(Δt 定位+报警)
-     → push(推送平台) → closed(闭环) → fadeout → idle */
-  var ST='idle', stT=0, cur=NODES[1], last=performance.now(), spawnT=0, dirFlip=1, run=false, chipA=0;
-  function pick(){var i;do{i=Math.floor(Math.random()*NODES.length)}while(NODES[i]===cur);cur=NODES[i]}
-  function phaseIdx(){return ST==='disturb'?0:ST==='echoing'?1:ST==='located'?2:ST==='push'?3:4}
-  function frame(now){
-    if(!run)return;
-    var dt=Math.min(.05,(now-last)/1000);last=now;stT+=dt;
-    /* 探测脉冲池:中枢双向发射 */
-    spawnT-=dt;
-    if(spawnT<=0){spawnProbe(dirFlip);dirFlip=-dirFlip;spawnT=1.05}
-    for(var i=probes.length-1;i>=0;i--){
-      var p=probes[i];p.s+=p.dir*p.speed*dt;
-      if(p.s<0||p.s>LEN){p.el.remove();probes.splice(i,1);continue}
-      var pt=BB.getPointAtLength(p.s);
-      p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y);
-      p.el.setAttribute('opacity',String(.85*(1-Math.abs(p.s-sHub)/LEN*.8)));
-      /* 扰动等待期:脉冲经过事件点 → 触发回波 */
-      if(ST==='disturb'&&!echo){
-        var before=p.s-p.dir*p.speed*dt;
-        if((before-cur.s)*(p.s-cur.s)<=0){
-          var c=mk('circle',{r:3.2,fill:'var(--warn)',opacity:1});
-          echo={el:c,s:cur.s,dir:cur.s>sHub?-1:1,speed:430};
-          ST='echoing';stT=0;
-        }
-      }
+  function apply(b,silent){
+    curB=b;
+    var t=T();
+    root.setAttribute('data-beat',''+b);
+    g('fs-tag').textContent=t.beats[b].tag;
+    g('fs-title').textContent=t.beats[b].title;
+    g('fs-sub').textContent=t.beats[b].sub;
+    for(var k=0;k<5;k++){var d=g('fs-dot-'+k);var on=k===b;d.style.width=on?'26px':'14px';d.style.background=on?'#38bdf8':'rgba(255,255,255,0.2)'}
+    if(pos[b])g('fs-ping').setAttribute('transform','translate('+pos[b][0]+','+pos[b][1]+')');
+    var alert=b>=1&&b<=3,cc=g('fs-cc');
+    cc.style.background=alert?'rgba(248,113,113,0.16)':'rgba(52,211,153,0.14)';
+    cc.style.color=alert?'#fca5a5':'#6ee7b7';
+    g('fs-cc-dot').style.background=alert?'#f87171':'#34d399';
+    g('fs-cc-t').textContent=alert?t.ccAlert:(b===4?t.ccDone:t.ccOk);
+    if(alert&&!silent){flash();addLog(b)}
+    /* 与光域背景联动:预警幕泛暖 */
+    if(window.__fiberWarm){
+      var x=pos[b]?(0.5+(pos[b][0]/960-0.5)*0.7):0.5;
+      window.__fiberWarm(x,alert?0.8:(b===4?0.08:0.2));
     }
-    /* 回波返程 */
-    if(echo){
-      echo.s+=echo.dir*echo.speed*dt;
-      var done=(echo.dir<0&&echo.s<=sHub)||(echo.dir>0&&echo.s>=sHub);
-      if(done){
-        echo.el.remove();echo=null;
-        ST='located';stT=0;
-        hubRead.textContent=G().dt(G().locs[cur.k]);
-      }else{
-        var ep=BB.getPointAtLength(echo.s);
-        echo.el.setAttribute('cx',ep.x);echo.el.setAttribute('cy',ep.y);
-      }
-    }
-    /* 状态推进 */
-    if(ST==='idle'&&stT>1.0){pick();ST='disturb';stT=0}
-    else if(ST==='disturb'&&stT>3.5){ST='echoing';stT=0; if(!echo){var c2=mk('circle',{r:3.2,fill:'var(--warn)',opacity:1});echo={el:c2,s:cur.s,dir:cur.s>sHub?-1:1,speed:430};}}
-    else if(ST==='located'&&stT>1.6){ST='push';stT=0}
-    else if(ST==='push'&&stT>1.6){ST='closed';stT=0}
-    else if(ST==='closed'&&stT>1.3){ST='fade';stT=0}
-    else if(ST==='fade'&&stT>0.5){ST='idle';stT=0;hubRead.setAttribute('opacity','0')}
-    var ph=phaseIdx(), col=COLORS[Math.min(ph,4)];
-    var active=(ST!=='idle'&&ST!=='fade');
-    /* 节点态 */
-    NODES.forEach(function(m){dots[m.k].setAttribute('stroke',m===cur&&active?col:'rgba(160,160,170,.55)')});
-    /* 扰动涟漪 */
-    if(active&&ST!=='closed'){
-      var rr=7+((stT*26)%24);
-      rip.setAttribute('cx',cur.x);rip.setAttribute('cy',cur.y);rip.setAttribute('r',rr);
-      rip.setAttribute('stroke',col);rip.setAttribute('opacity',String(.85*(1-(rr-7)/24)));
-    }else if(ST==='closed'){
-      var gr=7+stT*16;
-      rip.setAttribute('cx',cur.x);rip.setAttribute('cy',cur.y);rip.setAttribute('r',gr);
-      rip.setAttribute('stroke','var(--ok)');rip.setAttribute('opacity',String(Math.max(0,.8-stT*.6)));
-    }else rip.setAttribute('opacity','0');
-    /* 中枢闪烁 + Δt 读出 */
-    if(ST==='located'){
-      var fr=9+stT*22;
-      hubFlash.setAttribute('r',fr);hubFlash.setAttribute('stroke','var(--alarm)');
-      hubFlash.setAttribute('opacity',String(Math.max(0,.9-stT*.7)));
-      hubRead.setAttribute('opacity',String(Math.min(1,stT*3)));
-    }else if(ST==='push'||ST==='closed'){hubFlash.setAttribute('opacity','0');hubRead.setAttribute('opacity','1')}
-    else hubFlash.setAttribute('opacity','0');
-    /* 推送光束 */
-    if(ST==='push'){
-      beam.setAttribute('stroke','var(--accent)');
-      beam.setAttribute('stroke-dasharray','4 6');
-      beam.setAttribute('stroke-dashoffset',String(-stT*40));
-      platPulse.setAttribute('r',String(5+((stT*18)%14)));
-      platPulse.setAttribute('opacity',String(.8*(1-((stT*18)%14)/14)));
-    }else{
-      beam.setAttribute('stroke','rgba(160,160,170,.22)');beam.removeAttribute('stroke-dasharray');
-      platPulse.setAttribute('opacity','0');
-    }
-    /* 事件卡片 */
-    var chipTarget=active?1:0;
-    chipA+=(chipTarget-chipA)*Math.min(1,dt*7);
-    if(active)setChip(cur,ph);
-    chip.setAttribute('opacity',String(chipA));
-    if(window.__fiberWarm)window.__fiberWarm(cur.x/1440,[.45,.6,.95,.4,.12][ph]*chipA);
-    requestAnimationFrame(frame);
+  }
+  function statics(){
+    var t=T();
+    g('fs-eyebrow-t').textContent=t.eyebrow;
+    g('fs-footer').textContent=t.footer;
+    g('fs-log-title').textContent=t.logTitle;
+    var s=t.svg;
+    g('fs-lb-center').textContent=s.center;g('fs-lb-hosts').textContent=s.hosts;
+    g('fs-lb-fbg').textContent=s.fbg;g('fs-lb-dts').textContent=s.dts;g('fs-lb-das').textContent=s.das;
+    g('fs-lb-ov').textContent=s.ov;g('fs-lb-hot').textContent=s.hot;g('fs-lb-dig').textContent=s.dig;
+    g('fs-hn2-fbg').textContent=s.hn2fbg;g('fs-hn2-dts').textContent=s.hn2dts;g('fs-hn2-das').textContent=s.hn2das;
+    g('fs-toggle').setAttribute('aria-label',playing?t.pause:t.play);
   }
   window.__guardLang=function(){
-    var g=G();
-    gN.querySelectorAll('text').forEach(function(t){
-      if(t.dataset.ghub)t.textContent=g.hub;
-      else if(t.dataset.gplat)t.textContent=g.plat;
-      else if(t.dataset.gcapl)t.textContent=g.probeLab;
-      else if(t.dataset.gcapr)t.textContent=g.echoLab;
-      else if(t.dataset.gk)t.textContent=g.labels[t.dataset.gk];
-    });
-    if(reduce){cur=NODES[1];setChip(cur,2);hubRead.textContent=G().dt(G().locs[cur.k]);}
+    statics();
+    var log=g('fs-log');
+    log.innerHTML='<div id="fs-log-ph">'+T().awaiting+'</div>';
+    apply(curB,true);
   };
-  if(reduce){ /* 静态原理帧:管道事件已定位 */
-    cur=NODES[1];
-    dots[cur.k].setAttribute('stroke','var(--alarm)');
-    setChip(cur,2);chip.setAttribute('opacity','1');
-    hubRead.textContent=G().dt(G().locs[cur.k]);hubRead.setAttribute('opacity','1');
-    return;
+  function run(){
+    if(!playing)return;
+    if(document.hidden){timer=setTimeout(run,1200);return}
+    apply(seq[i].b);
+    var d=seq[i].d;i=(i+1)%seq.length;
+    timer=setTimeout(run,d);
   }
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      var was=run;run=e.isIntersecting&&!document.hidden;
-      if(run&&!was){last=performance.now();requestAnimationFrame(frame);}
-    });
-  },{threshold:.2});
-  io.observe(svg);
-  document.addEventListener('visibilitychange',function(){
-    if(document.hidden)run=false;
-    else{var r=svg.getBoundingClientRect();
-      if(r.bottom>0&&r.top<innerHeight&&!run){run=true;last=performance.now();requestAnimationFrame(frame);}}
+  g('fs-toggle').addEventListener('click',function(){
+    playing=!playing;
+    g('fs-toggle-i').innerHTML=playing?'&#10073;&#10073;':'&#9654;';
+    g('fs-toggle').setAttribute('aria-label',playing?T().pause:T().play);
+    if(playing)run();else clearTimeout(timer);
   });
+  statics();
+  if(reduce){apply(1,true);g('fs-toggle').style.display='none';return}
+  run();
 })();
 </script>
 
