@@ -199,41 +199,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .group-foot{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between}
 .group-foot p{font-size:14px;color:var(--text-2);max-width:46em}
 
-/* ---- 规格书库 ---- */
-.specs{padding:150px 0;border-top:1px solid var(--line)}
-.spec-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px}
-.chip{padding:11px 20px;border-radius:999px;border:1px solid var(--line-strong);font-size:14.5px;color:var(--text-2);transition:all .2s}
-.chip:hover{color:var(--text)}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#04121B;font-weight:600}
-.spec-panel{display:none;margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:28px 30px}
-.spec-panel.on{display:block}
-.spec-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:6px}
-.spec-title h4{font-size:clamp(19px,2.2vw,24px);font-weight:600;letter-spacing:-.01em}
-.spec-title .sub{font-family:var(--font-mono);font-size:12px;color:var(--text-3)}
-.spec-note{font-size:13px;color:var(--text-2);max-width:52em;line-height:1.75;margin-bottom:18px}
-.spec-rows{display:grid;grid-template-columns:1fr;gap:0 36px}
-@media(min-width:820px){.spec-rows{grid-template-columns:1fr 1fr}}
-.spec-row{display:flex;justify-content:space-between;gap:18px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
-.spec-row:last-child{border-bottom:0}
-.spec-row .k{color:var(--text-3)}
-.spec-row .v{font-family:var(--font-mono);color:var(--text);text-align:right}
-.spec-scroll{overflow-x:auto;margin-top:6px}
-table.spec-matrix{width:100%;min-width:760px;border-collapse:collapse;font-size:12.5px}
-table.spec-matrix th{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--text-3);text-align:left;font-weight:500;padding:8px 14px 8px 0}
-table.spec-matrix td{padding:8px 14px 8px 0;color:var(--text-2);vertical-align:top;line-height:1.6}
-table.spec-matrix td.m{font-family:var(--font-mono);color:var(--accent);white-space:nowrap}
-table.spec-matrix td.n{color:var(--text)}
-table.spec-matrix tr.grp td{padding-top:20px;font-weight:600;color:var(--text);font-size:13px;border-bottom:1px solid var(--line-strong)}
-table.spec-matrix tr.grp td span{font-family:var(--font-mono);font-size:10.5px;color:var(--text-3);font-weight:400;margin-left:10px}
-table.spec-matrix tr:not(.grp) td{border-bottom:1px solid var(--line)}
-.spec-sys{display:grid;gap:14px}
-@media(min-width:900px){.spec-sys{grid-template-columns:repeat(3,1fr)}}
-.sys-card{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:rgba(255,255,255,.035)}
-.sys-card h5{font-size:15px;font-weight:600;margin-bottom:8px}
-.sys-card p{font-size:12.5px;color:var(--text-2);line-height:1.7}
-.sys-card .mono-line{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--text-3);line-height:1.9}
-.spec-foot{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;font-size:13px;color:var(--text-3)}
-
 /* ---- 全景一张网 ---- */
 .system{padding:110px 0;border-top:1px solid var(--line);background:var(--bg)}
 .sys-fig{margin-top:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:26px 18px 18px}
@@ -487,7 +452,6 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       <a href="#why" data-i18n="nav.why">为什么</a>
       <a href="#fbg" data-i18n="nav.hosts">主机</a>
       <a href="#sensors" data-i18n="nav.sensors">传感器</a>
-      <a href="#specs" data-i18n="nav.specs">规格书</a>
       <a href="#selector" data-i18n="nav.industries">行业</a>
       <a href="#cases" data-i18n="nav.cases">实绩</a>
       <a href="#company" data-i18n="nav.company">实力</a>
@@ -748,7 +712,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
           <div class="tile"><b>1~100<small>Hz</small></b><span data-i18n="fbg.k4">测量速度(高速可定制)</span></div>
         </div>
         <div class="ch-actions">
-          <a class="btn btn-ghost btn-sm" href="#specs" data-spec="fbg" data-i18n="fbg.spec">查看完整规格</a>
+          <a class="btn btn-ghost btn-sm" href="datasheets/GM-FBG-16-32.pdf" download data-i18n="fbg.spec">GM-FBG-16/32 规格书下载</a>
         </div>
       </div>
       <figure class="ch-stage">
@@ -812,7 +776,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
           <div class="tile"><b>3.2<small>m</small></b><span data-i18n="das.k4">空间分辨率 / 定位精度</span></div>
         </div>
         <div class="ch-actions">
-          <a class="btn btn-ghost btn-sm" href="#specs" data-spec="das" data-i18n="das.spec">查看完整规格</a>
+          <a class="btn btn-ghost btn-sm" href="datasheets/GM-DAS-50-100.pdf" download data-i18n="das.spec">GM-DAS-50/100 规格书下载</a>
         </div>
       </div>
       <figure class="ch-stage">
@@ -870,7 +834,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
           <div class="tile"><b>0.5<small>s</small></b><span data-i18n="dts.k4">完成一轮测量</span></div>
         </div>
         <div class="ch-actions">
-          <a class="btn btn-ghost btn-sm" href="#specs" data-spec="dts" data-i18n="dts.spec">查看完整规格</a>
+          <a class="btn btn-ghost btn-sm" href="datasheets/GM-DTS-04-08.pdf" download data-i18n="dts.spec">GM-DTS-04/08 规格书下载</a>
         </div>
       </div>
       <figure class="ch-stage">
@@ -1026,10 +990,15 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </article>
     </div>
 
+    <div class="reveal" style="margin-top:18px;display:flex;justify-content:center">
+      <a class="btn btn-ghost btn-sm" href="datasheets/GM-F-sensors.pdf" download data-i18n="sen.dl">GM-F 系列传感器规格书下载</a>
+    </div>
+
     <div class="wind-strip reveal">
       <div class="wind-head">
         <h3 data-i18n="wind.h">风电专用系列 · 成熟批量供货</h3>
         <p data-i18n="wind.p">叶片载荷、塔筒应力、法兰螺栓、姿态与锚索,全光纤设计天然防雷;整机接入 GM-FBG-16/32 与监测平台。</p>
+        <a class="btn btn-ghost btn-sm" href="datasheets/GM-wind-sensors.pdf" download data-i18n="wind.dl" style="margin-left:auto">风电专用传感器规格书下载</a>
       </div>
       <div class="wind-grid">
         <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtb01.webp" alt="GM-WTB01 叶根载荷传感器" loading="lazy"></div><div class="wm"><b>GM-WTB01</b><span data-i18n="wind.m1">叶根载荷 · ±5000 με · 温补 14 pm/℃</span></div></div>
@@ -1043,156 +1012,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 
     <div class="group-foot reveal">
       <p data-i18n="sen.foot">全系 IP68(风电系列 IP65)· C 波段 1528~1568 nm · FC/APC 接头;振动类含标准 / 增强两代,合计 21 款标准型号;兼容符合 C 波段标准的第三方解调设备,无供应商锁定。</p>
-      <a class="btn btn-ghost btn-sm" href="#specs" data-spec="sensors" data-i18n="sen.footbtn">查看全系规格</a>
     </div>
-  </div>
-</section>
-
-<!-- ===================== 规格书库 ===================== -->
-<section class="specs" id="specs">
-  <div class="wrap">
-    <h2 class="h2 reveal" data-i18n="sp.h2">规格书,直接摊开在这里。</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="sp.lead">与产品手册同步的关键参数,选型不用来回翻 PDF;完整版规格书与选型手册,一封邮件送达。</p>
-    <div class="spec-tabs reveal" role="tablist" aria-label="规格书选择">
-      <button class="chip" role="tab" aria-pressed="true" data-tab="fbg">GM-FBG-16/32</button>
-      <button class="chip" role="tab" aria-pressed="false" data-tab="das">GM-DAS-50/100</button>
-      <button class="chip" role="tab" aria-pressed="false" data-tab="dts">GM-DTS-04/08</button>
-      <button class="chip" role="tab" aria-pressed="false" data-tab="sensors" data-i18n="sp.tab4">GM-F 传感器全系</button>
-      <button class="chip" role="tab" aria-pressed="false" data-tab="wind" data-i18n="sp.tab5">风电专用</button>
-      <button class="chip" role="tab" aria-pressed="false" data-tab="sys" data-i18n="sp.tab6">行业系统</button>
-    </div>
-
-    <div class="spec-panel on" id="sp-fbg">
-      <div class="spec-title"><h4 data-i18n="sp.fbg.h">GM-FBG-16/32 光纤光栅解调仪</h4><span class="sub" data-i18n="sp.fbg.sub">工业级 FBG 波长解调平台</span></div>
-      <p class="spec-note" data-i18n="sp.fbg.note">高性能:±2 pm 典型精度、±1 pm 重复性、40 dB 动态范围;工业级:宽温宽压、低功耗;小体积:紧凑机身便于嵌入集成。典型应用:桥隧结构健康监测、风电叶片与混塔、电力设备测温。</p>
-      <div class="spec-rows">
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r1">光通道数量</span><span class="v" data-i18n="sp.fbg.v1">1~32 通道可选</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r2">波长范围</span><span class="v">1527~1564 nm</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r3">波长精度</span><span class="v" data-i18n="sp.fbg.v3">±2 pm(典型)</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r4">波长重复性 / 稳定性</span><span class="v">±1 pm / ±1 pm</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r5">动态范围</span><span class="v">40 dB</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r6">测量速度</span><span class="v" data-i18n="sp.fbg.v6">1~100 Hz(高速可定制)</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r7">通信接口</span><span class="v" data-i18n="sp.fbg.v7">RJ45 / RS485 / CAN / 2.4G 无线</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r8">供电 / 功耗</span><span class="v">DC 9~36 V · ≤10 W</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r9">工作 / 存储温度</span><span class="v">-20~75 ℃ / -40~80 ℃</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.fbg.r10">尺寸</span><span class="v">161 × 144 × 33 mm</span></div>
-      </div>
-    </div>
-
-    <div class="spec-panel" id="sp-das">
-      <div class="spec-title"><h4 data-i18n="sp.das.h">GM-DAS-50/100 分布式声波 / 振动解调仪</h4><span class="sub" data-i18n="sp.das.sub">分布式振动 / 声波旗舰平台</span></div>
-      <p class="spec-note" data-i18n="sp.das.note">超长距离:标配 50 km,选配拉曼放大器可达 100 km;宽频海量:0.01 Hz~50 kHz 响应、23,552 道并行解调;高保真:窄线宽激光器,波形还原率 ≥99%,定量还原声波模型用于事件分类。典型应用:油气管道、周界安防、轨交保护区、地震与地质勘探。</p>
-      <div class="spec-rows">
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r1">测量距离</span><span class="v" data-i18n="sp.das.v1">50 km 标配 / 100 km 选配</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r2">空间分辨率</span><span class="v">3.2 m</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r3">响应频带</span><span class="v">0.01 Hz~50 kHz @1 km</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r4">解调通道</span><span class="v" data-i18n="sp.das.v4">23,552 道并行</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r5">波形还原率</span><span class="v">≥99%</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r6">激光线宽 / RIN</span><span class="v">≤1 kHz · &lt;-120 dB/Hz</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r7">数据采集</span><span class="v">250 MS/s · 14 bit</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r8">光通道 / 数据接口</span><span class="v" data-i18n="sp.das.v8">1~2 通道 · USB4.0(雷电 4)</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r9">机箱 / 供电</span><span class="v" data-i18n="sp.das.v9">2U 机架 · 220 V AC</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.das.r10">工作温度</span><span class="v">-20~60 ℃</span></div>
-      </div>
-    </div>
-
-    <div class="spec-panel" id="sp-dts">
-      <div class="spec-title"><h4 data-i18n="sp.dts.h">GM-DTS-04/08 分布式测温解调仪</h4><span class="sub" data-i18n="sp.dts.sub">分布式测温主机 · 消防联动</span></div>
-      <p class="spec-note" data-i18n="sp.dts.note">自研恒温光电模块与全嵌入式板卡(ARM + Linux);属规范定义的"线型感温火灾探测器",单机覆盖数公里,定位精确到米级以内,寿命长免维护。典型应用:电缆隧道、综合管廊、交通隧道、大坝、油气储运火灾预警。</p>
-      <div class="spec-rows">
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r1">光缆类型</span><span class="v" data-i18n="sp.dts.v1">多模(单模长距可定制)</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r2">测量距离</span><span class="v" data-i18n="sp.dts.v2">12.5 km / 通道</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r3">测量通道</span><span class="v" data-i18n="sp.dts.v3">4 通道(8 通道可选)</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r4">空间分辨率</span><span class="v">0.2 m</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r5">温度精度 / 分辨率</span><span class="v">±1 ℃ / 0.1 ℃</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r6">测量时间</span><span class="v" data-i18n="sp.dts.v6">0.5 s(1 万次累加)</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r7">测温范围</span><span class="v">-20~120 ℃</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r8">电气接口</span><span class="v" data-i18n="sp.dts.v8">RS485 / RJ45 / CAN · 干接点</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r9">供电 / 功耗</span><span class="v">85~264 V AC · 15~25 W</span></div>
-        <div class="spec-row"><span class="k" data-i18n="sp.dts.r10">安装方式</span><span class="v" data-i18n="sp.dts.v10">2U 机架式</span></div>
-      </div>
-    </div>
-
-    <div class="spec-panel" id="sp-sensors">
-      <div class="spec-title"><h4 data-i18n="sp.sen.h">GM-F 传感器全系 · 8 大类 21 款</h4><span class="sub" data-i18n="sp.sen.sub">全系 IP68 · C 波段 1528~1568 nm · FC/APC</span></div>
-      <p class="spec-note" data-i18n="sp.sen.note">量程、尺寸与封装全系可按项目定制;应变类与 GM-FT01 成对布设,实现温度补偿后的真实应力解算。</p>
-      <div class="spec-scroll">
-        <table class="spec-matrix">
-          <thead><tr><th data-i18n="sp.th1">型号</th><th data-i18n="sp.th2">名称</th><th data-i18n="sp.th3">量程</th><th data-i18n="sp.th4">精度 / 分辨率</th><th data-i18n="sp.th5">关键参数</th></tr></thead>
-          <tbody>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.t">温度类 <span>T · TEMPERATURE</span></td></tr>
-            <tr><td class="m">GM-FT01</td><td class="n" data-i18n="mx.ft01">通用温度传感器</td><td data-i18n="mx.ft01r">-40~120 ℃(可定制)</td><td>±0.5 ℃ / 0.1 ℃</td><td data-i18n="mx.ft01k">Φ9×100 mm · IP68 · 夹持 / 绑扎 / 埋入</td></tr>
-            <tr><td class="m">GM-FT02</td><td class="n" data-i18n="mx.ft02">快速响应感温单元</td><td data-i18n="mx.ft02r">-40~120 ℃(可定制)</td><td>±0.5 ℃ / 0.1 ℃</td><td data-i18n="mx.ft02k">Φ7×100 mm · IP68 · 防爆区适用 · 火灾探测</td></tr>
-            <tr><td class="m">GM-FT03</td><td class="n" data-i18n="mx.ft03">微型陶瓷温度传感器</td><td data-i18n="mx.ft03r">-40~120 ℃(可定制)</td><td>±0.5 ℃ / 0.1 ℃</td><td data-i18n="mx.ft03k">Φ4×45 mm · IP68 · 开关柜触头等狭小部位</td></tr>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.s">应变与钢筋应力类 <span>S · STRAIN</span></td></tr>
-            <tr><td class="m">GM-FS01</td><td class="n" data-i18n="mx.fs01">埋入式应变计</td><td>±1000 / ±1500 με</td><td>1% F.S. / 1 με</td><td data-i18n="mx.fs01k">标距 100 mm · 埋入 · IP68 · 与 FT01 成对温补</td></tr>
-            <tr><td class="m">GM-FS02</td><td class="n" data-i18n="mx.fs02">表面安装式应变计</td><td>±500 / 1000 / 1500 με</td><td>1% F.S. / 1 με</td><td data-i18n="mx.fs02k">标距 100 mm · 焊接@钢 / 粘接@砼 · IP68</td></tr>
-            <tr><td class="m">GM-FS03</td><td class="n" data-i18n="mx.fs03">钢筋应力计</td><td data-i18n="mx.fs03r">拉 200 / 压 100 MPa</td><td>1% F.S. / 1 MPa</td><td data-i18n="mx.fs03k">各钢筋规格 · 长 600 mm · 对焊 / 绑扎</td></tr>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.d">位移与沉降类 <span>D · DISPLACEMENT</span></td></tr>
-            <tr><td class="m">GM-FD01</td><td class="n" data-i18n="mx.fd01">裂缝计</td><td data-i18n="mx.fd01r">20 mm(可定制)</td><td>1 / 0.1 mm</td><td data-i18n="mx.fd01k">埋入全密封 · -40~80 ℃ · IP68</td></tr>
-            <tr><td class="m">GM-FD02</td><td class="n" data-i18n="mx.fd02">位移计</td><td>10 / 100 mm</td><td data-i18n="mx.fd02a">0.1 / 0.5 mm · 分辨率 0.01 mm</td><td data-i18n="mx.fd02k">Φ40×200 mm · 底座安装,便于更换标定</td></tr>
-            <tr><td class="m">GM-FD03</td><td class="n" data-i18n="mx.fd03">拉绳位移计</td><td data-i18n="mx.fd03r">100 mm(可定制)</td><td>1 / 0.1 mm</td><td data-i18n="mx.fd03k">Φ40×350 mm · 标配 20 m 拉绳远端引出</td></tr>
-            <tr><td class="m">GM-FD04</td><td class="n" data-i18n="mx.fd04">静力水准仪</td><td>0~100 mm</td><td>1 / 0.1 mm</td><td data-i18n="mx.fd04k">Φ120×250 mm · 组网测沉降 · 不锈钢 / 注塑</td></tr>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.p">压力类 <span>P · PRESSURE</span></td></tr>
-            <tr><td class="m">GM-FP01</td><td class="n" data-i18n="mx.fp01">渗压计</td><td data-i18n="mx.fp01r">0.35 / 1 MPa(可定制)</td><td>0.5% / 0.1% F.S.</td><td data-i18n="mx.fp01k">Φ30×120 mm · 投入 / 埋入两用 · IP68</td></tr>
-            <tr><td class="m">GM-FP02</td><td class="n" data-i18n="mx.fp02">土压力计</td><td data-i18n="mx.fp02r">1 / 2 MPa(可定制)</td><td>1% / 0.1% F.S.</td><td data-i18n="mx.fp02k">规格可定制 · 埋入 · IP68 · 与渗压计组合</td></tr>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.a">振动类 <span>A · DYNAMICS</span></td></tr>
-            <tr><td class="m">GM-FA01</td><td class="n" data-i18n="mx.fa01">加速度传感器</td><td>2 g · 0.5~50 Hz</td><td data-i18n="mx.fa01a">2 mg / 0.5 mg · ≈500 pm/g</td><td data-i18n="mx.fa01k">110×35×25 mm · IP68 · 标准 / 增强两代 · 多支组合 2D / 3D</td></tr>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.i">倾角类 <span>I · INCLINATION</span></td></tr>
-            <tr><td class="m">GM-FI01</td><td class="n" data-i18n="mx.fi01">倾斜传感器</td><td>±5°</td><td>0.01° / 0.001°</td><td data-i18n="mx.fi01k">105×80×28 mm · 螺孔安装 · IP68 · 双光栅自温补</td></tr>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.l">锚固与支护类 <span>L · ANCHORING</span></td></tr>
-            <tr><td class="m">GM-FL01</td><td class="n" data-i18n="mx.fl01">锚索计(原 GM-PAC04)</td><td>0~2000 kN · 20 Hz</td><td data-i18n="mx.fl01a">3~6 支冗余测力 · 120° 偏载识别</td><td>-40~+85 ℃ · 95%RH · IP67</td></tr>
-            <tr><td class="m">GM-FL02</td><td class="n" data-i18n="mx.fl02">锚杆(索)压力计</td><td>0~150 kN</td><td>5% F.S. · 1 kN</td><td data-i18n="mx.fl02k">套接锚杆托盘与岩壁之间 · IP54</td></tr>
-            <tr><td class="m">GM-FL03</td><td class="n" data-i18n="mx.fl03">测力锚杆</td><td>70 kN</td><td>6% F.S. / 1% F.S.</td><td data-i18n="mx.fl03k">光栅内置钢锚杆 · 应变 / 轴力 / 弯矩 / 剪应力</td></tr>
-            <tr><td class="m">GM-FL04</td><td class="n" data-i18n="mx.fl04">离层传感器</td><td data-i18n="mx.fl04r">200 mm 可续测</td><td>5% F.S.</td><td data-i18n="mx.fl04k">395×306×34 mm · 顶板离层趋势早发现</td></tr>
-            <tr><td class="m">GM-FL05</td><td class="n" data-i18n="mx.fl05">智能锚杆</td><td data-i18n="mx.fl05r">拉伸 500 MPa</td><td data-i18n="mx.fl05a">1%(0.5% 可选)</td><td data-i18n="mx.fl05k">FRP 杆体即传感器 · 植入式光栅 · IP68</td></tr>
-            <tr class="grp"><td colspan="5" data-i18n="sp.g.b">螺栓类 <span>B · BOLT</span></td></tr>
-            <tr><td class="m">GM-FB01</td><td class="n" data-i18n="mx.fb01">螺栓应力计</td><td>100 MPa</td><td>&lt;1% / ≤0.1% F.S.</td><td data-i18n="mx.fb01k">按螺栓规格定制 · 铠装防水 · -30~+80 ℃</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="spec-panel" id="sp-wind">
-      <div class="spec-title"><h4 data-i18n="sp.wd.h">风电专用监测传感器</h4><span class="sub" data-i18n="sp.wd.sub">成熟批量供货型号 · 全光纤设计天然防雷</span></div>
-      <p class="spec-note" data-i18n="sp.wd.note">叶根 3% 区域截面布置 3~4 支载荷传感器,符合 JG/T 422-2013;叶片载荷 + 塔筒应力 + 法兰间隙 + 混塔锚索统一接入 GM-FBG-16/32 与监测平台,构成风机结构安全整体监测系统。</p>
-      <div class="spec-scroll">
-        <table class="spec-matrix">
-          <thead><tr><th data-i18n="sp.th1b">型号</th><th data-i18n="sp.th2b">名称</th><th data-i18n="sp.th3b">量程</th><th data-i18n="sp.th4b">关键指标</th><th data-i18n="sp.th5b">防护 / 备注</th></tr></thead>
-          <tbody>
-            <tr><td class="m">GM-WTB01</td><td class="n" data-i18n="wx.wtb01">叶根载荷传感器</td><td>±5000 με</td><td data-i18n="wx.wtb01a">≤0.1% F.S. · 温补 14 pm/℃</td><td data-i18n="wx.wtb01k">IP65 · 特种胶装 · 全光纤防雷</td></tr>
-            <tr><td class="m">GM-WTT02</td><td class="n" data-i18n="wx.wtt02">表面应力传感器</td><td>±5000 με</td><td data-i18n="wx.wtt02a">0.88 pm/με · 重复性 0.5%</td><td data-i18n="wx.wtt02k">IP65 · 表面粘贴 · 可互换</td></tr>
-            <tr><td class="m">GM-WTT03</td><td class="n" data-i18n="wx.wtt03">双轴振动传感器</td><td>±5 g / ±10 g</td><td data-i18n="wx.wtt03a">0.1~70 Hz · 500~1000 pm/g</td><td data-i18n="wx.wtt03k">IP65 · 双轴同测 · 量程可定制</td></tr>
-            <tr><td class="m">GM-WTF05</td><td class="n" data-i18n="wx.wtf05">法兰间隙传感器</td><td>±300 μm</td><td data-i18n="wx.wtf05a">分辨力 0.05 μm · 位移系数 53 μm/nm</td><td data-i18n="wx.wtf05k">102×32×5 mm · 断裂前预警</td></tr>
-            <tr><td class="m">GM-FI01</td><td class="n" data-i18n="wx.fi01">双轴倾角传感器</td><td>±5°</td><td>0.01° / 0.001°</td><td data-i18n="wx.fi01k">IP68 · 塔筒姿态与基础沉降</td></tr>
-            <tr><td class="m">GM-FL01</td><td class="n" data-i18n="wx.fl01">锚索计</td><td>0~2000 kN · 20 Hz</td><td data-i18n="wx.fl01a">3~6 支均布 · 120° 偏载识别</td><td data-i18n="wx.fl01k">IP67 · 混塔预应力锚索 24 小时在线</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="spec-panel" id="sp-sys">
-      <div class="spec-title"><h4 data-i18n="sp.sys.h">行业系统与成套方案</h4><span class="sub" data-i18n="sp.sys.sub">系统级交付 · 规范验收路径</span></div>
-      <div class="spec-sys">
-        <div class="sys-card">
-          <h5 data-i18n="sp.sys.c1h">矿用顶板应力监测系统(隔爆型)</h5>
-          <p data-i18n="sp.sys.c1p">光纤传感 + 计算机检测 + 数据通讯一体化;顶板状态自动监测与汇报,减少井下人工巡检,为锚杆支护施工与参数优化提供依据。</p>
-          <div class="mono-line" data-i18n="sp.sys.c1m">处理器↔传感器 ≤5 km · ↔井上 ≤10 km<br>顶板应力 0~70 kN · 位移 0~180 mm<br>锚杆应力 0~150 kN · 127 V 井下 / 220 V 井上</div>
-        </div>
-        <div class="sys-card">
-          <h5 data-i18n="sp.sys.c2h">FBG 结构健康监测(SHM)方案</h5>
-          <p data-i18n="sp.sys.c2p">应变、温补、振动、倾角、位移、索力六类测点单纤串联,接入 SHM 平台在线评估、事件报警、应急预案;传感器供货 / 系统集成 / 数据服务三种交付形态。</p>
-          <div class="mono-line" data-i18n="sp.sys.c2m">GM-FBG-16/32 · 1~32 通道<br>分辨率 1 pm · 采样 1 / 100 / 1000 Hz<br>配套深化设计图 · 安装标定 · 验收支持</div>
-        </div>
-        <div class="sys-card">
-          <h5 data-i18n="sp.sys.c3h">电缆隧道与管廊测温方案</h5>
-          <p data-i18n="sp.sys.c3p">GM-DTS-04/08 + 感温光缆(正弦贴敷 / 悬挂)+ 监测软件;局部高危点位叠加 GM-FT02 感温单元增强,报警联动消防主机与风机水泵。</p>
-          <div class="mono-line" data-i18n="sp.sys.c3m">1 km 防火分区 = 1 台主机 + 光缆 + 分区软件<br>依据 GB 50116 · GB 50838 · GB/T 21197<br>0.2 m 定位 · 0.5 s 响应 · 12.5 km / 通道</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="spec-foot reveal"><span data-i18n="sp.mailnote">完整版规格书 PDF、选型手册与授权书:</span><a href="mailto:17621251612@163.com?subject=索取规格书" style="color:var(--text-2);border-bottom:1px solid var(--line-strong)" data-i18n="sp.mail">邮件索取,一个工作日内送达</a></p>
   </div>
 </section>
 
@@ -1436,13 +1256,12 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     <p class="lead reveal" data-i18n="fin.lead">告诉我们监测对象与现场条件,三个工作日内,拿到点位设计、设备配置与报价。</p>
     <div class="reveal"><a class="btn btn-primary" href="mailto:17621251612@163.com?subject=监测方案与报价咨询" data-i18n="cta.main2">获取方案与报价</a></div>
     <div class="dl-index reveal">
-      <span class="k" data-i18n="fin.dlk">规格书直达</span>
-      <a href="#specs" data-spec="fbg">GM-FBG-16/32</a>
-      <a href="#specs" data-spec="das">GM-DAS-50/100</a>
-      <a href="#specs" data-spec="dts">GM-DTS-04/08</a>
-      <a href="#specs" data-spec="sensors" data-i18n="fin.dl4">GM-F 传感器全系</a>
-      <a href="#specs" data-spec="wind" data-i18n="fin.dl5">风电专用</a>
-      <a href="#specs" data-spec="sys" data-i18n="fin.dl6">行业系统</a>
+      <span class="k" data-i18n="fin.dlk">规格书下载</span>
+      <a href="datasheets/GM-FBG-16-32.pdf" download>GM-FBG-16/32</a>
+      <a href="datasheets/GM-DAS-50-100.pdf" download>GM-DAS-50/100</a>
+      <a href="datasheets/GM-DTS-04-08.pdf" download>GM-DTS-04/08</a>
+      <a href="datasheets/GM-F-sensors.pdf" download data-i18n="fin.dl4">GM-F 传感器全系</a>
+      <a href="datasheets/GM-wind-sensors.pdf" download data-i18n="fin.dl5">风电专用</a>
     </div>
     <p class="contact-line reveal" data-i18n="fin.contact">销售总监 王永强 · 电话 / 微信 <a href="tel:17621251612">176 2125 1612</a>,或来信 <a href="mailto:17621251612@163.com">17621251612@163.com</a></p>
     <p class="contact-line reveal small" style="margin-top:12px" data-i18n="fin.addr">上海市浦东新区海基六路 99 弄智萃科技中心创新魔坊 3 期 3 号楼零界魔方 729 室 · <a href="https://www.gm-sensor.com">www.gm-sensor.com</a></p>
@@ -1689,21 +1508,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     setInterval(function(){if(document.hidden)return;set((idx+1)%4);},3000);
   })();
 
-  /* ============ 规格书选项卡 ============ */
-  (function(){
-    var tabs=[].slice.call(document.querySelectorAll('.spec-tabs .chip'));
-    function activate(key){
-      tabs.forEach(function(t){t.setAttribute('aria-pressed',String(t.dataset.tab===key))});
-      [].slice.call(document.querySelectorAll('.spec-panel')).forEach(function(p){
-        p.classList.toggle('on',p.id==='sp-'+key);
-      });
-    }
-    window.__specTab=activate;
-    tabs.forEach(function(t){t.addEventListener('click',function(){activate(t.dataset.tab)})});
-    [].slice.call(document.querySelectorAll('a[data-spec]')).forEach(function(a){
-      a.addEventListener('click',function(){activate(a.dataset.spec)});
-    });
-  })();
+
 })();
 </script>
 
@@ -1972,7 +1777,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'fbg.copy':'Broadband light travels down the fiber; each grating reflects exactly one wavelength. Load the structure and the wavelength shifts. <b>±2 pm typical precision</b> turns micron-level change inside reinforced concrete into one clean curve on screen, with temperature cross-sensitivity cancelled at the source by a reference grating.',
   'fbg.prod':'FBG interrogator · ±2 pm · compact 161×144×33 mm',
   'fbg.k1':'Optical channels (options)','fbg.k2':'Wavelength precision (typical)','fbg.k3':'Optical dynamic range','fbg.k4':'Scan rate (faster on request)',
-  'fbg.spec':'Full specifications','fbg.cap':'Point precision: every load on a key member gets an echo',
+  'fbg.spec':'GM-FBG-16/32 datasheet (PDF)','fbg.cap':'Point precision: every load on a key member gets an echo',
   'fbg.svg1':'Principle · grating reflection and wavelength shift','fbg.svg2':'Broadband in → one λ reflected','fbg.svg3':'Alarm threshold','fbg.svg4':'Midspan FBG strain gauge S-07',
   'demo.note':'Demo data · thresholds set per project','demo.note2':'Demo data · thresholds set per project','demo.note3':'Demo data · thresholds set per project',
   'das.tag':'GM-DAS-50/100 distributed acoustic interrogator × classic scene: pipelines & perimeters',
@@ -1980,14 +1785,14 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'das.copy':'A probe pulse runs along the telecom cable; any vibration shifts the phase of the light scattered back from that point. Phase demodulation turns the whole cable into <b>23,552 stethoscopes</b>: digging, knocking and leaks located to the meter, with ≥99% waveform fidelity to tell what it was.',
   'das.prod':'Distributed acoustic / vibration interrogator · 2U rack · phase demodulation',
   'das.k1':'Max range (with Raman amp)','das.k2':'Parallel channels','das.k3':'Bandwidth ceiling @1 km','das.k4':'Spatial resolution / locating',
-  'das.spec':'Full specifications','das.cap':'Distributed auscultation: third-party digging shows up in the alarm',
+  'das.spec':'GM-DAS-50/100 datasheet (PDF)','das.cap':'Distributed auscultation: third-party digging shows up in the alarm',
   'das.svg1':'Principle · coherent Rayleigh phase sensing','das.svg2':'Waterfall · distance across, time down',
   'dts.tag':'GM-DTS-04/08 distributed temperature interrogator × classic scene: cable tunnels & corridors',
   'dts.h2':'See the trend<br>before the temperature runs away.',
   'dts.copy':'Raman scattering returns two beams whose intensity ratio depends on temperature alone. OTDR slices position every <b>0.2 m</b> and a full scan takes 0.5 s: a temperature map over 12.5 km per channel, where even one degree creeping up a joint has nowhere to hide. Alarms wire straight into the fire host via dry contacts.',
   'dts.prod':'Distributed temperature interrogator · 2U rack · 4~8 channels',
   'dts.k1':'Range per channel','dts.k2':'Spatial resolution','dts.k3':'Accuracy · resolution 0.1 °C','dts.k4':'Full measurement cycle',
-  'dts.spec':'Full specifications','dts.cap':'A meter-by-meter heat map: hot spots removed before they become fire spots',
+  'dts.spec':'GM-DTS-04/08 datasheet (PDF)','dts.cap':'A meter-by-meter heat map: hot spots removed before they become fire spots',
   'dts.svg1':'Principle · Raman intensity-ratio thermometry','dts.svg2':'Probe pulse →','dts.svg3':'← anti-Stokes / Stokes','dts.svg4':'Temperature profile · 12.5 km / channel','dts.svg5':'Threshold 65 °C',
   'siting.h2':'Deployment needs one ordinary equipment room.',
   'siting.lead':'Six site requirements cover all three interrogators; recommended values to be confirmed per project after a site survey.',
@@ -2017,7 +1822,8 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'wind.m5':'Biaxial tilt · ±5° · 0.01° accuracy · 0.001° resolution',
   'wind.m6':'Anchor load cell · 0~2000 kN · 120° eccentricity · online 24 h',
   'sen.foot':'IP68 across the line (wind series IP65) · C-band 1528~1568 nm · FC/APC connectors; vibration comes in standard and enhanced generations for 21 standard models in total; compatible with any C-band third-party interrogator, no vendor lock-in.',
-  'sen.footbtn':'Full series specs',
+  'sen.dl':'GM-F series sensor datasheet (PDF)',
+  'wind.dl':'Wind-power sensor datasheet (PDF)',
   'sp.h2':'The datasheets, laid out right here.',
   'sp.lead':'Key parameters kept in sync with the product manuals, so selection never means digging through PDFs; full datasheets and the selection handbook arrive by email.',
   'sp.tab4':'GM-F sensors','sp.tab5':'Wind power','sp.tab6':'Industry systems',
@@ -2132,7 +1938,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'co.ik':'Industries delivered','co.i1':'Bridges & buildings','co.i2':'Tunnels & transit','co.i3':'Power & energy','co.i4':'Water & geotechnics','co.i5':'Mining','co.i6':'Wind power',
   'fin.h2':'Your next accident<br>could have been just an alert.',
   'fin.lead':'Tell us what you monitor and the site conditions; within three working days you get point layout, equipment configuration and a quote.',
-  'fin.dlk':'Datasheets','fin.dl4':'GM-F sensor series','fin.dl5':'Wind power','fin.dl6':'Industry systems',
+  'fin.dlk':'Datasheet downloads','fin.dl4':'GM-F sensor series','fin.dl5':'Wind power','fin.dl6':'Industry systems',
   'fin.addr':'Room 729, Zero-Boundary Cube, Building 3, Innovation Mofang Phase 3, Zhicui Technology Center, Lane 99 Haiji 6th Road, Pudong New Area, Shanghai · <a href="https://www.gm-sensor.com">www.gm-sensor.com</a>',
   'ft.addr':'Room 729, Zero-Boundary Cube, Building 3, Innovation Mofang Phase 3, Zhicui Technology Center, Lane 99 Haiji 6th Road, Pudong New Area, Shanghai',
   'fin.contact':'Sales director Wang Yongqiang · phone / WeChat <a href="tel:17621251612">176 2125 1612</a>, or write to <a href="mailto:17621251612@163.com">17621251612@163.com</a>',
@@ -2303,7 +2109,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 /* ============ 导航 scrollspy:当前板块指示 ============ */
 (function(){
   var MAP={why:'#why',fbg:'#fbg',das:'#fbg',dts:'#fbg',siting:'#fbg',sensors:'#sensors',
-           specs:'#specs',system:'#specs',platform:'#selector',selector:'#selector',
+           system:'#fbg',platform:'#selector',selector:'#selector',
            cases:'#cases',delivery:'#cases',company:'#company',contact:'#company'};
   var links={};
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){links[a.getAttribute('href')]=a});
