@@ -2014,6 +2014,12 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     if(md)md.setAttribute('content',lang==='en'
       ?'GM Sensing: three in-house interrogators (GM-FBG-16/32, GM-DAS-50/100, GM-DTS-04/08) and the GM-F sensor family (8 categories, 21 models). One fiber, up to 100 km and 23,552 channels, guarding bridges, pipelines, cables and dams.'
       :'上海港盟科技:FBG、DAS、DTS 三大自研光纤监测主机与 GM-F 传感器家族(8 大类 21 款)。一根光纤,最长 100 公里、23,552 个通道,守护桥梁、管道、电缆与大坝。');
+    /* 规格书下载入口随语言切换:xx.pdf ←→ xx-EN.pdf */
+    document.querySelectorAll('a[download][href*="datasheets/"]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(lang==='en'){if(!/-EN\.pdf$/.test(h))a.setAttribute('href',h.replace(/\.pdf$/,'-EN.pdf'));}
+      else{a.setAttribute('href',h.replace(/-EN\.pdf$/,'.pdf'));}
+    });
     var btn=document.getElementById('langBtn');
     btn.textContent=lang==='en'?'中':'EN';
     btn.setAttribute('aria-label',lang==='en'?'切换为中文':'Switch language to English');
