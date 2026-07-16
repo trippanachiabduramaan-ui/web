@@ -196,8 +196,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* ---- 全景一张网 ---- */
 .system{padding:110px 0 150px;border-top:1px solid var(--line);background:var(--bg)}
 .h2s{font-size:clamp(24px,3.2vw,38px);font-weight:600;line-height:1.2;letter-spacing:-.01em}
-.plat-merge{margin-top:120px}
-.cases-merge{margin-top:130px}
+.h2sub{margin-top:14px;font-size:clamp(20px,2.6vw,30px);font-weight:600;color:var(--text-2);letter-spacing:-.01em}
+.lead-sm{font-size:15px;color:var(--text-2);line-height:1.85;margin-bottom:24px;max-width:36em}
+.sysbrain{display:grid;gap:44px;margin-top:64px}
+@media(min-width:1060px){.sysbrain{grid-template-columns:5fr 7fr;gap:64px;align-items:start}}
+.chainline{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:11px;color:var(--text-2)}
+.chainline em{font-style:normal;color:var(--accent)}
+.cases-merge{margin-top:76px;padding-top:52px;border-top:1px solid var(--line)}
+.case.hit{border-color:var(--accent);box-shadow:0 0 0 1px rgba(90,200,245,.3),0 18px 44px -24px rgba(90,200,245,.28)}
+.case.hit .where{color:var(--accent)}
+.case{transition:border-color .25s,box-shadow .3s}
+.cs-match{font-family:var(--font-mono);font-size:11.5px;color:var(--accent);margin-top:10px;min-height:16px}
 .sys-fig{margin-top:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:26px 18px 18px}
 .sys-fig figcaption{font-size:12.5px;color:var(--text-3);padding:12px 8px 0}
 
@@ -1032,33 +1041,11 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 <section class="system" id="system">
   <div class="wrap">
     <h2 class="h2 reveal" data-i18n="net.h2">三台主机,一张网。</h2>
-    <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="net.lead">传感器与光缆负责感知,三台主机负责解调,平台负责研判,预警负责找到人。每一米光纤,都接在同一条链路上。</p>
-    <figure class="sys-fig reveal">
-      <svg viewBox="0 0 1120 210" style="width:100%;height:auto" role="img" aria-label="系统全景:传感器与光缆接入 FBG、DAS、DTS 三台主机,汇入 AI 平台,输出分级预警">
-        <line x1="30" y1="105" x2="1090" y2="105" stroke="rgba(160,160,170,.16)" stroke-width="1.4"/>
-        <path d="M30 105 L1090 105" stroke="var(--accent)" stroke-width="2" class="pulse" style="stroke-dasharray:4 380;animation-duration:5.5s"/>
-        <g font-family="Geist Mono,ui-monospace,monospace" text-anchor="middle">
-          <g><circle cx="120" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="120" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n1">传感器 · 光缆</text>
-             <text x="120" y="140" font-size="10.5" fill="#6E6E73" data-i18n="net.d1">GM-F 八大类 · 铠装光缆</text></g>
-          <g><circle cx="420" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="420" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n2">三大解调主机</text>
-             <text x="420" y="140" font-size="10.5" fill="#6E6E73">FBG · DAS · DTS</text></g>
-          <g><circle cx="730" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="730" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n3">AI 监测平台</text>
-             <text x="730" y="140" font-size="10.5" fill="#6E6E73" data-i18n="net.d3">趋势 · 研判 · 报告</text></g>
-          <g><circle cx="1000" cy="105" r="7" fill="#000000" stroke="var(--accent)" stroke-width="1.8"/>
-             <text x="1000" y="76" font-size="12.5" fill="#F5F5F7" data-i18n="net.n4">分级预警</text>
-             <text x="1000" y="140" font-size="10.5" fill="#6E6E73" data-i18n="net.d4">阈值 · 事件 · 联动</text></g>
-        </g>
-      </svg>
-      <figcaption data-i18n="net.cap">同一条数据链路:光信号进,处置结论出。</figcaption>
-    </figure>
-    <!-- ---- 同页下半场:AI 监测平台(链路第三节点的展开) ---- -->
-    <div id="platform" class="plat-merge plat-grid">
+    <p class="h2sub reveal" data-i18n="pf.h2">三台主机之上,还有一个大脑。</p>
+    <p class="lead reveal" style="margin-top:18px;max-width:36em" data-i18n="net.lead">传感器与光缆负责感知,三台主机负责解调,AI 平台负责研判与闭环。每一米光纤都接在同一条链路上,每一条结论都找得到人。</p>
+    <div id="platform" class="sysbrain">
     <div>
-      <h3 class="h2s reveal" data-i18n="pf.h2">三台主机之上,<br>还有一个大脑。</h3>
-      <p class="lead reveal" style="margin-top:18px;max-width:30em" data-i18n="pf.lead">业主的真问题很具体:系统各说各话、报警响成背景音、报表靠人熬夜。平台的职责只有一个:让数据变成结论,让结论找到人。</p>
+      <p class="lead-sm reveal" data-i18n="pf.lead">业主的真问题很具体:系统各说各话、报警响成背景音、报表靠人熬夜。平台的职责只有一个:让数据变成结论,让结论找到人。</p>
       <div class="plat-list reveal">
         <div class="plat-item"><h4 data-i18n="pf.i1h">多源数据统一接入</h4><p data-i18n="pf.i1p">治数据孤岛:解调仪、DAS / DTS 主机、环境设备、视频与第三方系统,装进同一块屏幕。</p></div>
         <div class="plat-item"><h4 data-i18n="pf.i2h">智能异常识别</h4><p data-i18n="pf.i2p">治报警疲劳:阈值、趋势、关联规则与模型交叉研判,分级降噪,让每一声报警都值得起身。</p></div>
@@ -1071,7 +1058,8 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </div>
     </div>
     <div class="plat-panel reveal" aria-label="平台闭环流程动画:多源数据汇入平台,分级预警、自动报告与处置工单流出">
-      <div class="plat-head"><span data-i18n="pf.panel">从数据到闭环</span><span class="live"><i></i>LIVE</span></div>
+      <div class="plat-head"><span data-i18n="pf.panel">从光信号到处置闭环</span><span class="live"><i></i>LIVE</span></div>
+      <div class="chainline"><span data-i18n="net.n1">传感器 · 光缆</span><em>&#8594;</em><span>FBG &#183; DAS &#183; DTS</span><em>&#8594;</em><span data-i18n="net.n3">AI 监测平台</span><em>&#8594;</em><span data-i18n="net.n4">分级预警</span></div>
       <svg class="flow" viewBox="0 0 560 380" style="width:100%;display:block">
         <g font-family="Geist Mono,ui-monospace,monospace" font-size="11" fill="#A1A1A6">
           <text x="24" y="66" data-i18n="pf.n1">FBG 主机</text><text x="24" y="142" data-i18n="pf.n2">DAS 主机</text>
@@ -1136,38 +1124,39 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     <div id="cases" class="cases-merge">
     <h3 class="h2s reveal" data-i18n="cs.h2">参数是承诺,<br>案例是兑现。</h3>
     <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="cs.lead">覆盖水利、轨交、公路、市政、桥梁多领域在运项目,部分案例与高校科研团队联合完成。</p>
+    <p class="cs-match" id="csMatch" aria-live="polite"></p>
     <div class="case-grid">
-      <article class="case reveal">
+      <article class="case reveal" data-cs="c1">
         <span class="where mono" data-i18n="cs.c1w">南水北调中线 · 水利</span>
         <h4 data-i18n="cs.c1h">PCCP 管道断丝监测</h4>
         <p data-i18n="cs.c1p">多家单位对北京段下游输水管道对比监测,基于 DAS 与管道内既有通信光纤,成为唯一一家监测结果与实际情况完全吻合的单位,受邀签订断丝监测联合研发框架协议。</p>
         <div class="nums"><div><b data-i18n="cs.c1n1">唯一</b><span data-i18n="cs.c1s1">结果完全吻合单位</span></div><div><b data-i18n="cs.c1n2">框架协议</b><span data-i18n="cs.c1s2">受邀联合研发</span></div></div>
       </article>
-      <article class="case reveal">
+      <article class="case reveal" data-cs="c2">
         <span class="where mono" data-i18n="cs.c2w">合肥轨道 4 号线 · 轨交</span>
         <h4 data-i18n="cs.c2h">保护区施工预警</h4>
         <p data-i18n="cs.c2p">44.8 km 保护区实时监测。桃花潭站实录:15:36 预警生成,15:38 推送,15:41 无人机复核,全流程 5 分钟闭环处置。</p>
         <div class="nums"><div><b>44.8 km</b><span data-i18n="cs.c2s1">实时监测里程</span></div><div><b>5 min</b><span data-i18n="cs.c2s2">预警-推送-复核闭环</span></div><div><b>2,936</b><span data-i18n="cs.c2s3">累计报警信息</span></div></div>
       </article>
-      <article class="case hl reveal">
+      <article class="case hl reveal" data-cs="c3">
         <span class="where mono" data-i18n="cs.c3w">G5011 芜合高速 · 公路</span>
         <h4 data-i18n="cs.c3h">路面异常预警</h4>
         <p data-i18n="cs.c3p">22 km 路段实时监测。2025 年 2 月事故实录:15:30 系统预警推送,较接警时间提前 6 分钟;上线至今稳定无故障运行。</p>
         <div class="nums"><div><b>6 min</b><span data-i18n="cs.c3s1">预警提前于接警</span></div><div><b>95%+</b><span data-i18n="cs.c3s2">报警准确率</span></div><div><b>110+</b><span data-i18n="cs.c3s3">6 个月发现异常事件</span></div></div>
       </article>
-      <article class="case reveal">
+      <article class="case reveal" data-cs="c4">
         <span class="where mono" data-i18n="cs.c4w">庐江堤坝 · 水利</span>
         <h4 data-i18n="cs.c4h">堤坝渗流探测</h4>
         <p data-i18n="cs.c4p">受合肥市政府与发改委委托,对 300 米重点堤段构建地下结构图像:探明地下 3~5 m 连续低速异常带与 7~10 m 长期富水带,支撑汛前检测、汛时监视、汛后修复。</p>
         <div class="nums"><div><b>300 m</b><span data-i18n="cs.c4s1">重点堤段成像</span></div><div><b>3~10 m</b><span data-i18n="cs.c4s2">渗漏通道定位深度</span></div></div>
       </article>
-      <article class="case reveal">
+      <article class="case reveal" data-cs="c5">
         <span class="where mono" data-i18n="cs.c5w">新疆干渠 / 深圳地铁 22 号线</span>
         <h4 data-i18n="cs.c5h">渗流探测与盾构前成像</h4>
         <p data-i18n="cs.c5p">613 米渠段获取地下 30 米以浅速度结构,圈定渗流富水区;深圳地铁 22 号线盾构掘进前对左右线地层精细化成像,提前识别孤石与富水带。</p>
         <div class="nums"><div><b>613 m</b><span data-i18n="cs.c5s1">渠段成像长度</span></div><div><b>30 m</b><span data-i18n="cs.c5s2">成像深度</span></div></div>
       </article>
-      <article class="case reveal">
+      <article class="case reveal" data-cs="c6">
         <span class="where mono" data-i18n="cs.c6w">南昌八一大桥 · 桥梁</span>
         <h4 data-i18n="cs.c6h">结构健康体检</h4>
         <p data-i18n="cs.c6p">利用通信光缆清晰分辨主桥墩、斜拉索振动特征与车辆通行信号;结合模态成像快速分析固有频率、阻尼与振型,长期跟踪评估桥梁健康水平。</p>
@@ -1783,6 +1772,28 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       Ec=document.getElementById('selEco'),Po=document.getElementById('selPol'),
       G=document.getElementById('selGo');
   var cur='cable';
+  /* 战线 → 对应实绩卡:选中即点亮并置顶 */
+  var CASEMAP={rail:['c2','c5'],bridge:['c6'],water:['c1','c4','c5'],pipe:['c1']};
+  function linkCases(k){
+    var hits=CASEMAP[k]||[];
+    var n=0;
+    document.querySelectorAll('.case[data-cs]').forEach(function(card){
+      var hit=hits.indexOf(card.dataset.cs)>=0;
+      card.classList.toggle('hit',hit);
+      card.style.order=hit?'-1':'0';
+      if(hit)n++;
+    });
+    var lb=document.getElementById('csMatch');
+    if(lb){
+      if(n>0){
+        var name='';
+        chips.forEach(function(c){if(c.dataset.q===k)name=c.textContent});
+        lb.textContent=window.__lang==='en'?(name+' · '+n+' matched project'+(n>1?'s':'')+' pinned first'):(name+' · '+n+' 个对应实绩已置顶点亮');
+      }else{
+        lb.textContent=window.__lang==='en'?'All projects shown · more references on request':'全部实绩平铺展示 · 更多同类项目可应询提供';
+      }
+    }
+  }
   function apply(k){
     var m=SEL[window.__lang][k];if(!m)return;
     cur=k;
@@ -1791,6 +1802,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     Tg.innerHTML='';
     m.tags.forEach(function(t){var x=document.createElement('span');x.className='tag';x.textContent=t;Tg.appendChild(x);});
     chips.forEach(function(c){c.setAttribute('aria-pressed',String(c.dataset.q===k));});
+    linkCases(k);
   }
   window.__selApply=function(){apply(cur)};
   chips.forEach(function(c){c.addEventListener('click',function(){apply(c.dataset.q)});});
@@ -1922,17 +1934,17 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'sp.mailnote':'Full datasheet PDFs, selection handbook and authorization letters:',
   'sp.mail':'request by email, delivered within one working day',
   'net.h2':'Three interrogators, one network.',
-  'net.lead':'Sensors and cable do the sensing, three interrogators do the demodulation, the platform does the judgment and alerts find the right person. Every meter of fiber hangs on the same chain.',
+  'net.lead':'Sensors and cable do the sensing, three interrogators do the demodulation, the AI platform does the judgment and closes the loop. Every meter of fiber hangs on the same chain, and every conclusion finds its person.',
   'net.n1':'Sensors · cable','net.d1':'8 GM-F families · armored cable','net.n2':'Three interrogators','net.n3':'AI platform','net.d3':'Trends · judgment · reports','net.n4':'Graded alerts','net.d4':'Thresholds · events · interlock',
   'net.cap':'One data chain: light goes in, decisions come out.',
-  'pf.h2':'Above the three interrogators<br>sits one brain.',
+  'pf.h2':'Above the three interrogators sits one brain.',
   'pf.lead':'Owners\' real problems are concrete: systems that don\'t talk, alarms that fade into background noise, reports built overnight by hand. The platform has one job: turn data into conclusions, and deliver conclusions to people.',
   'pf.i1h':'Unified multi-source ingestion','pf.i1p':'Cures data silos: interrogators, DAS / DTS hosts, environmental gear, video and third-party systems on one screen.',
   'pf.i2h':'Intelligent anomaly detection','pf.i2p':'Cures alarm fatigue: thresholds, trends, correlation rules and models cross-check and grade events so every alarm is worth standing up for.',
   'pf.i3h':'Trend forecasting & risk judgment','pf.i3p':'Cures hindsight: long-run data yields trends and risk grades, moving maintenance from fix-on-failure to maintain-on-forecast.',
   'pf.i4h':'Automated reporting & O&M support','pf.i4p':'Cures manual compilation: daily status, alarm logs and maintenance advice generated automatically, fully logged and traceable.',
   'pf.api':'Open interfaces','pf.relay':'Relay dry contacts',
-  'pf.panel':'From data to closed loop',
+  'pf.panel':'From light signal to closed loop',
   'pf.n1':'FBG host','pf.n2':'DAS host','pf.n3':'DTS host','pf.n4':'3rd-party systems',
   'pf.o1':'Graded alerts','pf.o1d':'To the duty operator','pf.o2':'Auto reports','pf.o2d':'Daily · logged','pf.o3':'Work orders','pf.o3d':'Closed · traceable',
   'pf.hub':'AI platform','pf.hubd':'Judgment hub',
