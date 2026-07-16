@@ -291,6 +291,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .cert-wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
 .cert-tile{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:20px 12px 16px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--text-2);transition:border-color .25s,color .25s}
 .cert-tile svg{width:64px;height:64px}
+.cert-badge{background:#F4F5F7;border-radius:10px;width:100%;height:96px;display:grid;place-items:center;padding:10px 14px}
+.cert-badge img{max-height:76px;max-width:100%;object-fit:contain}
 .cert-tile span{font-size:13px;text-align:center;line-height:1.4}
 .cert-tile:hover{border-color:var(--accent);color:var(--accent)}
 .co-tags{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -1219,12 +1221,13 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
     </div>
 
     <div class="wall reveal">
-      <div class="wall-head"><h3 data-i18n="co.ch">资质与标准</h3><p data-i18n="co.cp">标志为设计示意,以官方证书为准;证书编号与扫描件可应询提供。</p></div>
+      <div class="wall-head"><h3 data-i18n="co.ch">资质与标准</h3><p data-i18n="co.cp">证书编号与扫描件可应询提供。</p></div>
       <div class="cert-wall">
-        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">CNAS</text></svg><span data-i18n="co.c1">CNAS 检测</span></div>
-        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">CMA</text></svg><span data-i18n="co.c2">计量认证 CMA</span></div>
-        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">ISO</text></svg><span data-i18n="co.c3">ISO 9001</span></div>
-        <div class="cert-tile"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="36" r="24.5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".45"/><text x="36" y="41" text-anchor="middle" font-family="Geist Mono,ui-monospace,monospace" font-size="13" fill="currentColor">MA</text></svg><span data-i18n="co.c4">MA 矿用安全</span></div>
+        <div class="cert-tile"><div class="cert-badge"><img src="img/cert-cnas.webp" alt="CNAS 认可标志" loading="lazy"></div><span data-i18n="co.c1">CNAS 检测</span></div>
+        <div class="cert-tile"><div class="cert-badge"><img src="img/cert-cma.webp" alt="计量认证 CMA 标志" loading="lazy"></div><span data-i18n="co.c2">计量认证 CMA</span></div>
+        <div class="cert-tile"><div class="cert-badge"><img src="img/cert-iso9001.webp" alt="ISO 9001 认证标志" loading="lazy"></div><span data-i18n="co.c3">ISO 9001 质量管理</span></div>
+        <div class="cert-tile"><div class="cert-badge"><img src="img/cert-iso14001.webp" alt="ISO 14001 认证标志" loading="lazy"></div><span data-i18n="co.c5">ISO 14001 环境管理</span></div>
+        <div class="cert-tile"><div class="cert-badge"><img src="img/cert-ma.webp" alt="MA 矿用产品安全标志" loading="lazy"></div><span data-i18n="co.c4">MA 矿用安全</span></div>
       </div>
     </div>
     <div class="co-tags reveal">
@@ -1931,8 +1934,8 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
   'co.rh':'Research-grade origins',
   'co.rp':'DAS technology co-developed with teams at USTC and Zhejiang University, with over 90% of core components domestically sourced; the "telecom cable as seismic array" paradigm stands validated in leading journals.',
   'co.r1':'Seafloor fault survey by DAS','co.r2':'Volcanic eruption monitoring','co.r3':'Typhoon sea-state inversion','co.r4':'62 km coastal observation, Qiantang',
-  'co.ch':'Certifications & standards','co.cp':'Marks are design placeholders; official certificates prevail and numbers are available on request.',
-  'co.c1':'CNAS testing','co.c2':'CMA metrology','co.c3':'ISO 9001','co.c4':'MA mining safety',
+  'co.ch':'Certifications & standards','co.cp':'Certificate numbers and scans are available on request.',
+  'co.c1':'CNAS testing','co.c2':'CMA metrology','co.c3':'ISO 9001 quality','co.c4':'MA mining safety','co.c5':'ISO 14001 environmental',
   'co.pk':'Packaging capability','co.p1':'Tube packaging','co.p2':'Substrate packaging','co.p3':'Embedded packaging','co.p4':'All-metal / stress-free',
   'co.ik':'Industries delivered','co.i1':'Bridges & buildings','co.i2':'Tunnels & transit','co.i3':'Power & energy','co.i4':'Water & geotechnics','co.i5':'Mining','co.i6':'Wind power',
   'fin.h2':'Your next accident<br>could have been just an alert.',
