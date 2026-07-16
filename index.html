@@ -135,8 +135,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .live i{width:7px;height:7px;border-radius:99px;background:var(--ok);animation:blink 2.2s ease-in-out infinite}
 @keyframes blink{50%{opacity:.35}}
 /* 章节产品实拍:浅色台面,与 PDF 版式同源 */
-.ch-prod{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:12px;background:#0E0E11;padding:10px 16px 10px 10px;width:100%}
-.ch-prod img{height:92px;width:auto;object-fit:contain;filter:drop-shadow(0 12px 22px rgba(0,0,0,.65))}
+.ch-prod{display:flex;align-items:center;gap:18px;border-radius:12px;background:transparent;padding:10px 16px 10px 4px;width:100%}
+.ch-prod img{height:128px;width:auto;max-width:62%;object-fit:contain;filter:drop-shadow(0 16px 28px rgba(0,0,0,.6))}
 .ch-prod .m{font-family:var(--font-mono);font-size:11.5px;color:var(--text-3);line-height:1.7}
 .ch-prod .m b{display:block;font-size:13px;font-weight:500;color:var(--text-2)}
 
@@ -169,8 +169,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 @media(min-width:1120px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
 .cat{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s}
 .cat:hover{border-color:var(--line-strong)}
-.cat-plate{background:radial-gradient(85% 120% at 50% 0%,#1A1C21 0%,#0B0C0E 62%,#050506 100%);height:118px;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
-.cat-plate img{max-height:72%;width:auto;max-width:84%;object-fit:contain;filter:drop-shadow(0 12px 20px rgba(0,0,0,.6))}
+.cat-plate{background:transparent;height:152px;display:grid;place-items:center;overflow:hidden}
+.cat-plate img{max-height:88%;width:auto;max-width:92%;object-fit:contain;filter:drop-shadow(0 14px 24px rgba(0,0,0,.55))}
 .cat-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
 .cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
 .cat-head h4{font-size:16px;font-weight:600}
@@ -187,7 +187,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .wind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
 @media(min-width:900px){.wind-grid{grid-template-columns:repeat(3,1fr)}}
 .wind-item{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.035)}
-.wind-item .cat-plate{height:86px}
+.wind-item .cat-plate{height:116px}
 .wind-item .wm{padding:10px 14px 12px;font-size:12px;color:var(--text-2);line-height:1.6}
 .wind-item .wm b{display:block;font-family:var(--font-mono);font-size:11px;color:var(--accent);font-weight:500;margin-bottom:2px}
 .group-foot{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between}
@@ -994,8 +994,8 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
         <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtt02.webp" alt="GM-WTT02 表面应力传感器" loading="lazy"></div><div class="wm"><b>GM-WTT02</b><span data-i18n="wind.m2">表面应力 · ±5000 με · 0.88 pm/με</span></div></div>
         <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtt03.webp" alt="GM-WTT03 双轴振动传感器" loading="lazy"></div><div class="wm"><b>GM-WTT03</b><span data-i18n="wind.m3">双轴振动 · ±5 g / ±10 g · 0.1~70 Hz</span></div></div>
         <div class="wind-item"><div class="cat-plate"><img src="img/wind-wtf05.webp" alt="GM-WTF05 法兰间隙传感器" loading="lazy"></div><div class="wm"><b>GM-WTF05</b><span data-i18n="wind.m4">法兰间隙 · ±300 μm · 分辨力 0.05 μm</span></div></div>
-        <div class="wind-item"><div class="cat-plate"><img src="img/sensor-i.webp" alt="GM-FI01 双轴倾角传感器" loading="lazy"></div><div class="wm"><b>GM-FI01</b><span data-i18n="wind.m5">双轴倾角 · ±5° · 精度 0.01° · 分辨率 0.001°</span></div></div>
-        <div class="wind-item"><div class="cat-plate"><img src="img/sensor-l.webp" alt="GM-FL01 锚索计" loading="lazy"></div><div class="wm"><b>GM-FL01</b><span data-i18n="wind.m6">锚索计 · 0~2000 kN · 120° 偏载识别 · 24H 在线</span></div></div>
+        <div class="wind-item"><div class="cat-plate"><img src="img/wind-fi01.webp" alt="GM-FI01 双轴倾角传感器" loading="lazy"></div><div class="wm"><b>GM-FI01</b><span data-i18n="wind.m5">双轴倾角 · ±5° · 精度 0.01° · 分辨率 0.001°</span></div></div>
+        <div class="wind-item"><div class="cat-plate"><img src="img/wind-fl01.webp" alt="GM-FL01 锚索计" loading="lazy"></div><div class="wm"><b>GM-FL01</b><span data-i18n="wind.m6">锚索计 · 0~2000 kN · 120° 偏载识别 · 24H 在线</span></div></div>
       </div>
     </div>
 
