@@ -194,7 +194,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .group-foot p{font-size:14px;color:var(--text-2);max-width:46em}
 
 /* ---- 全景一张网 ---- */
-.system{padding:110px 0;border-top:1px solid var(--line);background:var(--bg)}
+.system{padding:110px 0 150px;border-top:1px solid var(--line);background:var(--bg)}
+.h2s{font-size:clamp(24px,3.2vw,38px);font-weight:600;line-height:1.2;letter-spacing:-.01em}
+.plat-merge{margin-top:120px}
+.cases-merge{margin-top:130px}
 .sys-fig{margin-top:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:26px 18px 18px}
 .sys-fig figcaption{font-size:12.5px;color:var(--text-3);padding:12px 8px 0}
 
@@ -1051,14 +1054,10 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </svg>
       <figcaption data-i18n="net.cap">同一条数据链路:光信号进,处置结论出。</figcaption>
     </figure>
-  </div>
-</section>
-
-<!-- ===================== AI 监测平台 ===================== -->
-<section class="platform" id="platform">
-  <div class="wrap plat-grid">
+    <!-- ---- 同页下半场:AI 监测平台(链路第三节点的展开) ---- -->
+    <div id="platform" class="plat-merge plat-grid">
     <div>
-      <h2 class="h2 reveal" data-i18n="pf.h2">三台主机之上,<br>还有一个大脑。</h2>
+      <h3 class="h2s reveal" data-i18n="pf.h2">三台主机之上,<br>还有一个大脑。</h3>
       <p class="lead reveal" style="margin-top:18px;max-width:30em" data-i18n="pf.lead">业主的真问题很具体:系统各说各话、报警响成背景音、报表靠人熬夜。平台的职责只有一个:让数据变成结论,让结论找到人。</p>
       <div class="plat-list reveal">
         <div class="plat-item"><h4 data-i18n="pf.i1h">多源数据统一接入</h4><p data-i18n="pf.i1p">治数据孤岛:解调仪、DAS / DTS 主机、环境设备、视频与第三方系统,装进同一块屏幕。</p></div>
@@ -1102,6 +1101,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </svg>
       <div class="plat-foot" data-i18n="pf.foot">演示流程,时间线以项目预案为准;每一步在平台中均有记录与回溯。</div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -1132,13 +1132,9 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       </div>
     </div>
     <p class="sel-more reveal" data-i18n="sel.more">矿山顶板、岩土边坡、冷链仓储等更多战线同样成立。监测数据正在从成本项变成资产项:从出了事再修,到看着趋势养。</p>
-  </div>
-</section>
-
-<!-- ===================== 案例与足迹 ===================== -->
-<section class="cases" id="cases">
-  <div class="wrap">
-    <h2 class="h2 reveal" data-i18n="cs.h2">参数是承诺,<br>案例是兑现。</h2>
+    <!-- ---- 同页下半场:每张卷子的答卷(案例兑现) ---- -->
+    <div id="cases" class="cases-merge">
+    <h3 class="h2s reveal" data-i18n="cs.h2">参数是承诺,<br>案例是兑现。</h3>
     <p class="lead reveal" style="margin-top:16px;max-width:31em" data-i18n="cs.lead">覆盖水利、轨交、公路、市政、桥梁多领域在运项目,部分案例与高校科研团队联合完成。</p>
     <div class="case-grid">
       <article class="case reveal">
@@ -1182,6 +1178,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
       <span class="k" data-i18n="cs.ck">部分服务客户与合作单位</span>
       <p data-i18n="cs.cp">中国地震局 · 安徽省地震局 · 江苏省地震局 · 中科院南海海洋研究所 · 合肥轨道 · 安徽交控 · 江西交投 · 清华大学 · 中国科学技术大学 · 浙江大学</p>
       <p class="note" data-i18n="cs.cn">名录持续更新;客户标识以书面授权后展示为准,部分案例与高校科研团队联合完成。</p>
+    </div>
     </div>
   </div>
 </section>
@@ -2158,7 +2155,7 @@ footer{padding:40px 0 52px;font-size:13.5px;color:var(--text-3)}
 /* ============ 导航 scrollspy:当前板块指示 ============ */
 (function(){
   var MAP={why:'#why',fbg:'#fbg',das:'#fbg',dts:'#fbg',siting:'#fbg',sensors:'#sensors',
-           system:'#fbg',platform:'#selector',selector:'#selector',
+           system:'#fbg',platform:'#fbg',selector:'#selector',
            cases:'#cases',delivery:'#cases',company:'#company',contact:'#company'};
   var links={};
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){links[a.getAttribute('href')]=a});
